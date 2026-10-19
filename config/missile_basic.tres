@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="MissileFlightSettings" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/missile/missile_flight_settings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+max_pitch_rate_deg = 65.0
+max_yaw_rate_deg = 65.0
+turn_response = 3.0
+high_speed_turn_multiplier = 0.75
+input_curve_exponent = 1.4
+max_pitch_angle_deg = 80.0
+max_bank_deg = 40.0
+bank_response = 5.0
+launch_speed = 30.0
+max_speed = 75.0
+thrust = 28.0
+drag = 0.3
+turn_speed_bleed = 0.25
+min_speed = 12.0
+gravity_scale = 0.35
+wobble_strength_deg = 5.0
+wobble_frequency = 0.7
+wobble_seed = 1337
+fuel_seconds = 12.0
+max_flight_seconds = 20.0
