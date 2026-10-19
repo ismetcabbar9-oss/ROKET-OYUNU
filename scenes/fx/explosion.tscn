@@ -26,9 +26,9 @@ curve = SubResource("fire_curve")
 emission_shape = 1
 emission_sphere_radius = 1.5
 direction = Vector3(0, 1, 0)
-spread = 180.0
-initial_velocity_min = 4.0
-initial_velocity_max = 13.0
+spread = 110.0
+initial_velocity_min = 5.0
+initial_velocity_max = 14.0
 angle_min = -180.0
 angle_max = 180.0
 angular_velocity_min = -40.0
@@ -43,6 +43,8 @@ color_ramp = SubResource("fire_ramp")
 
 [sub_resource type="StandardMaterial3D" id="fire_mat"]
 transparency = 1
+proximity_fade_enabled = true
+proximity_fade_distance = 3.0
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("2")
@@ -90,6 +92,8 @@ color_ramp = SubResource("smoke_ramp")
 
 [sub_resource type="StandardMaterial3D" id="smoke_mat"]
 transparency = 1
+proximity_fade_enabled = true
+proximity_fade_distance = 3.0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3")
 roughness = 1.0

@@ -77,7 +77,8 @@ func _on_missile_detonated(at: Vector3, normal: Vector3, collider: Object) -> vo
 	var definition: MissileDefinition = missiles[selected_index]
 	var explosion: Explosion = explosion_scene.instantiate() as Explosion
 	projectiles.add_child(explosion)
-	explosion.global_position = at
+	# Ateş topu zemine gömülmesin diye yüzey normali yönünde biraz yukarı alınır
+	explosion.global_position = at + normal * 1.5 * definition.explosion_scale
 	explosion.play(definition.explosion_scale, normal, collider != null)
 
 	camera.focus(at)
