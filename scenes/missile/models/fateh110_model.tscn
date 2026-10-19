@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/models/missiles/fateh110/model.gltf" id="1_x7bn6"]
+
+[node name="Fateh110Model" type="Node3D" unique_id=535511028]
+
+[node name="Model" parent="." unique_id=1683795873 instance=ExtResource("1_x7bn6")]
+transform = Transform3D(-0.011782694, 0, 0, 0, 0.011782694, 0, 0, 0, -0.011782694, 0, 0, 0)

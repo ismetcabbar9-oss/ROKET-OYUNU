@@ -1,0 +1,4 @@
+"Shaanxi SX2190 Missile Launcher" by Muhamad Mirza Arrafi (https://sketchfab.com/MirzaArrafiERV_45)
+Source: https://sketchfab.com/3d-models/shaanxi-sx2190-missile-launcher-a3cb343f3bf8486c8a0482df5b753c38
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

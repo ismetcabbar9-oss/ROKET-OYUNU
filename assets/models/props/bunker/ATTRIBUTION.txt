@@ -1,0 +1,4 @@
+"Bunker" by Uragan27 (https://sketchfab.com/Uragan27)
+Source: https://sketchfab.com/3d-models/bunker-e9f9830ac06c4193b79043d9327a7a69
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

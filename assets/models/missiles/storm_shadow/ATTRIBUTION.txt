@@ -1,0 +1,4 @@
+"Storm Shadow Ukraine" by Viktor_ (https://sketchfab.com/Viktor.Zhuravlev)
+Source: https://sketchfab.com/3d-models/storm-shadow-ukraine-d1ad04ce964f46dd9cbac6a64cd19b1b
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile; national insignia and text decals removed from the base color texture (tools/clean_storm_shadow_decals.py).

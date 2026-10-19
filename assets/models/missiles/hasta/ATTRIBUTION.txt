@@ -1,0 +1,4 @@
+"Hasta Missile" by pocolov (https://sketchfab.com/pocolov)
+Source: https://sketchfab.com/3d-models/hasta-missile-dcc71b2bf0eb4ce78d0815abe14b39ae
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

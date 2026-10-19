@@ -1,0 +1,38 @@
+[gd_resource type="ShaderMaterial" load_steps=14 format=3]
+
+[ext_resource type="Shader" path="res://shaders/terrain.gdshader" id="1"]
+[ext_resource type="Texture2D" path="res://assets/textures/terrain/sandy_gravel_02_diff.jpg" id="2"]
+[ext_resource type="Texture2D" path="res://assets/textures/terrain/sandy_gravel_02_nor_gl.jpg" id="3"]
+[ext_resource type="Texture2D" path="res://assets/textures/terrain/sandy_gravel_02_arm.jpg" id="4"]
+[ext_resource type="Texture2D" path="res://assets/textures/terrain/dry_ground_rocks_diff.jpg" id="5"]
+[ext_resource type="Texture2D" path="res://assets/textures/terrain/dry_ground_rocks_nor_gl.jpg" id="6"]
+[ext_resource type="Texture2D" path="res://assets/textures/terrain/dry_ground_rocks_arm.jpg" id="7"]
+[ext_resource type="Texture2D" path="res://assets/textures/terrain/cliff_side_diff.jpg" id="8"]
+[ext_resource type="Texture2D" path="res://assets/textures/terrain/cliff_side_nor_gl.jpg" id="9"]
+[ext_resource type="Texture2D" path="res://assets/textures/terrain/cliff_side_arm.jpg" id="10"]
+
+[sub_resource type="FastNoiseLite" id="noise"]
+seed = 7
+frequency = 0.004
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="macro"]
+width = 512
+height = 512
+seamless = true
+generate_mipmaps = true
+noise = SubResource("noise")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/sand_albedo = ExtResource("2")
+shader_parameter/sand_normal = ExtResource("3")
+shader_parameter/sand_arm = ExtResource("4")
+shader_parameter/ground_albedo = ExtResource("5")
+shader_parameter/ground_normal = ExtResource("6")
+shader_parameter/ground_arm = ExtResource("7")
+shader_parameter/rock_albedo = ExtResource("8")
+shader_parameter/rock_normal = ExtResource("9")
+shader_parameter/rock_arm = ExtResource("10")
+shader_parameter/macro_noise = SubResource("macro")

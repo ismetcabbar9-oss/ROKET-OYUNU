@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TerrainShape" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/terrain_shape.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+launch_site = Vector3(86, 14, 780)
+target_area = Vector3(-88, 6, -640)

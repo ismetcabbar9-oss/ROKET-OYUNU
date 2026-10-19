@@ -1,0 +1,316 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/ui/touch_joystick.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/ui/touch_button.gd" id="3"]
+
+[sub_resource type="LabelSettings" id="title"]
+font_size = 34
+outline_size = 8
+outline_color = Color(0, 0, 0, 0.55)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.35)
+
+[sub_resource type="LabelSettings" id="body"]
+font_size = 19
+font_color = Color(1, 1, 1, 0.9)
+outline_size = 6
+outline_color = Color(0, 0, 0, 0.55)
+
+[sub_resource type="LabelSettings" id="status"]
+font_size = 30
+font_color = Color(1, 0.86, 0.6, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="LabelSettings" id="value"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="caption"]
+font_size = 14
+font_color = Color(1, 1, 1, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="panel"]
+bg_color = Color(0.05, 0.07, 0.09, 0.62)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.18)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 22.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+anti_aliasing = true
+
+[sub_resource type="StyleBoxFlat" id="bar_bg"]
+bg_color = Color(1, 1, 1, 0.12)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="bar_fill"]
+bg_color = Color(1, 0.6, 0.2, 0.95)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("joystick", "fire_button", "detonate_button", "control_button", "calibrate_button", "missile_list", "missile_name", "missile_description", "status_label", "speed_label", "altitude_label", "time_label", "target_label", "fuel_bar", "telemetry_panel")]
+script = ExtResource("1")
+joystick = NodePath("Root/Joystick")
+fire_button = NodePath("Root/FireButton")
+detonate_button = NodePath("Root/DetonateButton")
+control_button = NodePath("Root/ControlButton")
+calibrate_button = NodePath("Root/CalibrateButton")
+missile_list = NodePath("Root/MissileList")
+missile_name = NodePath("Root/Info/MissileName")
+missile_description = NodePath("Root/Info/MissileDescription")
+status_label = NodePath("Root/Status")
+speed_label = NodePath("Root/Telemetry/Row/Speed/Value")
+altitude_label = NodePath("Root/Telemetry/Row/Altitude/Value")
+time_label = NodePath("Root/Telemetry/Row/Time/Value")
+target_label = NodePath("Root/Telemetry/Row/Target/Value")
+fuel_bar = NodePath("Root/Telemetry/Row/Fuel/Bar")
+telemetry_panel = NodePath("Root/Telemetry")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Joystick" type="Control" parent="Root"]
+layout_mode = 1
+anchor_top = 0.25
+anchor_right = 0.45
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("2")
+
+[node name="Info" type="VBoxContainer" parent="Root"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 20.0
+offset_right = 520.0
+offset_bottom = 160.0
+mouse_filter = 2
+
+[node name="MissileName" type="Label" parent="Root/Info"]
+layout_mode = 2
+text = "Füze"
+label_settings = SubResource("title")
+
+[node name="MissileDescription" type="Label" parent="Root/Info"]
+layout_mode = 2
+text = "Açıklama"
+label_settings = SubResource("body")
+autowrap_mode = 3
+
+[node name="Status" type="Label" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 100.0
+offset_right = 360.0
+offset_bottom = 150.0
+grow_horizontal = 2
+text = "Durum"
+label_settings = SubResource("status")
+horizontal_alignment = 1
+
+[node name="ControlButton" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -234.0
+offset_top = 20.0
+offset_right = -24.0
+offset_bottom = 92.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource("3")
+text = "Kontrol:
+JOYSTICK"
+font_size = 20
+
+[node name="CalibrateButton" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -234.0
+offset_top = 102.0
+offset_right = -24.0
+offset_bottom = 156.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource("3")
+text = "Kalibre et"
+font_size = 20
+
+[node name="MissileList" type="VBoxContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -234.0
+offset_top = 176.0
+offset_right = -24.0
+offset_bottom = 400.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="FireButton" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -236.0
+offset_top = -236.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("3")
+text = "FIRLAT"
+font_size = 34
+round_shape = true
+fill_color = Color(0.75, 0.2, 0.08, 0.8)
+
+[node name="DetonateButton" type="Control" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -206.0
+offset_top = -206.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("3")
+text = "PATLAT"
+font_size = 28
+round_shape = true
+
+[node name="Telemetry" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -100.0
+offset_right = 330.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("panel")
+
+[node name="Row" type="HBoxContainer" parent="Root/Telemetry"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 26
+alignment = 1
+
+[node name="Speed" type="VBoxContainer" parent="Root/Telemetry/Row"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Caption" type="Label" parent="Root/Telemetry/Row/Speed"]
+layout_mode = 2
+text = "HIZ"
+label_settings = SubResource("caption")
+
+[node name="Value" type="Label" parent="Root/Telemetry/Row/Speed"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "0 km/sa"
+label_settings = SubResource("value")
+
+[node name="Altitude" type="VBoxContainer" parent="Root/Telemetry/Row"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Caption" type="Label" parent="Root/Telemetry/Row/Altitude"]
+layout_mode = 2
+text = "İRTİFA"
+label_settings = SubResource("caption")
+
+[node name="Value" type="Label" parent="Root/Telemetry/Row/Altitude"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "0 m"
+label_settings = SubResource("value")
+
+[node name="Fuel" type="VBoxContainer" parent="Root/Telemetry/Row"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Caption" type="Label" parent="Root/Telemetry/Row/Fuel"]
+layout_mode = 2
+text = "YAKIT"
+label_settings = SubResource("caption")
+
+[node name="Bar" type="ProgressBar" parent="Root/Telemetry/Row/Fuel"]
+custom_minimum_size = Vector2(130, 16)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("bar_bg")
+theme_override_styles/fill = SubResource("bar_fill")
+value = 100.0
+show_percentage = false
+
+[node name="Time" type="VBoxContainer" parent="Root/Telemetry/Row"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Caption" type="Label" parent="Root/Telemetry/Row/Time"]
+layout_mode = 2
+text = "SÜRE"
+label_settings = SubResource("caption")
+
+[node name="Value" type="Label" parent="Root/Telemetry/Row/Time"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "0.0 s"
+label_settings = SubResource("value")
+
+[node name="Target" type="VBoxContainer" parent="Root/Telemetry/Row"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Caption" type="Label" parent="Root/Telemetry/Row/Target"]
+layout_mode = 2
+text = "HEDEF"
+label_settings = SubResource("caption")
+
+[node name="Value" type="Label" parent="Root/Telemetry/Row/Target"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "0 m"
+label_settings = SubResource("value")

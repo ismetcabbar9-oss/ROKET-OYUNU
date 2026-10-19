@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/models/props/bunker/model.gltf" id="1_cr2w0"]
+
+[node name="Bunker" type="Node3D" unique_id=839106672]
+
+[node name="Model" parent="." unique_id=384439446 instance=ExtResource("1_cr2w0")]
+transform = Transform3D(0, 0, 0.0076771746, 0, 0.0076771746, 0, -0.0076771746, 0, 0, -1.7446225, -0.040078163, 0.04425762)

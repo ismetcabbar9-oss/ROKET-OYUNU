@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="MissileDefinition" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/missile/missile_definition.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/missile/missile_flight_settings.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/missile/models/storm_shadow_model.tscn" id="3"]
+
+[sub_resource type="Resource" id="flight"]
+script = ExtResource("2")
+max_pitch_rate_deg = 60.0
+max_yaw_rate_deg = 60.0
+turn_response = 3.0
+high_speed_turn_multiplier = 0.75
+input_curve_exponent = 1.4
+max_pitch_angle_deg = 75.0
+max_bank_deg = 40.0
+bank_response = 4.5
+launch_speed = 32.0
+max_speed = 110.0
+thrust = 36.0
+drag = 0.28
+turn_speed_bleed = 0.22
+min_speed = 15.0
+gravity_scale = 0.3
+wobble_strength_deg = 3.5
+wobble_frequency = 0.6
+wobble_seed = 202
+fuel_seconds = 24.0
+max_flight_seconds = 32.0
+
+[resource]
+script = ExtResource("1")
+id = &"storm_shadow"
+display_name = "Storm Shadow"
+description = "Dengeli seyir füzesi. Uzun yakıt, yumuşak ve kararlı uçuş."
+model_scene = ExtResource("3")
+flight = SubResource("flight")
+length = 5.1
+body_radius = 0.35
+exhaust_scale = 1.0
+camera_distance = 8.0
+camera_height = 1.7
+blast_radius = 14.0
+blast_damage = 600.0
+explosion_scale = 1.0

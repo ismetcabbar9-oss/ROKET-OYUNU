@@ -194,7 +194,11 @@ func test_expires_after_max_flight_time() -> void:
 	assert_true(model.is_expired(state))
 
 
-func test_shipped_config_loads() -> void:
-	var cfg: MissileFlightSettings = load("res://config/missile_basic.tres") as MissileFlightSettings
-	assert_not_null(cfg)
-	assert_gt(cfg.max_speed, cfg.launch_speed)
+func test_shipped_missile_definitions_are_valid() -> void:
+	for path: String in ["res://config/missiles/hasta.tres", "res://config/missiles/storm_shadow.tres", "res://config/missiles/fateh110.tres"]:
+		var def: MissileDefinition = load(path) as MissileDefinition
+		assert_not_null(def, path)
+		assert_not_null(def.model_scene, path)
+		assert_not_null(def.flight, path)
+		assert_gt(def.flight.max_speed, def.flight.launch_speed, path)
+		assert_gt(def.flight.max_flight_seconds, def.flight.fuel_seconds, path)

@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/sky/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1"]
+
+[sub_resource type="PanoramaSkyMaterial" id="sky_mat"]
+panorama = ExtResource("1")
+
+[sub_resource type="Sky" id="sky"]
+sky_material = SubResource("sky_mat")
+process_mode = 1
+radiance_size = 2
+
+[sub_resource type="Environment" id="env"]
+background_mode = 2
+sky = SubResource("sky")
+sky_rotation = Vector3(0, 3.14159, 0)
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.85
+reflected_light_source = 2
+tonemap_mode = 4
+tonemap_exposure = 1.15
+glow_enabled = true
+glow_intensity = 0.6
+glow_bloom = 0.04
+glow_hdr_threshold = 1.2
+fog_enabled = true
+fog_light_color = Color(0.74, 0.79, 0.86, 1)
+fog_sun_scatter = 0.15
+fog_density = 0.00032
+fog_aerial_perspective = 0.55
+fog_sky_affect = 0.25
+adjustment_enabled = true
+adjustment_saturation = 1.05
+
+[node name="DesertEnvironment" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("env")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.82814, 0.41655, -0.37506, 0, 0.66913, 0.74314, 0.56052, -0.61543, 0.55413, 0, 300, 0)
+light_color = Color(1, 0.96, 0.9, 1)
+light_energy = 1.25
+shadow_enabled = true
+shadow_bias = 0.04
+shadow_normal_bias = 1.5
+directional_shadow_mode = 1
+directional_shadow_max_distance = 320.0
+directional_shadow_fade_start = 0.85
