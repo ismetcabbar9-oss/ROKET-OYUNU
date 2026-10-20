@@ -67,7 +67,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("joystick", "fire_button", "detonate_button", "control_button", "calibrate_button", "missile_list", "missile_name", "missile_description", "status_label", "speed_label", "altitude_label", "time_label", "target_label", "fuel_bar", "telemetry_panel", "warning_label")]
+[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("joystick", "fire_button", "detonate_button", "control_button", "calibrate_button", "missile_list", "launcher_list", "missile_name", "missile_description", "status_label", "speed_label", "altitude_label", "time_label", "target_label", "fuel_bar", "telemetry_panel", "warning_label")]
 script = ExtResource("1")
 joystick = NodePath("Root/Joystick")
 fire_button = NodePath("Root/FireButton")
@@ -75,6 +75,7 @@ detonate_button = NodePath("Root/DetonateButton")
 control_button = NodePath("Root/ControlButton")
 calibrate_button = NodePath("Root/CalibrateButton")
 missile_list = NodePath("Root/MissileList")
+launcher_list = NodePath("Root/LauncherList")
 missile_name = NodePath("Root/Info/MissileName")
 missile_description = NodePath("Root/Info/MissileDescription")
 status_label = NodePath("Root/Status")
@@ -129,9 +130,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -360.0
-offset_top = 100.0
+offset_top = 205.0
 offset_right = 360.0
-offset_bottom = 150.0
+offset_bottom = 255.0
 grow_horizontal = 2
 text = "Durum"
 label_settings = SubResource("status")
@@ -196,6 +197,15 @@ offset_top = 176.0
 offset_right = -24.0
 offset_bottom = 400.0
 grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="LauncherList" type="VBoxContainer" parent="Root"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 196.0
+offset_right = 238.0
+offset_bottom = 400.0
 mouse_filter = 2
 theme_override_constants/separation = 10
 

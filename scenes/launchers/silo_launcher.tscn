@@ -1,0 +1,103 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/launcher/launcher.gd" id="1_q7ye4"]
+[ext_resource type="Resource" path="res://config/launchers/silo.tres" id="2_ucyod"]
+[ext_resource type="PackedScene" path="res://scenes/fx/launch_blast.tscn" id="3_jat2h"]
+[ext_resource type="Material" path="res://materials/launchers/launcher_concrete.tres" id="4_bi4ui"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/silo_body.res" id="5_js3ve"]
+[ext_resource type="Material" path="res://materials/launchers/launcher_steel.tres" id="6_ug0l7"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/silo_hatch_l.res" id="7_nfkkb"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/silo_hatch_r.res" id="8_dge4d"]
+[ext_resource type="Material" path="res://materials/launchers/launcher_beacon.tres" id="9_vla6h"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/launch_alarm.ogg" id="10_slexx"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/hatch_open.ogg" id="11_m74ar"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/lock_clunk.ogg" id="12_2pcl2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_otqja"]
+material = ExtResource("9_vla6h")
+radius = 0.16
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_rvsud"]
+material = ExtResource("9_vla6h")
+radius = 0.16
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[node name="SiloLauncher" type="Node3D" unique_id=1923253513 node_paths=PackedStringArray("cradle", "blast_point", "beacons", "alarm_sound", "mechanism_sound", "lock_sound", "hatches", "clamps", "rams")]
+script = ExtResource("1_q7ye4")
+definition = ExtResource("2_ucyod")
+cradle = NodePath("Cradle")
+cradle_at_nose = true
+blast_point = NodePath("BlastPoint")
+blast_scene = ExtResource("3_jat2h")
+beacons = [NodePath("BeaconLeft"), NodePath("BeaconRight")]
+alarm_sound = NodePath("Alarm")
+mechanism_sound = NodePath("Mechanism")
+lock_sound = NodePath("Lock")
+release_hold_seconds = 2.0
+reset_seconds = 3.0
+beacon_blink_hz = 2.5
+hatches = [NodePath("HatchLeft"), NodePath("HatchRight")]
+hatch_open_deg = 115.0
+jack_travel = 0.35
+clamps = []
+clamp_open_deg = 65.0
+rams = []
+
+[node name="Silo" type="MeshInstance3D" parent="." unique_id=22570475]
+material_override = ExtResource("4_bi4ui")
+mesh = ExtResource("5_js3ve")
+
+[node name="HatchLeft" type="Node3D" parent="." unique_id=798132217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62, 3.82, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="HatchLeft" unique_id=1690116263]
+material_override = ExtResource("6_ug0l7")
+mesh = ExtResource("7_nfkkb")
+
+[node name="HatchRight" type="Node3D" parent="." unique_id=308080963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62, 3.82, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="HatchRight" unique_id=627330498]
+material_override = ExtResource("6_ug0l7")
+mesh = ExtResource("8_dge4d")
+
+[node name="Cradle" type="Marker3D" parent="." unique_id=1246735239]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.35, 0)
+
+[node name="BeaconLeft" type="MeshInstance3D" parent="." unique_id=494962966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05, 4, 1.2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_otqja")
+
+[node name="BeaconRight" type="MeshInstance3D" parent="." unique_id=484860854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05, 4, -1.2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_rvsud")
+
+[node name="BlastPoint" type="Marker3D" parent="." unique_id=649153648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7, 0)
+
+[node name="Alarm" type="AudioStreamPlayer3D" parent="." unique_id=1670204380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("10_slexx")
+volume_db = -6.0
+unit_size = 14.0
+max_distance = 600.0
+
+[node name="Mechanism" type="AudioStreamPlayer3D" parent="." unique_id=91484367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("11_m74ar")
+volume_db = -4.0
+unit_size = 14.0
+max_distance = 600.0
+
+[node name="Lock" type="AudioStreamPlayer3D" parent="." unique_id=2090539899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("12_2pcl2")
+unit_size = 14.0
+max_distance = 600.0

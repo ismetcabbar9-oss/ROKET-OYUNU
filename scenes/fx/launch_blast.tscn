@@ -1,0 +1,232 @@
+[gd_scene load_steps=40 format=3]
+
+[ext_resource type="Script" path="res://scripts/fx/launch_blast.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/textures/fx/smoke_puff.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/textures/fx/fire_puff.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/textures/fx/scorch.png" id="4"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ignition_roar.ogg" id="5"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/cold_launch_pof.ogg" id="6"]
+
+[sub_resource type="Gradient" id="billow_grad"]
+offsets = PackedFloat32Array(0, 0.06, 0.25, 0.7, 1)
+colors = PackedColorArray(2.2, 1.5, 0.9, 0.9, 1.05, 0.98, 0.9, 0.9, 0.86, 0.82, 0.76, 0.8, 0.8, 0.77, 0.72, 0.45, 0.78, 0.75, 0.7, 0)
+
+[sub_resource type="GradientTexture1D" id="billow_ramp"]
+gradient = SubResource("billow_grad")
+use_hdr = true
+
+[sub_resource type="Curve" id="grow_curve"]
+_data = [Vector2(0, 0.35), 0.0, 2.2, 0, 0, Vector2(0.4, 0.85), 0.5, 0.5, 0, 0, Vector2(1, 1), 0.1, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="grow_tex"]
+curve = SubResource("grow_curve")
+
+[sub_resource type="ParticleProcessMaterial" id="billow_process"]
+emission_shape = 1
+emission_sphere_radius = 1.5
+direction = Vector3(0, 0.15, 1)
+spread = 80.0
+flatness = 0.6
+initial_velocity_min = 10.0
+initial_velocity_max = 22.0
+angle_min = -180.0
+angle_max = 180.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+gravity = Vector3(0, 0.7, 0)
+damping_min = 4.0
+damping_max = 6.0
+scale_min = 5.0
+scale_max = 9.0
+scale_curve = SubResource("grow_tex")
+color_ramp = SubResource("billow_ramp")
+
+[sub_resource type="StandardMaterial3D" id="smoke_mat"]
+transparency = 1
+proximity_fade_enabled = true
+proximity_fade_distance = 2.5
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="smoke_quad"]
+material = SubResource("smoke_mat")
+
+[sub_resource type="Gradient" id="dust_grad"]
+offsets = PackedFloat32Array(0, 0.15, 1)
+colors = PackedColorArray(0.66, 0.54, 0.4, 0, 0.64, 0.52, 0.39, 0.75, 0.7, 0.6, 0.48, 0)
+
+[sub_resource type="GradientTexture1D" id="dust_ramp"]
+gradient = SubResource("dust_grad")
+
+[sub_resource type="ParticleProcessMaterial" id="dust_process"]
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector3(0, 0.05, 1)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 14.0
+initial_velocity_max = 26.0
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0.3, 0)
+damping_min = 7.0
+damping_max = 9.0
+scale_min = 3.0
+scale_max = 6.0
+scale_curve = SubResource("grow_tex")
+color_ramp = SubResource("dust_ramp")
+
+[sub_resource type="Gradient" id="gas_grad"]
+offsets = PackedFloat32Array(0, 0.1, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.97, 0.97, 0.98, 0.9, 0.92, 0.92, 0.94, 0.5, 0.9, 0.9, 0.92, 0)
+
+[sub_resource type="GradientTexture1D" id="gas_ramp"]
+gradient = SubResource("gas_grad")
+
+[sub_resource type="ParticleProcessMaterial" id="gas_process"]
+emission_shape = 1
+emission_sphere_radius = 1.2
+direction = Vector3(0, 1, 0)
+spread = 22.0
+initial_velocity_min = 8.0
+initial_velocity_max = 20.0
+angle_min = -180.0
+angle_max = 180.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+gravity = Vector3(0, 0.4, 0)
+damping_min = 2.5
+damping_max = 4.0
+scale_min = 3.0
+scale_max = 6.0
+scale_curve = SubResource("grow_tex")
+color_ramp = SubResource("gas_ramp")
+
+[sub_resource type="Gradient" id="puff_grad"]
+offsets = PackedFloat32Array(0, 0.12, 0.35, 1)
+colors = PackedColorArray(4, 2.8, 1.5, 1, 1.4, 0.8, 0.4, 0.7, 0.85, 0.83, 0.8, 0.55, 0.82, 0.8, 0.78, 0)
+
+[sub_resource type="GradientTexture1D" id="puff_ramp"]
+gradient = SubResource("puff_grad")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="puff_process"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 1)
+spread = 180.0
+initial_velocity_min = 3.0
+initial_velocity_max = 7.0
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0.5, 0)
+damping_min = 5.0
+damping_max = 7.0
+scale_min = 1.6
+scale_max = 2.8
+scale_curve = SubResource("grow_tex")
+color_ramp = SubResource("puff_ramp")
+
+[sub_resource type="StandardMaterial3D" id="fire_mat"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="fire_quad"]
+material = SubResource("fire_mat")
+
+[node name="LaunchBlast" type="Node3D" node_paths=PackedStringArray("billow", "dust", "gas", "puff", "flash", "scorch", "roar_sound", "pof_sound")]
+script = ExtResource("1")
+billow = NodePath("Billow")
+dust = NodePath("Dust")
+gas = NodePath("Gas")
+puff = NodePath("Puff")
+flash = NodePath("Flash")
+scorch = NodePath("Scorch")
+roar_sound = NodePath("Roar")
+pof_sound = NodePath("Pof")
+
+[node name="Billow" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+emitting = false
+amount = 70
+lifetime = 6.5
+one_shot = true
+explosiveness = 0.72
+local_coords = false
+visibility_aabb = AABB(-80, -10, -80, 160, 60, 160)
+process_material = SubResource("billow_process")
+draw_pass_1 = SubResource("smoke_quad")
+
+[node name="Dust" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+emitting = false
+amount = 36
+lifetime = 3.5
+one_shot = true
+explosiveness = 0.9
+local_coords = false
+visibility_aabb = AABB(-80, -10, -80, 160, 40, 160)
+process_material = SubResource("dust_process")
+draw_pass_1 = SubResource("smoke_quad")
+
+[node name="Gas" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+emitting = false
+amount = 50
+lifetime = 4.5
+one_shot = true
+explosiveness = 0.85
+local_coords = false
+visibility_aabb = AABB(-40, -10, -40, 80, 90, 80)
+process_material = SubResource("gas_process")
+draw_pass_1 = SubResource("smoke_quad")
+
+[node name="Puff" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+emitting = false
+amount = 24
+lifetime = 2.5
+one_shot = true
+explosiveness = 0.95
+local_coords = false
+visibility_aabb = AABB(-30, -30, -30, 60, 60, 60)
+process_material = SubResource("puff_process")
+draw_pass_1 = SubResource("fire_quad")
+
+[node name="Flash" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_color = Color(1, 0.68, 0.35, 1)
+light_energy = 0.0
+omni_range = 30.0
+
+[node name="Scorch" type="Decal" parent="."]
+size = Vector3(9, 4, 13)
+texture_albedo = ExtResource("4")
+albedo_mix = 0.85
+upper_fade = 0.2
+lower_fade = 0.2
+cull_mask = 1
+
+[node name="Roar" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5")
+unit_size = 40.0
+max_distance = 3000.0
+
+[node name="Pof" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6")
+unit_size = 30.0
+max_distance = 2000.0

@@ -53,12 +53,25 @@ Oyunda gerçek ürün/silah isimleri ve ulusal işaretler kullanılmaz: füzeler
 | Sci-Fi Sounds 1.0 — `thrusterFire_000` | `assets/audio/sfx/rocket_motor_loop.ogg` | [kenney.nl](https://kenney.nl/assets/sci-fi-sounds) | CC0 | Kusursuz döngü için çapraz geçiş (`tools/make_sfx.py`) |
 | Sci-Fi Sounds 1.0 — `lowFrequency_explosion_000` + `explosionCrunch_004` | `assets/audio/sfx/explosion_large.ogg` | [kenney.nl](https://kenney.nl/assets/sci-fi-sounds) | CC0 | İki ses katmanlandı (`tools/make_sfx.py`) |
 
+### Fırlatma rampası sesleri (Kenney Sci-Fi Sounds 1.0 + Impact Sounds 1.0, CC0)
+Hepsi `tools/make_launch_sfx.py` ile üretildi.
+
+| Ses | Dosya yolu | Kaynak parçalar | Lisans |
+|---|---|---|---|
+| Uyarı kornası | `assets/audio/sfx/launch_alarm.ogg` | Prosedürel (iki tonlu kare dalga) | Projeye özgü |
+| Hidrolik pompa döngüsü | `assets/audio/sfx/hydraulic_loop.ogg` | `spaceEngineLow_000` + prosedürel vınlama/tıslama | CC0 ([kenney.nl](https://kenney.nl/assets/sci-fi-sounds)) |
+| Kilit pimi | `assets/audio/sfx/lock_clunk.ogg` | `impactMetal_heavy_000` + `impactPlate_heavy_001` | CC0 ([kenney.nl](https://kenney.nl/assets/impact-sounds)) |
+| Silo kapağı | `assets/audio/sfx/hatch_open.ogg` | `doorOpen_001` (yavaşlatıldı) + `impactPlate_heavy_001` + prosedürel sürtünme | CC0 |
+| Soğuk fırlatma "pof" | `assets/audio/sfx/cold_launch_pof.ogg` | `lowFrequency_explosion_001` + prosedürel gaz tıslaması | CC0 |
+| Ateşleme gürlemesi | `assets/audio/sfx/ignition_roar.ogg` | `thrusterFire_002` + `explosionCrunch_000` + `lowFrequency_explosion_000` | CC0 |
+
 ## Projeye özgü (üretilmiş) varlıklar
 
 | Varlık | Dosya yolu | Üreten |
 |---|---|---|
 | Arazi ağları, çarpışma haritası, yol/plaka ağları, ufuk silueti | `assets/terrain/valley_01/` | `tools/godot/generate_terrain.gd` |
 | Efekt dokuları (duman, ateş, kıvılcım, yanık izi, kuru çalı) | `assets/textures/fx/` | `tools/generate_fx_textures.py` |
+| Fırlatma rampaları (TEL erektörü, ray, silo, pistonlar, kapaklar) | `scenes/launchers/`, `assets/models/launchers/` | `tools/godot/build_launchers.gd` (TEL gövdesi yukarıdaki fırlatıcı kamyon modelidir) |
 | Üs yerleşimi (yapı konumları, MultiMesh serpiştirme) | `scenes/levels/valley_01/`, `assets/terrain/valley_01/layout/` | `tools/godot/build_base_layout.gd` |
 
 ## Geliştirme araçları (oyuna dahil edilmez)

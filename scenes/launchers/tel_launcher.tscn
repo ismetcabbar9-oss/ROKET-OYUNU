@@ -1,0 +1,141 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/launcher/launcher.gd" id="1_fss12"]
+[ext_resource type="Resource" path="res://config/launchers/tel.tres" id="2_b22q3"]
+[ext_resource type="PackedScene" path="res://scenes/fx/launch_blast.tscn" id="3_24jnd"]
+[ext_resource type="ArrayMesh" path="res://assets/models/props/launcher_truck/launcher_truck_mesh.res" id="4_sm6cb"]
+[ext_resource type="Material" path="res://materials/launchers/launcher_steel.tres" id="5_6bq8k"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/tel_jacks.res" id="6_ynjfh"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/tel_erector.res" id="7_ux0jt"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/tel_clamp_l.res" id="8_nhi4u"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/tel_clamp_r.res" id="9_16xfq"]
+[ext_resource type="Script" path="res://scripts/launcher/hydraulic_ram.gd" id="10_fowk3"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/tel_ram_barrel.res" id="11_3nm80"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/tel_ram_rod.res" id="12_pe8hy"]
+[ext_resource type="Material" path="res://materials/launchers/launcher_beacon.tres" id="13_74pqr"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/launch_alarm.ogg" id="14_01x63"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/hydraulic_loop.ogg" id="15_albch"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/lock_clunk.ogg" id="16_gtgki"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_hk22k"]
+material = ExtResource("13_74pqr")
+radius = 0.16
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[node name="TelLauncher" type="Node3D" unique_id=1617604087 node_paths=PackedStringArray("cradle", "blast_point", "beacons", "alarm_sound", "mechanism_sound", "lock_sound", "raise_pivot", "hatches", "jacks", "clamps", "rams")]
+script = ExtResource("1_fss12")
+definition = ExtResource("2_b22q3")
+cradle = NodePath("Erector/Cradle")
+cradle_at_nose = false
+blast_point = NodePath("BlastPoint")
+blast_scene = ExtResource("3_24jnd")
+beacons = [NodePath("Beacon")]
+alarm_sound = NodePath("Alarm")
+mechanism_sound = NodePath("Mechanism")
+lock_sound = NodePath("Lock")
+release_hold_seconds = 2.0
+reset_seconds = 3.0
+beacon_blink_hz = 2.5
+raise_pivot = NodePath("Erector")
+hatches = []
+hatch_open_deg = 115.0
+jacks = NodePath("Jacks")
+jack_travel = 0.35
+clamps = [NodePath("Erector/ClampLeft"), NodePath("Erector/ClampRight")]
+clamp_open_deg = 65.0
+rams = [NodePath("Ram")]
+
+[node name="Truck" type="MeshInstance3D" parent="." unique_id=1008769763]
+mesh = ExtResource("4_sm6cb")
+
+[node name="Jacks" type="Node3D" parent="." unique_id=1860534730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+
+[node name="JackMesh" type="MeshInstance3D" parent="Jacks" unique_id=2023734282]
+material_override = ExtResource("5_6bq8k")
+cast_shadow = 0
+visibility_range_end = 90.0
+mesh = ExtResource("6_ynjfh")
+
+[node name="Erector" type="Node3D" parent="." unique_id=1078686196]
+transform = Transform3D(1, 0, 0, 0, 0.92718387, -0.3746066, 0, 0.3746066, 0.92718387, 0, 2.3, 4.9)
+
+[node name="ErectorMesh" type="MeshInstance3D" parent="Erector" unique_id=1791778256]
+material_override = ExtResource("5_6bq8k")
+mesh = ExtResource("7_ux0jt")
+
+[node name="ClampLeft" type="Node3D" parent="Erector" unique_id=907165169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62, 0.16, -4.9)
+
+[node name="Mesh" type="MeshInstance3D" parent="Erector/ClampLeft" unique_id=868322128]
+material_override = ExtResource("5_6bq8k")
+cast_shadow = 0
+visibility_range_end = 90.0
+mesh = ExtResource("8_nhi4u")
+
+[node name="ClampRight" type="Node3D" parent="Erector" unique_id=1618941316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62, 0.16, -4.9)
+
+[node name="Mesh" type="MeshInstance3D" parent="Erector/ClampRight" unique_id=1790385764]
+material_override = ExtResource("5_6bq8k")
+cast_shadow = 0
+visibility_range_end = 90.0
+mesh = ExtResource("9_16xfq")
+
+[node name="Cradle" type="Marker3D" parent="Erector" unique_id=738219946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -4.9)
+
+[node name="RamAttach" type="Marker3D" parent="Erector" unique_id=386779626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, -3.6)
+
+[node name="RamAnchor" type="Marker3D" parent="." unique_id=1139806684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 1.3)
+
+[node name="Ram" type="Node3D" parent="." unique_id=1551644900 node_paths=PackedStringArray("anchor", "attach", "barrel", "rod")]
+script = ExtResource("10_fowk3")
+anchor = NodePath("../RamAnchor")
+attach = NodePath("../Erector/RamAttach")
+barrel = NodePath("Barrel")
+rod = NodePath("Rod")
+
+[node name="Barrel" type="MeshInstance3D" parent="Ram" unique_id=1645183055]
+material_override = ExtResource("5_6bq8k")
+cast_shadow = 0
+visibility_range_end = 90.0
+mesh = ExtResource("11_3nm80")
+
+[node name="Rod" type="MeshInstance3D" parent="Ram" unique_id=1380894400]
+material_override = ExtResource("5_6bq8k")
+cast_shadow = 0
+visibility_range_end = 90.0
+mesh = ExtResource("12_pe8hy")
+
+[node name="Beacon" type="MeshInstance3D" parent="." unique_id=366161858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.45, -3.3)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_hk22k")
+
+[node name="BlastPoint" type="Marker3D" parent="." unique_id=1095656007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 7)
+
+[node name="Alarm" type="AudioStreamPlayer3D" parent="." unique_id=126230458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("14_01x63")
+volume_db = -6.0
+unit_size = 14.0
+max_distance = 600.0
+
+[node name="Mechanism" type="AudioStreamPlayer3D" parent="." unique_id=1401986076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("15_albch")
+volume_db = -4.0
+unit_size = 14.0
+max_distance = 600.0
+
+[node name="Lock" type="AudioStreamPlayer3D" parent="." unique_id=522284700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("16_gtgki")
+unit_size = 14.0
+max_distance = 600.0

@@ -15,7 +15,14 @@ boyunca dokunmatik joystick ya da cihazı eğerek (jiroskop) kendisi yönlendiri
 
 ## Test alanı: nasıl oynanır
 - Sağdaki listeden füzeyi seçin: **Şahin** (çevik), **Kartal** (dengeli), **Yıldırım** (ağır ve hızlı).
-- **FIRLAT** ile fırlatın. Sol yarıda parmağınızı nereye koyarsanız joystick orada açılır.
+- Soldaki listeden rampayı seçin:
+  - **Mobil TEL**: destek ayakları iner, hidrolik erektör füzeyi 50°'ye kaldırır (Kartal, Yıldırım).
+  - **Eğik Ray**: beton kaideli ray 24°'ye kalkar, alçak ve hızlı çıkış (Şahin, Kartal).
+  - **Dikey Silo**: kapak açılır, füze gazla tüpten atılır ("pof") ve havada ateşlenir (Şahin, Yıldırım).
+  Seçili rampadan atılamayan füzeler soluk görünür; seçerseniz uyumlu rampaya geçilir.
+- **FIRLAT** fırlatma dizisini başlatır: hazırlık → kaldırma → kilit → ateşleme, her aşama kendi
+  sesi ve kamera çekimiyle. Dizi sırasında buton **ATLA** olur ve beklemeyi hızlandırır.
+- Füze rampadan ayrılınca kamera arkasına geçer. Sol yarıda parmağınızı nereye koyarsanız joystick orada açılır.
 - Hedef bölgesi kuzeyde, vadinin sonunda (sığınaklar). Yolda vadiyi kesen bir sırt var:
   ya üstünden aşın (hız kaybedersiniz) ya da sağ taraftaki dar **kanyondan** geçin.
 - Uçuş sırasında **PATLAT** füzeyi havada imha eder.
@@ -27,6 +34,8 @@ boyunca dokunmatik joystick ya da cihazı eğerek (jiroskop) kendisi yönlendiri
 
 ## Oyun hissini ayarlama (kod değiştirmeden)
 Her füzenin tüm değerleri tek dosyada: `config/missiles/<füze>.tres` (Godot'ta çift tıklayın).
+Rampalar `config/launchers/<rampa>.tres` içinde: aşama süreleri, kaldırma/fırlatma açısı, soğuk
+fırlatma hızı, efekt büyüklüğü, uyumlu füzeler ve her aşamanın kamera çekimi (rampaya göre konum).
 Dönüş hızı, atalet (`turn_response`), sapma/titreşim (`wobble_*`), hız, itki, yakıt, yerçekimi,
 kamera uzaklığı ve patlama büyüklüğü buradadır. Arazi biçimi: `config/terrain/valley_01.tres`
 (değiştirdikten sonra araziyi yeniden üretin, aşağıya bakın).
@@ -37,6 +46,7 @@ kamera uzaklığı ve patlama büyüklüğü buradadır. Arazi biçimi: `config/
 | `autoload/` | Global düğümler: `GameState`, `UserSettings` (kontrol modu, hassasiyet, ses) |
 | `config/` | Oyun hissi ve bölüm ayarları (`.tres` Resource) |
 | `scripts/missile/` | `MissileFlightModel` (saf uçuş fiziği), `Missile`, `MissileDefinition`, egzoz |
+| `scripts/launcher/` | `Launcher` (fırlatma dizisi), `LauncherDefinition`, `LauncherCameraShot`, `HydraulicRam` |
 | `scripts/input/` | `SteerInput` tabanı, dokunmatik ve jiroskop girdileri |
 | `scripts/camera/` | `ChaseCamera` (takip, arazi çarpışması, sarsıntı) |
 | `scripts/ui/` | Çoklu dokunmatik joystick/butonlar, HUD |
@@ -57,8 +67,8 @@ godot --headless -s addons/gut/gut_cmdln.gd
 godot --headless --path . -s res://tools/godot/generate_terrain.gd -- \
     res://config/terrain/valley_01.tres res://assets/terrain/valley_01 res://materials/terrain/terrain_valley.tres
 
-# Otomatik pilotla uçuş testi (füze no: 0 Şahin, 1 Kartal, 2 Yıldırım)
-godot --headless --path . --fixed-fps 60 res://tools/godot/flight_test.tscn -- 1 /tmp/ucus
+# Otomatik pilotla uçuş testi (füze no: 0 Şahin, 1 Kartal, 2 Yıldırım; rampa no: 0 TEL, 1 Ray, 2 Silo)
+godot --headless --path . --fixed-fps 60 res://tools/godot/flight_test.tscn -- 1 /tmp/ucus "" 1 0
 
 # Sahne nesnesi pişir: parçaları birleştir, ölçekle, tabanı zemine oturt, isteğe bağlı üçgen azalt
 godot --headless --path . -s res://tools/godot/bake_prop.gd -- \
@@ -67,6 +77,12 @@ godot --headless --path . -s res://tools/godot/bake_prop.gd -- \
 # Üs yerleşimini yeniden kur (MultiMesh verisi için --headless DEĞİL, ekransızda xvfb-run)
 xvfb-run godot --path . -s res://tools/godot/build_base_layout.gd -- \
     res://config/terrain/valley_01.tres res://scenes/levels/valley_01/base_layout.tscn res://assets/terrain/valley_01/layout
+
+# Fırlatma rampası sahnelerini yeniden kur (scenes/launchers/, assets/models/launchers/)
+godot --headless --path . -s res://tools/godot/build_launchers.gd
+
+# Rampa seslerini üret (Kenney Sci-Fi Sounds + Impact Sounds, CC0)
+python3 tools/make_launch_sfx.py <kenney_sci-fi-sounds/Audio> <kenney_impact-sounds/Audio> assets/audio/sfx
 
 # Sketchfab'den model ara / indir (yalnızca CC0 ve CC-BY kabul edilir)
 python3 tools/sketchfab_fetch.py search "missile"

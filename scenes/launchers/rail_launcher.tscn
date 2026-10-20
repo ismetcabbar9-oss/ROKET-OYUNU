@@ -1,0 +1,132 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/launcher/launcher.gd" id="1_d5uba"]
+[ext_resource type="Resource" path="res://config/launchers/rail.tres" id="2_atduk"]
+[ext_resource type="PackedScene" path="res://scenes/fx/launch_blast.tscn" id="3_r5e1t"]
+[ext_resource type="Material" path="res://materials/launchers/launcher_concrete.tres" id="4_puf7q"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/rail_plinth.res" id="5_if10p"]
+[ext_resource type="Material" path="res://materials/launchers/launcher_steel.tres" id="6_53luf"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/rail_beam.res" id="7_i7peb"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/rail_clamp_l.res" id="8_gfbyg"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/rail_clamp_r.res" id="9_2g7sy"]
+[ext_resource type="Script" path="res://scripts/launcher/hydraulic_ram.gd" id="10_7lip6"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/rail_ram_barrel.res" id="11_foy73"]
+[ext_resource type="ArrayMesh" path="res://assets/models/launchers/rail_ram_rod.res" id="12_us5p0"]
+[ext_resource type="Material" path="res://materials/launchers/launcher_beacon.tres" id="13_2ukj1"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/launch_alarm.ogg" id="14_aijyw"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/hydraulic_loop.ogg" id="15_yns1u"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/lock_clunk.ogg" id="16_kdned"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bew3e"]
+material = ExtResource("13_2ukj1")
+radius = 0.16
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[node name="RailLauncher" type="Node3D" unique_id=1573151241 node_paths=PackedStringArray("cradle", "blast_point", "beacons", "alarm_sound", "mechanism_sound", "lock_sound", "raise_pivot", "hatches", "clamps", "rams")]
+script = ExtResource("1_d5uba")
+definition = ExtResource("2_atduk")
+cradle = NodePath("Rail/Cradle")
+cradle_at_nose = false
+blast_point = NodePath("BlastPoint")
+blast_scene = ExtResource("3_r5e1t")
+beacons = [NodePath("Beacon")]
+alarm_sound = NodePath("Alarm")
+mechanism_sound = NodePath("Mechanism")
+lock_sound = NodePath("Lock")
+release_hold_seconds = 2.0
+reset_seconds = 3.0
+beacon_blink_hz = 2.5
+raise_pivot = NodePath("Rail")
+hatches = []
+hatch_open_deg = 115.0
+jack_travel = 0.35
+clamps = [NodePath("Rail/ClampLeft"), NodePath("Rail/ClampRight")]
+clamp_open_deg = 65.0
+rams = [NodePath("Ram")]
+
+[node name="Plinth" type="MeshInstance3D" parent="." unique_id=1630002757]
+material_override = ExtResource("4_puf7q")
+mesh = ExtResource("5_if10p")
+
+[node name="Rail" type="Node3D" parent="." unique_id=1932861703]
+transform = Transform3D(1, 0, 0, 0, 0.99026805, -0.1391731, 0, 0.1391731, 0.99026805, 0, 1.95, 3.4)
+
+[node name="RailMesh" type="MeshInstance3D" parent="Rail" unique_id=1359598374]
+material_override = ExtResource("6_53luf")
+mesh = ExtResource("7_i7peb")
+
+[node name="ClampLeft" type="Node3D" parent="Rail" unique_id=145900233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.12, -4.6)
+
+[node name="Mesh" type="MeshInstance3D" parent="Rail/ClampLeft" unique_id=1149697544]
+material_override = ExtResource("6_53luf")
+cast_shadow = 0
+visibility_range_end = 90.0
+mesh = ExtResource("8_gfbyg")
+
+[node name="ClampRight" type="Node3D" parent="Rail" unique_id=1791498992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.12, -4.6)
+
+[node name="Mesh" type="MeshInstance3D" parent="Rail/ClampRight" unique_id=2027770955]
+material_override = ExtResource("6_53luf")
+cast_shadow = 0
+visibility_range_end = 90.0
+mesh = ExtResource("9_2g7sy")
+
+[node name="Cradle" type="Marker3D" parent="Rail" unique_id=420154430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, -4.6)
+
+[node name="RamAttach" type="Marker3D" parent="Rail" unique_id=2008834315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, -6.4)
+
+[node name="RamAnchor" type="Marker3D" parent="." unique_id=908232287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -3.2)
+
+[node name="Ram" type="Node3D" parent="." unique_id=393383957 node_paths=PackedStringArray("anchor", "attach", "barrel", "rod")]
+script = ExtResource("10_7lip6")
+anchor = NodePath("../RamAnchor")
+attach = NodePath("../Rail/RamAttach")
+barrel = NodePath("Barrel")
+rod = NodePath("Rod")
+
+[node name="Barrel" type="MeshInstance3D" parent="Ram" unique_id=1641928458]
+material_override = ExtResource("6_53luf")
+cast_shadow = 0
+visibility_range_end = 90.0
+mesh = ExtResource("11_foy73")
+
+[node name="Rod" type="MeshInstance3D" parent="Ram" unique_id=1918951547]
+material_override = ExtResource("6_53luf")
+cast_shadow = 0
+visibility_range_end = 90.0
+mesh = ExtResource("12_us5p0")
+
+[node name="Beacon" type="MeshInstance3D" parent="." unique_id=1907927781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 2.7, 2.2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_bew3e")
+
+[node name="BlastPoint" type="Marker3D" parent="." unique_id=1206380385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 5)
+
+[node name="Alarm" type="AudioStreamPlayer3D" parent="." unique_id=647544628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("14_aijyw")
+volume_db = -6.0
+unit_size = 14.0
+max_distance = 600.0
+
+[node name="Mechanism" type="AudioStreamPlayer3D" parent="." unique_id=226251095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("15_yns1u")
+volume_db = -4.0
+unit_size = 14.0
+max_distance = 600.0
+
+[node name="Lock" type="AudioStreamPlayer3D" parent="." unique_id=237024669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("16_kdned")
+unit_size = 14.0
+max_distance = 600.0

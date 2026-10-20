@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="LauncherDefinition" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/launcher/launcher_definition.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/launcher/launcher_camera_shot.gd" id="2"]
+
+[sub_resource type="Resource" id="shot0"]
+script = ExtResource("2")
+stage = 0
+position = Vector3(11, 11, 11)
+look_at = Vector3(0, 3, 0)
+track_missile = false
+fov = 50.0
+blend_seconds = 0.8
+
+[sub_resource type="Resource" id="shot1"]
+script = ExtResource("2")
+stage = 1
+position = Vector3(7, 5, 10.5)
+look_at = Vector3(1.45, 0.8, 4.6)
+track_missile = false
+fov = 45.0
+blend_seconds = 0.9
+
+[sub_resource type="Resource" id="shot2"]
+script = ExtResource("2")
+stage = 2
+position = Vector3(14, 14, 2)
+look_at = Vector3(0, 5, 1)
+track_missile = false
+fov = 55.0
+blend_seconds = 1.0
+
+[sub_resource type="Resource" id="shot3"]
+script = ExtResource("2")
+stage = 3
+position = Vector3(3.0, 9.0, 4.2)
+look_at = Vector3(0.5, 6.0, 1.8)
+track_missile = false
+fov = 42.0
+blend_seconds = 0.6
+
+[sub_resource type="Resource" id="shot4"]
+script = ExtResource("2")
+stage = 4
+position = Vector3(8, 15, 16)
+look_at = Vector3(0, 2, 3)
+track_missile = false
+fov = 58.0
+blend_seconds = 0.5
+
+[sub_resource type="Resource" id="shot5"]
+script = ExtResource("2")
+stage = 5
+position = Vector3(22, 3, 6)
+look_at = Vector3(0, 10, -10)
+track_missile = true
+fov = 50.0
+blend_seconds = 0.4
+
+[resource]
+script = ExtResource("1")
+id = &"tel"
+display_name = "Mobil TEL"
+description = "Hidrolik erektörlü fırlatıcı kamyon. Ağır füzeleri dik açıyla atar."
+kind = 0
+compatible_missiles = Array[StringName]([&"yildirim", &"kartal"])
+stage_captions = PackedStringArray("Hazırlık: destek ayakları iniyor", "Erektör kalkıyor", "Kilitlendi, füze hazır", "Ateşleme!")
+prepare_seconds = 1.6
+raise_seconds = 3.0
+lock_seconds = 0.6
+ignite_seconds = 0.9
+stow_angle_deg = 22.0
+launch_angle_deg = 50.0
+blast_scale = 1.2
+shake_strength = 0.6
+camera_shots = Array[ExtResource("2")]([SubResource("shot0"), SubResource("shot1"), SubResource("shot2"), SubResource("shot3"), SubResource("shot4"), SubResource("shot5")])

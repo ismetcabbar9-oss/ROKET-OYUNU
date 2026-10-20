@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=22 format=3]
 
 [ext_resource type="Script" path="res://scripts/level/test_range_controller.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/levels/environment/desert_environment.tscn" id="2"]
@@ -10,20 +10,22 @@
 [ext_resource type="PackedScene" path="res://scenes/missile/missile.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://scenes/fx/explosion.tscn" id="9"]
 [ext_resource type="Resource" path="res://config/terrain/valley_01.tres" id="10"]
-[ext_resource type="PackedScene" path="res://scenes/props/launcher_truck.tscn" id="11"]
+[ext_resource type="PackedScene" path="res://scenes/launchers/tel_launcher.tscn" id="11"]
+[ext_resource type="PackedScene" path="res://scenes/launchers/rail_launcher.tscn" id="17"]
+[ext_resource type="PackedScene" path="res://scenes/launchers/silo_launcher.tscn" id="18"]
 [ext_resource type="PackedScene" path="res://scenes/levels/valley_01/base_layout.tscn" id="12"]
 [ext_resource type="Script" path="res://scripts/camera/chase_camera.gd" id="13"]
 [ext_resource type="Script" path="res://scripts/input/touch_steer_input.gd" id="14"]
 [ext_resource type="Script" path="res://scripts/input/gyro_steer_input.gd" id="15"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="16"]
 
-[node name="Level01" type="Node3D" node_paths=PackedStringArray("launch_point", "target_point", "projectiles", "camera", "hud", "touch_input", "gyro_input")]
+[node name="Level01" type="Node3D" node_paths=PackedStringArray("launchers", "target_point", "projectiles", "camera", "hud", "touch_input", "gyro_input")]
 script = ExtResource("1")
 missiles = Array[ExtResource("4")]([ExtResource("5"), ExtResource("6"), ExtResource("7")])
 missile_scene = ExtResource("8")
 explosion_scene = ExtResource("9")
 terrain_shape = ExtResource("10")
-launch_point = NodePath("LaunchSite/LaunchPoint")
+launchers = [NodePath("LaunchSite/TelLauncher"), NodePath("LaunchSite/RailLauncher"), NodePath("LaunchSite/SiloLauncher")]
 target_point = NodePath("TargetArea")
 projectiles = NodePath("Projectiles")
 camera = NodePath("ChaseCamera")
@@ -40,10 +42,13 @@ gyro_input = NodePath("Inputs/Gyro")
 [node name="LaunchSite" type="Node3D" parent="."]
 transform = Transform3D(0.70215, 0, -0.71203, 0, 1, 0, 0.71203, 0, 0.70215, 76.2, 14.14, 790)
 
-[node name="LauncherTruck" parent="LaunchSite" instance=ExtResource("11")]
+[node name="TelLauncher" parent="LaunchSite" instance=ExtResource("11")]
 
-[node name="LaunchPoint" type="Marker3D" parent="LaunchSite"]
-transform = Transform3D(1, 0, 0, 0, 0.951057, -0.309017, 0, 0.309017, 0.951057, 0, 3.6, -0.5)
+[node name="RailLauncher" parent="LaunchSite" instance=ExtResource("17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 2)
+
+[node name="SiloLauncher" parent="LaunchSite" instance=ExtResource("18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 2)
 
 [node name="TargetArea" type="Node3D" parent="."]
 transform = Transform3D(0.98261, 0, 0.18567, 0, 1, 0, -0.18567, 0, 0.98261, -87.6, 6.05, -640)

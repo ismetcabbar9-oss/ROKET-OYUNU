@@ -4,6 +4,8 @@ extends Camera3D
 ## Kamera ofseti hedefe bağlı bir çerçevede yumuşatılır: yüksek hızda geride kalmaz,
 ## yalnızca dönüşlerde gecikerek ataleti hissettirir. Araziye girmemek için ışın testi yapar.
 ## Patlamalar ChaseCamera'yı "camera_shake" grubu üzerinden sarsar.
+## Üç kip: takip (follow), sabit noktaya bakış (focus) ve sinematik çekim (play_shot).
+## Kipler arası geçişler önceki görüntüden yumuşakça harmanlanır.
 
 @export_group("Takip")
 ## Kamera ofsetinin yeni yöne yetişme hızı (1/s). Düşük = daha "ağır" his.
@@ -13,10 +15,6 @@ extends Camera3D
 @export var look_ahead_lengths: float = 3.0
 ## Hızla birlikte kameranın uzaklaşma oranı.
 @export var speed_pullback: float = 0.25
-## Füze rampadayken ek yükseklik, uzaklık çarpanı ve yandan bakış açısı (kamyon füzeyi kapatmasın).
-@export var rail_extra_height: float = 3.5
-@export var rail_distance_multiplier: float = 1.5
-@export var rail_view_yaw_deg: float = 32.0
 
 @export_group("Görüş açısı")
 @export var base_fov: float = 60.0
@@ -44,6 +42,17 @@ var _trauma: float = 0.0
 var _noise := FastNoiseLite.new()
 var _time: float = 0.0
 
+var _shot_active: bool = false
+var _shot_position: Vector3
+var _shot_look: Vector3
+var _shot_look_node: Node3D
+var _shot_fov: float = 60.0
+
+var _blend_from: Transform3D
+var _blend_fov_from: float = 60.0
+var _blend_time: float = 0.0
+var _blend_duration: float = 0.0
+
 
 func _ready() -> void:
 	# Kamera _process içinde hareket ettiriliyor; fizik interpolasyonu ona uygulanmamalı.
@@ -53,21 +62,37 @@ func _ready() -> void:
 	fov = base_fov
 
 
-## Yeni bir füzeyi takip etmeye başlar. snap = geçiş animasyonu olmadan yerine otur.
-func follow(missile: Missile, snap: bool = true) -> void:
+## Yeni bir füzeyi takip etmeye başlar. blend_seconds > 0 ise önceki görüntüden geçiş yapar.
+func follow(missile: Missile, blend_seconds: float = 0.0) -> void:
+	_begin_blend(blend_seconds)
 	target = missile
 	_has_focus = false
-	if snap and missile != null:
+	_shot_active = false
+	if missile != null:
 		_offset = _desired_offset(missile)
 		_look_offset = _desired_look(missile)
-		_apply(missile.get_global_transform_interpolated().origin, 0.0)
+		if blend_seconds <= 0.0:
+			global_transform = _follow_transform(missile.get_global_transform_interpolated().origin)
 
 
 ## Hedef yokken (ör. patlamadan sonra) verilen noktaya bakarak yerinde kalır.
 func focus(point: Vector3) -> void:
 	target = null
+	_shot_active = false
 	_focus_point = point
 	_has_focus = true
+
+
+## Sinematik çekim: kamera from noktasına geçip look_point'e (ya da look_node'a) bakar.
+func play_shot(from: Vector3, look_point: Vector3, shot_fov: float, blend_seconds: float, look_node: Node3D = null) -> void:
+	_begin_blend(blend_seconds)
+	target = null
+	_has_focus = false
+	_shot_active = true
+	_shot_position = from
+	_shot_look = look_point
+	_shot_look_node = look_node
+	_shot_fov = shot_fov
 
 
 func add_trauma_at(point: Vector3, strength: float) -> void:
@@ -79,17 +104,38 @@ func _process(delta: float) -> void:
 	_time += delta
 	_trauma = maxf(_trauma - shake_decay * delta, 0.0)
 
+	var wanted: Transform3D = global_transform
+	var wanted_fov: float = fov
 	if is_instance_valid(target):
 		var blend: float = 1.0 - exp(-follow_sharpness * delta)
 		_offset = _offset.lerp(_desired_offset(target), blend)
 		_look_offset = _look_offset.lerp(_desired_look(target), 1.0 - exp(-look_sharpness * delta))
-		_apply(target.get_global_transform_interpolated().origin, delta)
+		wanted = _follow_transform(target.get_global_transform_interpolated().origin)
 		var speed_t: float = clampf(target.get_speed() / fov_reference_speed, 0.0, 1.0)
-		fov = lerpf(fov, base_fov + speed_fov_gain * speed_t, 1.0 - exp(-3.0 * delta))
+		wanted_fov = lerpf(fov, base_fov + speed_fov_gain * speed_t, 1.0 - exp(-3.0 * delta))
+	elif _shot_active:
+		var look: Vector3 = _shot_look_node.get_global_transform_interpolated().origin if is_instance_valid(_shot_look_node) else _shot_look
+		wanted = _look_transform(_shot_position, look)
+		wanted_fov = _shot_fov
 	elif _has_focus:
-		var wanted := Transform3D(global_basis, global_position).looking_at(_focus_point, Vector3.UP)
-		global_basis = global_basis.slerp(wanted.basis.orthonormalized(), 1.0 - exp(-4.0 * delta))
-		_apply_shake()
+		var look_xform: Transform3D = _look_transform(global_position, _focus_point)
+		wanted = Transform3D(global_basis.orthonormalized().slerp(look_xform.basis, 1.0 - exp(-4.0 * delta)), global_position)
+
+	if _blend_time < _blend_duration:
+		_blend_time += delta
+		var w: float = smoothstep(0.0, 1.0, _blend_time / _blend_duration)
+		wanted = _blend_from.interpolate_with(wanted, w)
+		wanted_fov = lerpf(_blend_fov_from, wanted_fov, w)
+	global_transform = wanted
+	fov = wanted_fov
+	_apply_shake()
+
+
+func _begin_blend(seconds: float) -> void:
+	_blend_from = Transform3D(global_basis.orthonormalized(), global_position)
+	_blend_fov_from = fov
+	_blend_time = 0.0
+	_blend_duration = seconds
 
 
 func _desired_offset(missile: Missile) -> Vector3:
@@ -98,9 +144,6 @@ func _desired_offset(missile: Missile) -> Vector3:
 	var pull: float = 1.0 + speed_pullback * clampf(missile.get_speed() / fov_reference_speed, 0.0, 1.5)
 	var height: float = definition.camera_height
 	var back: Vector3 = -forward * definition.camera_distance * pull
-	if missile.phase == Missile.Phase.ON_RAIL:
-		height += rail_extra_height
-		back = back.rotated(Vector3.UP, deg_to_rad(rail_view_yaw_deg)) * rail_distance_multiplier
 	return back + Vector3.UP * height
 
 
@@ -108,7 +151,7 @@ func _desired_look(missile: Missile) -> Vector3:
 	return missile.get_forward() * missile.definition.length * look_ahead_lengths
 
 
-func _apply(target_pos: Vector3, _delta: float) -> void:
+func _follow_transform(target_pos: Vector3) -> Transform3D:
 	var desired: Vector3 = target_pos + _offset
 	# Kamera ile füze arasına arazi girerse kamerayı engelin önüne çek
 	var space: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
@@ -118,11 +161,13 @@ func _apply(target_pos: Vector3, _delta: float) -> void:
 		var hit_pos: Vector3 = hit["position"]
 		var hit_normal: Vector3 = hit["normal"]
 		desired = hit_pos + hit_normal * collision_margin
-	global_position = desired
-	var look_point: Vector3 = target_pos + _look_offset
-	if not global_position.is_equal_approx(look_point):
-		look_at(look_point, Vector3.UP)
-	_apply_shake()
+	return _look_transform(desired, target_pos + _look_offset)
+
+
+func _look_transform(from: Vector3, to: Vector3) -> Transform3D:
+	if from.is_equal_approx(to):
+		return Transform3D(global_basis.orthonormalized(), from)
+	return Transform3D(Basis.looking_at(to - from, Vector3.UP), from)
 
 
 func _apply_shake() -> void:

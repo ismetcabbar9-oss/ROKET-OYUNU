@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="LauncherDefinition" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/launcher/launcher_definition.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/launcher/launcher_camera_shot.gd" id="2"]
+
+[sub_resource type="Resource" id="shot0"]
+script = ExtResource("2")
+stage = 0
+position = Vector3(9, 12, 9)
+look_at = Vector3(0, 2.5, 0)
+track_missile = false
+fov = 50.0
+blend_seconds = 0.8
+
+[sub_resource type="Resource" id="shot1"]
+script = ExtResource("2")
+stage = 1
+position = Vector3(5.5, 7.5, 4.5)
+look_at = Vector3(2.05, 3.9, 1.2)
+track_missile = false
+fov = 45.0
+blend_seconds = 0.9
+
+[sub_resource type="Resource" id="shot2"]
+script = ExtResource("2")
+stage = 2
+position = Vector3(6, 9, 5)
+look_at = Vector3(0, 3.8, 0)
+track_missile = false
+fov = 50.0
+blend_seconds = 1.0
+
+[sub_resource type="Resource" id="shot3"]
+script = ExtResource("2")
+stage = 3
+position = Vector3(2.5, 8.5, 2.5)
+look_at = Vector3(0, 3.0, 0)
+track_missile = false
+fov = 40.0
+blend_seconds = 0.6
+
+[sub_resource type="Resource" id="shot4"]
+script = ExtResource("2")
+stage = 4
+position = Vector3(16, 1.5, 12)
+look_at = Vector3(0, 10, 0)
+track_missile = true
+fov = 55.0
+blend_seconds = 0.5
+
+[sub_resource type="Resource" id="shot5"]
+script = ExtResource("2")
+stage = 5
+position = Vector3(20, 2, 10)
+look_at = Vector3(0, 15, -10)
+track_missile = true
+fov = 50.0
+blend_seconds = 0.6
+
+[resource]
+script = ExtResource("1")
+id = &"silo"
+display_name = "Dikey Silo"
+description = "Beton silo. Soğuk fırlatma: füze gazla atılır, havada ateşlenir."
+kind = 2
+compatible_missiles = Array[StringName]([&"yildirim", &"sahin"])
+stage_captions = PackedStringArray("Hazırlık: kapak kilitleri açılıyor", "Silo kapağı açılıyor", "Füze hazır", "Soğuk fırlatma!")
+prepare_seconds = 1.4
+raise_seconds = 2.2
+lock_seconds = 0.5
+ignite_seconds = 1.1
+eject_speed = 24.0
+ignition_pitch_deg = 70.0
+blast_scale = 1.0
+shake_strength = 0.7
+camera_shots = Array[ExtResource("2")]([SubResource("shot0"), SubResource("shot1"), SubResource("shot2"), SubResource("shot3"), SubResource("shot4"), SubResource("shot5")])

@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="LauncherDefinition" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/launcher/launcher_definition.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/launcher/launcher_camera_shot.gd" id="2"]
+
+[sub_resource type="Resource" id="shot0"]
+script = ExtResource("2")
+stage = 0
+position = Vector3(10, 10, 10)
+look_at = Vector3(0, 2, -1)
+track_missile = false
+fov = 50.0
+blend_seconds = 0.8
+
+[sub_resource type="Resource" id="shot1"]
+script = ExtResource("2")
+stage = 1
+position = Vector3(5, 5.5, 5.5)
+look_at = Vector3(1.9, 2.4, 2.2)
+track_missile = false
+fov = 45.0
+blend_seconds = 0.9
+
+[sub_resource type="Resource" id="shot2"]
+script = ExtResource("2")
+stage = 2
+position = Vector3(11, 0.9, -3)
+look_at = Vector3(0, 3.5, -1)
+track_missile = false
+fov = 50.0
+blend_seconds = 1.0
+
+[sub_resource type="Resource" id="shot3"]
+script = ExtResource("2")
+stage = 3
+position = Vector3(4.0, 7.2, 1.8)
+look_at = Vector3(0.5, 3.9, -0.7)
+track_missile = false
+fov = 42.0
+blend_seconds = 0.6
+
+[sub_resource type="Resource" id="shot4"]
+script = ExtResource("2")
+stage = 4
+position = Vector3(7, 13, 14)
+look_at = Vector3(0, 2, 2)
+track_missile = false
+fov = 58.0
+blend_seconds = 0.5
+
+[sub_resource type="Resource" id="shot5"]
+script = ExtResource("2")
+stage = 5
+position = Vector3(18, 2.5, -6)
+look_at = Vector3(0, 10, -20)
+track_missile = true
+fov = 50.0
+blend_seconds = 0.4
+
+[resource]
+script = ExtResource("1")
+id = &"rail"
+display_name = "Eğik Ray"
+description = "Beton kaideli sabit ray. Hafif ve seyir füzeleri için alçak, hızlı çıkış."
+kind = 1
+compatible_missiles = Array[StringName]([&"sahin", &"kartal"])
+stage_captions = PackedStringArray("Hazırlık: ray kilidi açılıyor", "Ray fırlatma açısına kalkıyor", "Kelepçeler kilitlendi", "Ateşleme!")
+prepare_seconds = 1.2
+raise_seconds = 1.8
+lock_seconds = 0.5
+ignite_seconds = 0.7
+stow_angle_deg = 8.0
+launch_angle_deg = 24.0
+blast_scale = 1.0
+shake_strength = 0.5
+camera_shots = Array[ExtResource("2")]([SubResource("shot0"), SubResource("shot1"), SubResource("shot2"), SubResource("shot3"), SubResource("shot4"), SubResource("shot5")])

@@ -1,15 +1,18 @@
 class_name Hud
 extends CanvasLayer
-## Test alanı arayüzü: joystick, fırlat/patlat, füze seçimi, kontrol modu ve telemetri.
+## Test alanı arayüzü: joystick, fırlat/atla/patlat, füze ve rampa seçimi, kontrol modu, telemetri.
 ## Oyun mantığı bilmez; sinyal yayınlar ve kendisine verilen değerleri gösterir.
 
 signal fire_pressed
+## Fırlatma dizisi sürerken FIRLAT butonu "ATLA" olur.
+signal skip_pressed
 signal detonate_pressed
 signal missile_selected(index: int)
+signal launcher_selected(index: int)
 signal control_mode_toggled
 signal calibrate_pressed
 
-enum Mode { READY, FLYING, AFTERMATH }
+enum Mode { READY, LAUNCHING, FLYING, AFTERMATH }
 
 @export var joystick: TouchJoystick
 @export var fire_button: TouchButton
@@ -17,6 +20,7 @@ enum Mode { READY, FLYING, AFTERMATH }
 @export var control_button: TouchButton
 @export var calibrate_button: TouchButton
 @export var missile_list: VBoxContainer
+@export var launcher_list: VBoxContainer
 @export var missile_name: Label
 @export var missile_description: Label
 @export var status_label: Label
@@ -29,11 +33,13 @@ enum Mode { READY, FLYING, AFTERMATH }
 @export var warning_label: Label
 
 var _missile_buttons: Array[TouchButton] = []
+var _launcher_buttons: Array[TouchButton] = []
 var _message_timer: SceneTreeTimer
+var _mode: Mode = Mode.READY
 
 
 func _ready() -> void:
-	fire_button.pressed.connect(fire_pressed.emit)
+	fire_button.pressed.connect(_on_fire_button)
 	detonate_button.pressed.connect(detonate_pressed.emit)
 	control_button.pressed.connect(control_mode_toggled.emit)
 	calibrate_button.pressed.connect(calibrate_pressed.emit)
@@ -41,29 +47,37 @@ func _ready() -> void:
 
 
 func set_missiles(definitions: Array[MissileDefinition]) -> void:
-	for b: TouchButton in _missile_buttons:
-		b.queue_free()
-	_missile_buttons.clear()
-	for i: int in definitions.size():
-		var button := TouchButton.new()
-		button.text = definitions[i].display_name
-		button.font_size = 22
-		button.custom_minimum_size = Vector2(210, 64)
-		button.pressed.connect(missile_selected.emit.bind(i))
-		missile_list.add_child(button)
-		_missile_buttons.append(button)
+	var names: PackedStringArray = []
+	for d: MissileDefinition in definitions:
+		names.append(d.display_name)
+	_missile_buttons = _fill_list(missile_list, _missile_buttons, names, missile_selected, 64)
 
 
-func set_selected(index: int, definition: MissileDefinition) -> void:
+func set_launchers(definitions: Array[LauncherDefinition]) -> void:
+	var names: PackedStringArray = []
+	for d: LauncherDefinition in definitions:
+		names.append(d.display_name)
+	_launcher_buttons = _fill_list(launcher_list, _launcher_buttons, names, launcher_selected, 56)
+
+
+## Seçili füze ve rampayı gösterir; seçili rampayla atılamayan füzeler soluk görünür.
+func set_selection(missile_index: int, missile: MissileDefinition, launcher_index: int,
+		launcher: LauncherDefinition, compatible: Array[bool]) -> void:
 	for i: int in _missile_buttons.size():
-		_missile_buttons[i].selected = i == index
-	missile_name.text = definition.display_name
-	missile_description.text = definition.description
+		_missile_buttons[i].selected = i == missile_index
+		_missile_buttons[i].modulate.a = 1.0 if compatible[i] else 0.45
+	for i: int in _launcher_buttons.size():
+		_launcher_buttons[i].selected = i == launcher_index
+	missile_name.text = "%s  ·  %s" % [missile.display_name, launcher.display_name]
+	missile_description.text = "%s\n%s" % [missile.description, launcher.description]
 
 
 func set_mode(mode: Mode) -> void:
-	fire_button.visible = mode == Mode.READY
+	_mode = mode
+	fire_button.visible = mode == Mode.READY or mode == Mode.LAUNCHING
+	fire_button.text = "ATLA" if mode == Mode.LAUNCHING else "FIRLAT"
 	missile_list.visible = mode == Mode.READY
+	launcher_list.visible = mode == Mode.READY
 	missile_description.visible = mode == Mode.READY
 	detonate_button.visible = mode == Mode.FLYING
 	if mode != Mode.FLYING:
@@ -93,6 +107,28 @@ func show_message(text: String, seconds: float = 2.5) -> void:
 		timer.timeout.connect(func() -> void:
 			if _message_timer == timer:
 				status_label.visible = false)
+
+
+func _on_fire_button() -> void:
+	if _mode == Mode.LAUNCHING:
+		skip_pressed.emit()
+	else:
+		fire_pressed.emit()
+
+
+func _fill_list(list: VBoxContainer, old: Array[TouchButton], names: PackedStringArray, on_press: Signal, height: float) -> Array[TouchButton]:
+	for b: TouchButton in old:
+		b.queue_free()
+	var buttons: Array[TouchButton] = []
+	for i: int in names.size():
+		var button := TouchButton.new()
+		button.text = names[i]
+		button.font_size = 22
+		button.custom_minimum_size = Vector2(210, height)
+		button.pressed.connect(on_press.emit.bind(i))
+		list.add_child(button)
+		buttons.append(button)
+	return buttons
 
 
 func update_telemetry(speed_ms: float, altitude: float, fuel_ratio: float, flight_time: float, target_distance: float) -> void:

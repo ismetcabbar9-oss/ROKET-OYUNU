@@ -1,0 +1,18 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/surfaces/concrete_floor_02_diff.jpg" id="1"]
+[ext_resource type="Texture2D" path="res://assets/textures/surfaces/concrete_floor_02_nor_gl.jpg" id="2"]
+[ext_resource type="Texture2D" path="res://assets/textures/surfaces/concrete_floor_02_arm.jpg" id="3"]
+
+[resource]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1.25, 1.17, 1.05, 1)
+metallic_specular = 0.3
+albedo_texture = ExtResource("1")
+orm_texture = ExtResource("3")
+normal_enabled = true
+normal_texture = ExtResource("2")
+uv1_scale = Vector3(0.35, 0.35, 0.35)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5

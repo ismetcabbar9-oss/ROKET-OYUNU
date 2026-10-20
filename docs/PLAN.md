@@ -26,7 +26,7 @@ hazır ayarlar** (şafak/öğle/gün batımı/gece).
 
 ---
 
-## Faz 1 — Düzenli çöl üssü (mekan v2)  ✅ tamamlandı, tablet onayı bekleniyor
+## Faz 1 — Düzenli çöl üssü (mekan v2)  ✅ tamamlandı, onaylandı
 > Sonuç: en ağır görüş (rampa) 141 draw call / 344 bin üçgen; kanyon ~300 bin; 29 birim testi.
 > Not: masaüstünde "soft" gölge filtresi bazı GPU'larda standart malzemeleri kararttı; proje
 > genelinde Android varsayılanı olan "hard" filtreye sabitlendi (daha ucuz, her cihazda aynı).
@@ -63,7 +63,12 @@ yollar, beton zeminler, çitler, yapılar ile okunur bir mekan.
 
 **Siz test edersiniz:** mekan hissi, okunabilirlik, FPS. Onay → Faz 2.
 
-## Faz 2 — Fırlatma rampaları (mekanizma + ses + sinematik)
+## Faz 2 — Fırlatma rampaları (mekanizma + ses + sinematik)  ✅ tamamlandı, tablet onayı bekleniyor
+> Sonuç: 3 rampa (Mobil TEL, Eğik Ray, Dikey Silo), 18 kamera çekiminin en ağırı 143 draw call /
+> 322 bin üçgen (`tools/godot/launcher_shot_report.tscn`); 36 birim testi. Otopilotla 6 füze-rampa
+> eşleşmesinden 5'i hedefi vuruyor (Yıldırım–kanyon geçişi Faz 1'de de otopilot için çok dar).
+> Not: arka planda üs yapıları görünen alçak çekimler bütçeyi aşıyordu (~200); çekimler yukarıdan
+> ya da gökyüzüne bakacak biçimde ayarlandı.
 - `LauncherDefinition` + `Launcher` sahnesi: hazırlık → kaldırma → kilitleme → ateşleme → bırakma
   aşamaları, her aşamanın animasyonu, sesi ve kamera çekimi.
 - 3 tür: **mobil TEL kamyonu** (hidrolik ray kalkar), **sabit eğik ray rampası** (beton kaide),
@@ -108,4 +113,4 @@ yollar, beton zeminler, çitler, yapılar ile okunur bir mekan.
 - GUT birim testleri (`godot --headless -s addons/gut/gut_cmdln.gd`) yeşil.
 - Temiz klonda içe aktarma hatasız; otomatik pilot uçuşları (`tools/godot/flight_test.tscn`).
 - Yazılımsal render ile ekran görüntüleri + draw call / üçgen raporu bütçe içinde.
-- Commit + push `ccr-23149c99-2glz9a`; siz tablette deneyip onay verirsiniz.
+- Commit + push geliştirme dalına; siz tablette deneyip onay verirsiniz.

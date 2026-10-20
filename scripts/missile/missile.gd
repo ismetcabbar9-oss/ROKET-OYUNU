@@ -37,6 +37,13 @@ func setup(p_definition: MissileDefinition) -> void:
 	_model = MissileFlightModel.new(definition.flight)
 
 
+## Motor rampada, füze henüz bırakılmadan yanar (ateşleme aşaması).
+func ignite_on_rail() -> void:
+	if phase == Phase.ON_RAIL:
+		exhaust.set_throttle(1.0)
+		exhaust.set_speed_ratio(0.0)
+
+
 func launch(steer: SteerInput) -> void:
 	steer_source = steer
 	_state = _model.create_state(global_transform)
