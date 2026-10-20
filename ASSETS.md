@@ -4,7 +4,7 @@ Bu projede yalnızca **CC0**, **CC-BY 4.0** ve ticari kullanıma izin veren teli
 CC-BY varlıkların atfı oyun içindeki "Krediler" ekranında da gösterilecektir (menü adımı).
 Her modelin klasöründe ayrıca `ATTRIBUTION.txt` bulunur.
 Oyunda gerçek ürün/silah isimleri ve ulusal işaretler kullanılmaz: füzeler kurgusal isimlerle
-(Şahin, Kartal, Yıldırım) gösterilir; aşağıdaki "Varlık" sütunu yalnızca **kaynak modelin** adıdır.
+(Şahin, Kartal, Yıldırım, Mızrak, Tufan, Şimşek, Doğan) gösterilir; aşağıdaki "Varlık" sütunu yalnızca **kaynak modelin** adıdır.
 
 ## 3B modeller (Sketchfab, CC-BY 4.0)
 
@@ -13,6 +13,10 @@ Oyunda gerçek ürün/silah isimleri ve ulusal işaretler kullanılmaz: füzeler
 | Missile FATEH 110 → Yıldırım | `assets/models/missiles/yildirim/` | [Mehdi Shahsavan](https://sketchfab.com/ahmagh2e) | [Sketchfab](https://sketchfab.com/3d-models/missile-fateh-110-5da58f2682aa4d07bd030fc5f77652a0) | CC-BY 4.0 | Dokular 1024 px'e küçültüldü |
 | Hasta Missile → Şahin | `assets/models/missiles/sahin/` | [pocolov](https://sketchfab.com/pocolov) | [Sketchfab](https://sketchfab.com/3d-models/hasta-missile-dcc71b2bf0eb4ce78d0815abe14b39ae) | CC-BY 4.0 | Dokular küçültüldü; kapalı-kanat varyantı ve gömülü alev gizlendi |
 | Storm Shadow → Kartal | `assets/models/missiles/kartal/` | [Viktor_](https://sketchfab.com/Viktor.Zhuravlev) | [Sketchfab](https://sketchfab.com/3d-models/storm-shadow-ukraine-d1ad04ce964f46dd9cbac6a64cd19b1b) | CC-BY 4.0 | Dokular küçültüldü; ulusal işaret/yazı çıkartmaları silindi |
+| R-360 "Neptune" anti-ship cruise missile → Mızrak | `assets/models/missiles/mizrak/` | [MrZeuglodon](https://sketchfab.com/MrZeuglodon) | [Sketchfab](https://sketchfab.com/3d-models/r-360-neptune-anti-ship-cruise-missile-a64c109936da417eb7ce4346a801a276) | CC-BY 4.0 | Dokular 2048 px; ikinci (turuncu) varyant çıkarıldı; ulusal arma ve isim yazısı silindi |
+| Strategic nuclear missile R-36M → Tufan | `assets/models/missiles/tufan/` | [Bogdan Kuznetsov](https://sketchfab.com/kuznetsov_bogdan) | [Sketchfab](https://sketchfab.com/3d-models/strategic-nuclear-missile-r-36m-ss-18-satan-de83c0d0a16144efa499b44975740d58) | CC-BY 4.0 | Dokular 2048 px; 13 m'ye ölçeklendi |
+| Fattah hypersonic missile → Şimşek | `assets/models/missiles/simsek/` | [Mehdi Shahsavan](https://sketchfab.com/ahmagh2e) | [Sketchfab](https://sketchfab.com/3d-models/fattah-hypersonic-missile-a2f3cee071fd45c098a5ead2b1aebbaf) | CC-BY 4.0 | Dokular 2048 px; isim yazıları silindi |
+| Kh-38MT air-to-ground missile → Doğan | `assets/models/missiles/dogan/` | [Jeyhun1985](https://sketchfab.com/Jeyhun1985) | [Sketchfab](https://sketchfab.com/3d-models/kh-38mt-air-to-ground-missile-559e695e8ade454eb575745cc1213ab9) | CC-BY 4.0 | Model kodu yazıları silindi |
 | Shaanxi SX2190 Missile Launcher → fırlatıcı kamyon | `assets/models/props/launcher_truck/` | [Muhamad Mirza Arrafi](https://sketchfab.com/MirzaArrafiERV_45) | [Sketchfab](https://sketchfab.com/3d-models/shaanxi-sx2190-missile-launcher-a3cb343f3bf8486c8a0482df5b753c38) | CC-BY 4.0 | Dokular küçültüldü; üzerindeki füze gizlendi |
 | Bunker → sığınak | `assets/models/props/bunker/` | [Uragan27](https://sketchfab.com/Uragan27) | [Sketchfab](https://sketchfab.com/3d-models/bunker-e9f9830ac06c4193b79043d9327a7a69) | CC-BY 4.0 | Dokular 1024 px; 10k → 4,6k üçgen |
 | Hangar → Hangar (servis alanı) | `assets/models/props/hangar/` | [nermin](https://sketchfab.com/nermin) | [Sketchfab](https://sketchfab.com/3d-models/hangar-64f7d287f5274029bc29755a9839ebbf) | CC-BY 4.0 | Dokular 1024 px; iç mekân lamba/kutu parçaları atıldı; parçalar birleştirildi |
@@ -57,21 +61,30 @@ paket yansısından (`sonniss.com-gdc-game-audio-bundles`) tek tek alındı.
 
 | Ses | Dosya yolu | Kütüphane (Sonniss GDC) | Kaynak kayıt |
 |---|---|---|---|
-| Booster gürlemesi (döngü) | `assets/audio/sfx/motor_booster_loop.ogg` | Airborne Sound — Attack Aircraft Maneuvers | `Jet,Fighter,FA-18C,Hornet,…,Kill Engine,191` (6,0–11,2 sn) |
-| Sustainer (döngü) | `assets/audio/sfx/motor_sustainer_loop.ogg` | Airborne Sound — Variety 1 | `Jet,Fighter,F-22,Raptor,By,Slow,Crackle` (10,4–14,2 sn) |
 | Yakıt bitişi | `assets/audio/sfx/burnout_sputter.ogg` | Airborne Sound — Attack Aircraft Maneuvers | FA-18C motor kapatma anı (17,6–21,6 sn) |
 | Hava sürtünmesi (döngü) | `assets/audio/sfx/air_rush_loop.ogg` | Airborne Sound — Jet Fighter Maneuvers | `Jet,Fighter,CF-18,Hornet,By,Slow,Rip to Whistle` (6,8–10,8 sn) |
 | Ateşleme çatlaması | `assets/audio/sfx/ignition_crack.ogg` | Pole Position — The Warfare 2 Library | `RPG - FIRING AND IMPACT …` (atış anı) |
 | Rampada ateşleme gürlemesi | `assets/audio/sfx/ignition_roar.ogg` | Warfare 2 + InspectorJ — Essentials 03 Fireworks + Airborne Sound | RPG atışı + `Fireworks_Launch_Close_01-03` + FA-18C gürlemesi katmanı |
 | Soğuk fırlatma "pof" | `assets/audio/sfx/cold_launch_pof.ogg` | BluezoneCorp — Detonation + Airborne Sound — Variety 1 | `explosion_mortar_002_01` (boğuk) + `Steam Blast,Tube or Pipe,Distant` |
-| Yakın patlama | `assets/audio/sfx/explosion_large.ogg` | Bluezone — Tank Explosion + Stefano Cremona — Explosions | `explosion_outdoors_large_005` + `DeepExplosion02` (boğuk katman) |
-| Uzak patlama | `assets/audio/sfx/explosion_far.ogg` | Stefano Cremona — Explosions + Pole Position — Warfare 2 | `FarExplosion03` + `Tank Mine - EXPLOSION - … DISTANT` |
 | Hidrolik pompa (döngü) | `assets/audio/sfx/hydraulic_loop.ogg` | Pole Position — Hydraulics & Pneumatics | `Robot_1_axle_1_speed_-1_MKH8060` (7,1–10,5 sn) |
 | Kilit pimi | `assets/audio/sfx/lock_clunk.ogg` | Bottle Rocket Fx — Cyborg Collection | `Spacecraft_Bay Door_Lock Down_Large_01` (ilk vuruş) |
 | Silo kapağı | `assets/audio/sfx/hatch_open.ogg` | Pole Position — Hydraulics & Pneumatics + Bottle Rocket Fx | `Machine_6_mono_06` + `Spacecraft_Bay Door_Lock Down_Large_01` |
 | Uyarı kornası | `assets/audio/sfx/launch_alarm.ogg` | David Dumais Audio — Alarms Pack 1 | `LargeAlarm5.2_Single_Slow_DDM_Loop` (3 tekrar) |
 | Çöl rüzgârı (döngü, stereo) | `assets/audio/sfx/desert_wind_loop.ogg` | Soundrangers — Wind | `wind_desert_01_60_loop` |
 | Üs uğultusu (döngü) | `assets/audio/sfx/base_hum_loop.ogg` | Articulated Sounds — 100 Fans, HVAC & Mechanical Drones | `FAN Outdoor AC Unit, Constant Blow Drone Noise, LOOP` (10–22 sn) |
+
+### Füzeye özgü motor ve patlama sesleri (Sonniss GDC)
+Dosyalar `assets/audio/sfx/missiles/<füze>_{booster,sustainer,explosion_near,explosion_far}.ogg`.
+
+| Füze | Booster | Sustainer | Yakın patlama | Uzak patlama |
+|---|---|---|---|---|
+| Şahin | Pole Position — RC Jet (Viggen t1, tam güç) | RC Jet (rölanti) | BluezoneCorp — `explosion_mortar_002_01` | Airborne Sound — Howitzer M101 C3 (uzak) |
+| Kartal | Sound Ex Machina — F-16 (kontakt mikrofon) | Pole Position — Jet Airliner fly-by (uzak) | Olivier Girardot — `Explosion 8` | Airborne Sound — Howitzer M101 C1 (uzak) |
+| Yıldırım | Airborne Sound — FA-18C tırmanış | Airborne Sound — F-22 çıtırtı | Bluezone — `explosion_outdoors_large_005` + Stefano Cremona `DeepExplosion02` | Stefano Cremona `FarExplosion03` + Pole Position tank mayını (uzak) |
+| Mızrak | Airborne Sound — CT-114 filo tırmanışı | Pole Position — Pulse Jet (uzak geçiş) | BluezoneCorp — `explosion_urban_004_02` | Pole Position — tank mayını (uzak) |
+| Tufan | Sound Ex Machina — F-16 (kontakt mikrofon) | Sound Ex Machina — F-16 uzaklaşan geçiş | DavidDumais — `Nuclear Explosion 07` + Stefano Cremona `BigExplosion02` | Olivier Girardot — `Earthquake 3 - Big` + BluezoneCorp deprem gürlemesi |
+| Şimşek | Sound Ex Machina — F-16 alçak geçiş | Airborne Sound — CF-18 yırtılma | Stefano Cremona — `BigExplosion02` | Aynı kayıt, boğuk (alçak geçiren) |
+| Doğan | Double Trouble Audio — Gripen geçişi | Gripen (sabit uçuş) | BluezoneCorp — `combat_drone_weapon_explosion_004` | Coll Anderson — `Mortar Explosion 08` (boğuk) |
 
 ### Kenney Impact Sounds 1.0 (CC0)
 

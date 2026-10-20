@@ -19,8 +19,8 @@ enum Mode { READY, LAUNCHING, FLYING, AFTERMATH }
 @export var detonate_button: TouchButton
 @export var control_button: TouchButton
 @export var calibrate_button: TouchButton
-@export var missile_list: VBoxContainer
-@export var launcher_list: VBoxContainer
+@export var missile_list: Container
+@export var launcher_list: Container
 @export var missile_name: Label
 @export var missile_description: Label
 @export var status_label: Label
@@ -54,14 +54,14 @@ func set_missiles(definitions: Array[MissileDefinition]) -> void:
 	var names: PackedStringArray = []
 	for d: MissileDefinition in definitions:
 		names.append(d.display_name)
-	_missile_buttons = _fill_list(missile_list, _missile_buttons, names, missile_selected, 64)
+	_missile_buttons = _fill_list(missile_list, _missile_buttons, names, missile_selected, Vector2(152, 52))
 
 
 func set_launchers(definitions: Array[LauncherDefinition]) -> void:
 	var names: PackedStringArray = []
 	for d: LauncherDefinition in definitions:
 		names.append(d.display_name)
-	_launcher_buttons = _fill_list(launcher_list, _launcher_buttons, names, launcher_selected, 56)
+	_launcher_buttons = _fill_list(launcher_list, _launcher_buttons, names, launcher_selected, Vector2(210, 48))
 
 
 ## Seçili füze ve rampayı gösterir; seçili rampayla atılamayan füzeler soluk görünür.
@@ -125,15 +125,15 @@ func _on_fire_button() -> void:
 		fire_pressed.emit()
 
 
-func _fill_list(list: VBoxContainer, old: Array[TouchButton], names: PackedStringArray, on_press: Signal, height: float) -> Array[TouchButton]:
+func _fill_list(list: Container, old: Array[TouchButton], names: PackedStringArray, on_press: Signal, button_size: Vector2) -> Array[TouchButton]:
 	for b: TouchButton in old:
 		b.queue_free()
 	var buttons: Array[TouchButton] = []
 	for i: int in names.size():
 		var button := TouchButton.new()
 		button.text = names[i]
-		button.font_size = 22
-		button.custom_minimum_size = Vector2(210, height)
+		button.font_size = 20
+		button.custom_minimum_size = button_size
 		button.pressed.connect(on_press.emit.bind(i))
 		button.pressed.connect(_click)
 		list.add_child(button)

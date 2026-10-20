@@ -4,6 +4,13 @@ extends Resource
 ## Katmanlar: ateşleme çatlaması -> booster gürlemesi -> sustainer -> yakıt bitişi; hava sürtünmesi
 ## hıza göre tüm uçuş boyunca. Seviyeler dB, perdeler çarpan.
 
+@export_group("Kayıtlar")
+## Füzeye özgü motor döngüleri ve patlama sesleri; boş bırakılan sahnedeki varsayılanı kullanır.
+@export var booster_stream: AudioStream
+@export var sustainer_stream: AudioStream
+@export var explosion_near: AudioStream
+@export var explosion_far: AudioStream
+
 @export_group("Motor")
 ## Fırlatmadan sonra booster gürlemesinin sürdüğü süre; sonra sustainer'a geçilir.
 @export_range(0.0, 30.0, 0.1, "suffix:s") var booster_seconds: float = 2.5

@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="MissileDefinition" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/missile/missile_definition.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/missile/missile_flight_settings.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/missile/missile_sound_settings.gd" id="snd"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/mizrak_booster.ogg" id="s_b"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/mizrak_sustainer.ogg" id="s_s"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/mizrak_explosion_near.ogg" id="s_n"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/mizrak_explosion_far.ogg" id="s_f"]
+[ext_resource type="PackedScene" path="res://scenes/missile/models/mizrak_model.tscn" id="3"]
+
+[sub_resource type="Resource" id="flight"]
+script = ExtResource("2")
+max_pitch_rate_deg = 55.0
+max_yaw_rate_deg = 58.0
+turn_response = 2.6
+high_speed_turn_multiplier = 0.8
+input_curve_exponent = 1.4
+max_pitch_angle_deg = 70.0
+max_bank_deg = 45.0
+bank_response = 4.0
+launch_speed = 28.0
+max_speed = 125.0
+thrust = 30.0
+drag = 0.26
+turn_speed_bleed = 0.2
+min_speed = 16.0
+gravity_scale = 0.25
+wobble_strength_deg = 2.0
+wobble_frequency = 0.4
+wobble_seed = 404
+fuel_seconds = 32.0
+max_flight_seconds = 40.0
+
+[sub_resource type="Resource" id="sound"]
+script = ExtResource("snd")
+booster_stream = ExtResource("s_b")
+sustainer_stream = ExtResource("s_s")
+explosion_near = ExtResource("s_n")
+explosion_far = ExtResource("s_f")
+booster_seconds = 2.4
+booster_pitch = 1.0
+sustainer_pitch = 1.0
+engine_volume_db = 0.0
+air_full_speed = 115.0
+
+[resource]
+script = ExtResource("1")
+id = &"mizrak"
+display_name = "Mızrak"
+description = "Gemisavar seyir füzesi. Yavaş başlar ama çok uzun yakıtlı, sakin ve isabetli; alçak uçuşa uygun."
+model_scene = ExtResource("3")
+flight = SubResource("flight")
+sound = SubResource("sound")
+length = 6.0
+body_radius = 0.3
+exhaust_scale = 0.95
+camera_distance = 9.5
+camera_height = 1.8
+blast_radius = 18.0
+blast_damage = 800.0
+explosion_scale = 1.25

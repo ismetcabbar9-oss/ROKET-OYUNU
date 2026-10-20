@@ -26,6 +26,10 @@ var _gains: Vector3 = Vector3.ZERO   # booster, sustainer, hava (doğrusal)
 func configure(p_settings: MissileSoundSettings, p_max_speed: float) -> void:
 	settings = p_settings if p_settings != null else MissileSoundSettings.new()
 	max_speed = p_max_speed
+	if settings.booster_stream != null:
+		booster.stream = settings.booster_stream
+	if settings.sustainer_stream != null:
+		sustainer.stream = settings.sustainer_stream
 	booster.pitch_scale = settings.booster_pitch
 	sustainer.pitch_scale = settings.sustainer_pitch
 

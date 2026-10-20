@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" path="res://assets/textures/fx/smoke_puff.png" id="3"]
 [ext_resource type="Texture2D" path="res://assets/textures/fx/glow_dot.png" id="4"]
 [ext_resource type="Texture2D" path="res://assets/textures/fx/scorch.png" id="5"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/explosion_large.ogg" id="6"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/explosion_far.ogg" id="7"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/yildirim_explosion_near.ogg" id="6"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/yildirim_explosion_far.ogg" id="7"]
 
 [sub_resource type="Gradient" id="fire_grad"]
 offsets = PackedFloat32Array(0, 0.12, 0.35, 0.65, 1)

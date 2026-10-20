@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="MissileDefinition" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/missile/missile_definition.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/missile/missile_flight_settings.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/missile/missile_sound_settings.gd" id="snd"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/tufan_booster.ogg" id="s_b"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/tufan_sustainer.ogg" id="s_s"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/tufan_explosion_near.ogg" id="s_n"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/tufan_explosion_far.ogg" id="s_f"]
+[ext_resource type="PackedScene" path="res://scenes/missile/models/tufan_model.tscn" id="3"]
+
+[sub_resource type="Resource" id="flight"]
+script = ExtResource("2")
+max_pitch_rate_deg = 30.0
+max_yaw_rate_deg = 28.0
+turn_response = 1.5
+high_speed_turn_multiplier = 0.6
+input_curve_exponent = 1.2
+max_pitch_angle_deg = 85.0
+max_bank_deg = 20.0
+bank_response = 2.0
+launch_speed = 34.0
+max_speed = 200.0
+thrust = 60.0
+drag = 0.28
+turn_speed_bleed = 0.12
+min_speed = 24.0
+gravity_scale = 0.5
+wobble_strength_deg = 1.5
+wobble_frequency = 0.35
+wobble_seed = 505
+fuel_seconds = 15.0
+max_flight_seconds = 28.0
+
+[sub_resource type="Resource" id="sound"]
+script = ExtResource("snd")
+booster_stream = ExtResource("s_b")
+sustainer_stream = ExtResource("s_s")
+explosion_near = ExtResource("s_n")
+explosion_far = ExtResource("s_f")
+booster_seconds = 4.5
+booster_pitch = 0.75
+sustainer_pitch = 0.8
+engine_volume_db = 3.0
+air_full_speed = 190.0
+
+[resource]
+script = ExtResource("1")
+id = &"tufan"
+display_name = "Tufan"
+description = "Ağır stratejik balistik füze. Devasa itki ve yıkım; dönüşü çok ağır, yön değiştirmek için erken davranın."
+model_scene = ExtResource("3")
+flight = SubResource("flight")
+sound = SubResource("sound")
+length = 13.0
+body_radius = 0.9
+exhaust_scale = 2.6
+camera_distance = 21.0
+camera_height = 4.2
+blast_radius = 45.0
+blast_damage = 3000.0
+explosion_scale = 2.6

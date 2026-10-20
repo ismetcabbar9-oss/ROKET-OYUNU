@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" path="res://assets/textures/fx/smoke_puff.png" id="4"]
 [ext_resource type="Script" path="res://scripts/missile/missile_audio.gd" id="5"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/ignition_crack.ogg" id="6"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/motor_booster_loop.ogg" id="7"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/motor_sustainer_loop.ogg" id="8"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/yildirim_booster.ogg" id="7"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/yildirim_sustainer.ogg" id="8"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/burnout_sputter.ogg" id="9"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/air_rush_loop.ogg" id="10"]
 

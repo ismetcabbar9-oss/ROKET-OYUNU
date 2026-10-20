@@ -163,6 +163,8 @@ func _on_missile_detonated(at: Vector3, normal: Vector3, collider: Object) -> vo
 	projectiles.add_child(explosion)
 	# Ateş topu zemine gömülmesin diye yüzey normali yönünde biraz yukarı alınır
 	explosion.global_position = at + normal * 1.5 * definition.explosion_scale
+	if definition.sound != null:
+		explosion.set_sounds(definition.sound.explosion_near, definition.sound.explosion_far)
 	explosion.play(definition.explosion_scale, normal, collider != null)
 
 	camera.focus(at)

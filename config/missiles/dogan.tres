@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="MissileDefinition" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/missile/missile_definition.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/missile/missile_flight_settings.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/missile/missile_sound_settings.gd" id="snd"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/dogan_booster.ogg" id="s_b"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/dogan_sustainer.ogg" id="s_s"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/dogan_explosion_near.ogg" id="s_n"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/dogan_explosion_far.ogg" id="s_f"]
+[ext_resource type="PackedScene" path="res://scenes/missile/models/dogan_model.tscn" id="3"]
+
+[sub_resource type="Resource" id="flight"]
+script = ExtResource("2")
+max_pitch_rate_deg = 95.0
+max_yaw_rate_deg = 95.0
+turn_response = 4.5
+high_speed_turn_multiplier = 0.8
+input_curve_exponent = 1.5
+max_pitch_angle_deg = 80.0
+max_bank_deg = 55.0
+bank_response = 6.0
+launch_speed = 30.0
+max_speed = 115.0
+thrust = 45.0
+drag = 0.32
+turn_speed_bleed = 0.25
+min_speed = 14.0
+gravity_scale = 0.3
+wobble_strength_deg = 2.5
+wobble_frequency = 0.9
+wobble_seed = 707
+fuel_seconds = 14.0
+max_flight_seconds = 22.0
+
+[sub_resource type="Resource" id="sound"]
+script = ExtResource("snd")
+booster_stream = ExtResource("s_b")
+sustainer_stream = ExtResource("s_s")
+explosion_near = ExtResource("s_n")
+explosion_far = ExtResource("s_f")
+booster_seconds = 1.4
+booster_pitch = 1.1
+sustainer_pitch = 1.12
+engine_volume_db = -1.0
+air_full_speed = 100.0
+
+[resource]
+script = ExtResource("1")
+id = &"dogan"
+display_name = "Doğan"
+description = "Taktik hassas füze. Küçük ve çok çevik; dar kanyonda bile keskin dönüş yapar, savaş başlığı küçüktür."
+model_scene = ExtResource("3")
+flight = SubResource("flight")
+sound = SubResource("sound")
+length = 4.2
+body_radius = 0.2
+exhaust_scale = 0.75
+camera_distance = 6.5
+camera_height = 1.4
+blast_radius = 11.0
+blast_damage = 450.0
+explosion_scale = 0.85

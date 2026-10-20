@@ -189,27 +189,29 @@ script = ExtResource("3")
 text = "Kalibre et"
 font_size = 20
 
-[node name="MissileList" type="VBoxContainer" parent="Root"]
+[node name="MissileList" type="GridContainer" parent="Root"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -234.0
+offset_left = -338.0
 offset_top = 176.0
 offset_right = -24.0
-offset_bottom = 400.0
+offset_bottom = 420.0
 grow_horizontal = 0
 mouse_filter = 2
-theme_override_constants/separation = 10
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 8
+columns = 2
 
 [node name="LauncherList" type="VBoxContainer" parent="Root"]
 layout_mode = 0
 offset_left = 28.0
 offset_top = 196.0
 offset_right = 238.0
-offset_bottom = 400.0
+offset_bottom = 560.0
 mouse_filter = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 8
 
 [node name="FireButton" type="Control" parent="Root"]
 layout_mode = 1

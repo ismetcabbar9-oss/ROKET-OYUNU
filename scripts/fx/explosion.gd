@@ -27,6 +27,14 @@ const SPEED_OF_SOUND: float = 343.0
 @export var scorch_lifetime: float = 45.0
 
 
+## Füzeye özgü yakın/uzak patlama kayıtları (play'den önce; boş olan sahnedeki varsayılanı korur).
+func set_sounds(near: AudioStream, far: AudioStream) -> void:
+	if near != null:
+		sound.stream = near
+	if far != null:
+		far_sound.stream = far
+
+
 func play(size: float = 1.0, ground_normal: Vector3 = Vector3.UP, on_ground: bool = true) -> void:
 	scale = Vector3.ONE * size
 	for p: GPUParticles3D in particles:

@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="MissileDefinition" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/missile/missile_definition.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/missile/missile_flight_settings.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/missile/missile_sound_settings.gd" id="snd"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/simsek_booster.ogg" id="s_b"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/simsek_sustainer.ogg" id="s_s"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/simsek_explosion_near.ogg" id="s_n"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/simsek_explosion_far.ogg" id="s_f"]
+[ext_resource type="PackedScene" path="res://scenes/missile/models/simsek_model.tscn" id="3"]
+
+[sub_resource type="Resource" id="flight"]
+script = ExtResource("2")
+max_pitch_rate_deg = 42.0
+max_yaw_rate_deg = 40.0
+turn_response = 2.2
+high_speed_turn_multiplier = 0.5
+input_curve_exponent = 1.5
+max_pitch_angle_deg = 80.0
+max_bank_deg = 25.0
+bank_response = 3.5
+launch_speed = 42.0
+max_speed = 240.0
+thrust = 85.0
+drag = 0.3
+turn_speed_bleed = 0.15
+min_speed = 26.0
+gravity_scale = 0.3
+wobble_strength_deg = 2.5
+wobble_frequency = 0.7
+wobble_seed = 606
+fuel_seconds = 10.0
+max_flight_seconds = 22.0
+
+[sub_resource type="Resource" id="sound"]
+script = ExtResource("snd")
+booster_stream = ExtResource("s_b")
+sustainer_stream = ExtResource("s_s")
+explosion_near = ExtResource("s_n")
+explosion_far = ExtResource("s_f")
+booster_seconds = 2.0
+booster_pitch = 1.05
+sustainer_pitch = 1.1
+engine_volume_db = 1.0
+air_full_speed = 220.0
+
+[resource]
+script = ExtResource("1")
+id = &"simsek"
+display_name = "Şimşek"
+description = "Hipersonik füze. Akıl almaz hızlı, ama yüksek hızda dümeni sert: kısa ve kesin düzeltmelerle uçun."
+model_scene = ExtResource("3")
+flight = SubResource("flight")
+sound = SubResource("sound")
+length = 9.5
+body_radius = 0.42
+exhaust_scale = 1.6
+camera_distance = 14.0
+camera_height = 2.6
+blast_radius = 26.0
+blast_damage = 1400.0
+explosion_scale = 1.8

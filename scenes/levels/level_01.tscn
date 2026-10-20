@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3]
+[gd_scene load_steps=27 format=3]
 
 [ext_resource type="Script" path="res://scripts/level/test_range_controller.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/levels/environment/desert_environment.tscn" id="2"]
@@ -7,6 +7,10 @@
 [ext_resource type="Resource" path="res://config/missiles/sahin.tres" id="5"]
 [ext_resource type="Resource" path="res://config/missiles/kartal.tres" id="6"]
 [ext_resource type="Resource" path="res://config/missiles/yildirim.tres" id="7"]
+[ext_resource type="Resource" path="res://config/missiles/mizrak.tres" id="30"]
+[ext_resource type="Resource" path="res://config/missiles/tufan.tres" id="31"]
+[ext_resource type="Resource" path="res://config/missiles/simsek.tres" id="32"]
+[ext_resource type="Resource" path="res://config/missiles/dogan.tres" id="33"]
 [ext_resource type="PackedScene" path="res://scenes/missile/missile.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://scenes/fx/explosion.tscn" id="9"]
 [ext_resource type="Resource" path="res://config/terrain/valley_01.tres" id="10"]
@@ -22,7 +26,7 @@
 
 [node name="Level01" type="Node3D" node_paths=PackedStringArray("launchers", "target_point", "projectiles", "camera", "hud", "touch_input", "gyro_input")]
 script = ExtResource("1")
-missiles = Array[ExtResource("4")]([ExtResource("5"), ExtResource("6"), ExtResource("7")])
+missiles = Array[ExtResource("4")]([ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("30"), ExtResource("31"), ExtResource("32"), ExtResource("33")])
 missile_scene = ExtResource("8")
 explosion_scene = ExtResource("9")
 terrain_shape = ExtResource("10")

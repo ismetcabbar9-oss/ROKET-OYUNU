@@ -1,8 +1,12 @@
-[gd_resource type="Resource" script_class="MissileDefinition" load_steps=7 format=3]
+[gd_resource type="Resource" script_class="MissileDefinition" load_steps=11 format=3]
 
 [ext_resource type="Script" path="res://scripts/missile/missile_definition.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/missile/missile_flight_settings.gd" id="2"]
 [ext_resource type="Script" path="res://scripts/missile/missile_sound_settings.gd" id="snd"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/yildirim_booster.ogg" id="s_b"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/yildirim_sustainer.ogg" id="s_s"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/yildirim_explosion_near.ogg" id="s_n"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/missiles/yildirim_explosion_far.ogg" id="s_f"]
 [ext_resource type="PackedScene" path="res://scenes/missile/models/yildirim_model.tscn" id="3"]
 
 [sub_resource type="Resource" id="flight"]
@@ -30,6 +34,10 @@ max_flight_seconds = 24.0
 
 [sub_resource type="Resource" id="sound"]
 script = ExtResource("snd")
+booster_stream = ExtResource("s_b")
+sustainer_stream = ExtResource("s_s")
+explosion_near = ExtResource("s_n")
+explosion_far = ExtResource("s_f")
 booster_seconds = 3.6
 booster_pitch = 0.82
 sustainer_pitch = 0.9
