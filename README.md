@@ -93,11 +93,9 @@ xvfb-run godot --path . -s res://tools/godot/build_base_layout.gd -- \
 # Fırlatma rampası sahnelerini yeniden kur (scenes/launchers/, assets/models/launchers/)
 godot --headless --path . -s res://tools/godot/build_launchers.gd
 
-# Roket ve ortam seslerini üret (motor katmanları, hava, rüzgâr, uğultu, uzak patlama, arayüz)
-python3 tools/make_rocket_sfx.py <kenney_sci-fi-sounds/Audio> <kenney_impact-sounds/Audio> assets/audio/sfx
-
-# Rampa seslerini üret (Kenney Sci-Fi Sounds + Impact Sounds, CC0)
-python3 tools/make_launch_sfx.py <kenney_sci-fi-sounds/Audio> <kenney_impact-sounds/Audio> assets/audio/sfx
+# Oyun seslerini gerçek kayıtlardan hazırla (Sonniss GDC + Kenney; bkz. ASSETS.md)
+python3 tools/fetch_sonniss.py /tmp/ses_kaynak
+python3 tools/make_sound_assets.py /tmp/ses_kaynak assets/audio/sfx
 
 # Sketchfab'den model ara / indir (yalnızca CC0 ve CC-BY kabul edilir)
 python3 tools/sketchfab_fetch.py search "missile"

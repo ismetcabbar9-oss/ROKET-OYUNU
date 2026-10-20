@@ -1,6 +1,6 @@
 # Varlıklar ve Lisanslar
 
-Bu projede yalnızca **CC0** veya **CC-BY 4.0** lisanslı, indirilebilir varlıklar kullanılır.
+Bu projede yalnızca **CC0**, **CC-BY 4.0** ve ticari kullanıma izin veren telifsiz paketler (lisans metni `assets/licenses/` altında) kullanılır.
 CC-BY varlıkların atfı oyun içindeki "Krediler" ekranında da gösterilecektir (menü adımı).
 Her modelin klasöründe ayrıca `ATTRIBUTION.txt` bulunur.
 Oyunda gerçek ürün/silah isimleri ve ulusal işaretler kullanılmaz: füzeler kurgusal isimlerle
@@ -46,38 +46,38 @@ Oyunda gerçek ürün/silah isimleri ve ulusal işaretler kullanılmaz: füzeler
 | Gravel Road (1k) | `assets/textures/surfaces/gravel_road_*` | Amal Kumar | [Poly Haven](https://polyhaven.com/a/gravel_road) | CC0 |
 | Cliff Side (1k) | `assets/textures/terrain/cliff_side_*` | James Ray Cock, Jenelle van Heerden, Dario Barresi | [Poly Haven](https://polyhaven.com/a/cliff_side) | CC0 |
 
-## Sesler (Kenney, CC0)
+## Sesler
 
-| Varlık | Dosya yolu | Kaynak | Lisans | Değişiklik |
-|---|---|---|---|---|
-| Sci-Fi Sounds 1.0 — `lowFrequency_explosion_000` + `explosionCrunch_004` | `assets/audio/sfx/explosion_large.ogg` | [kenney.nl](https://kenney.nl/assets/sci-fi-sounds) | CC0 | İki ses katmanlandı (`tools/make_sfx.py`) |
+Oyun sesleri **gerçek kayıtlardır** (sentez yok); `tools/fetch_sonniss.py` kaynakları indirir,
+`tools/make_sound_assets.py` keser, döngüler, katmanlar ve seviyelerini eşitler.
 
-### Fırlatma rampası sesleri (Kenney Sci-Fi Sounds 1.0 + Impact Sounds 1.0, CC0)
-Hepsi `tools/make_launch_sfx.py` ile üretildi.
+### Sonniss #GameAudioGDC paketleri (telifsiz, ticari kullanım serbest, atıf gerekmez)
+Lisans metni: `assets/licenses/sonniss_gdc_license.pdf` (+ `.txt`). Kayıtlar, archive.org'daki
+paket yansısından (`sonniss.com-gdc-game-audio-bundles`) tek tek alındı.
 
-| Ses | Dosya yolu | Kaynak parçalar | Lisans |
+| Ses | Dosya yolu | Kütüphane (Sonniss GDC) | Kaynak kayıt |
 |---|---|---|---|
-| Uyarı kornası | `assets/audio/sfx/launch_alarm.ogg` | Prosedürel (iki tonlu kare dalga) | Projeye özgü |
-| Hidrolik pompa döngüsü | `assets/audio/sfx/hydraulic_loop.ogg` | `spaceEngineLow_000` + prosedürel vınlama/tıslama | CC0 ([kenney.nl](https://kenney.nl/assets/sci-fi-sounds)) |
-| Kilit pimi | `assets/audio/sfx/lock_clunk.ogg` | `impactMetal_heavy_000` + `impactPlate_heavy_001` | CC0 ([kenney.nl](https://kenney.nl/assets/impact-sounds)) |
-| Silo kapağı | `assets/audio/sfx/hatch_open.ogg` | `doorOpen_001` (yavaşlatıldı) + `impactPlate_heavy_001` + prosedürel sürtünme | CC0 |
-| Soğuk fırlatma "pof" | `assets/audio/sfx/cold_launch_pof.ogg` | `lowFrequency_explosion_001` + prosedürel gaz tıslaması | CC0 |
-| Ateşleme gürlemesi | `assets/audio/sfx/ignition_roar.ogg` | `thrusterFire_002` + `explosionCrunch_000` + `lowFrequency_explosion_000` | CC0 |
+| Booster gürlemesi (döngü) | `assets/audio/sfx/motor_booster_loop.ogg` | Airborne Sound — Attack Aircraft Maneuvers | `Jet,Fighter,FA-18C,Hornet,…,Kill Engine,191` (6,0–11,2 sn) |
+| Sustainer (döngü) | `assets/audio/sfx/motor_sustainer_loop.ogg` | Airborne Sound — Variety 1 | `Jet,Fighter,F-22,Raptor,By,Slow,Crackle` (10,4–14,2 sn) |
+| Yakıt bitişi | `assets/audio/sfx/burnout_sputter.ogg` | Airborne Sound — Attack Aircraft Maneuvers | FA-18C motor kapatma anı (17,6–21,6 sn) |
+| Hava sürtünmesi (döngü) | `assets/audio/sfx/air_rush_loop.ogg` | Airborne Sound — Jet Fighter Maneuvers | `Jet,Fighter,CF-18,Hornet,By,Slow,Rip to Whistle` (6,8–10,8 sn) |
+| Ateşleme çatlaması | `assets/audio/sfx/ignition_crack.ogg` | Pole Position — The Warfare 2 Library | `RPG - FIRING AND IMPACT …` (atış anı) |
+| Rampada ateşleme gürlemesi | `assets/audio/sfx/ignition_roar.ogg` | Warfare 2 + InspectorJ — Essentials 03 Fireworks + Airborne Sound | RPG atışı + `Fireworks_Launch_Close_01-03` + FA-18C gürlemesi katmanı |
+| Soğuk fırlatma "pof" | `assets/audio/sfx/cold_launch_pof.ogg` | BluezoneCorp — Detonation + Airborne Sound — Variety 1 | `explosion_mortar_002_01` (boğuk) + `Steam Blast,Tube or Pipe,Distant` |
+| Yakın patlama | `assets/audio/sfx/explosion_large.ogg` | Bluezone — Tank Explosion + Stefano Cremona — Explosions | `explosion_outdoors_large_005` + `DeepExplosion02` (boğuk katman) |
+| Uzak patlama | `assets/audio/sfx/explosion_far.ogg` | Stefano Cremona — Explosions + Pole Position — Warfare 2 | `FarExplosion03` + `Tank Mine - EXPLOSION - … DISTANT` |
+| Hidrolik pompa (döngü) | `assets/audio/sfx/hydraulic_loop.ogg` | Pole Position — Hydraulics & Pneumatics | `Robot_1_axle_1_speed_-1_MKH8060` (7,1–10,5 sn) |
+| Kilit pimi | `assets/audio/sfx/lock_clunk.ogg` | Bottle Rocket Fx — Cyborg Collection | `Spacecraft_Bay Door_Lock Down_Large_01` (ilk vuruş) |
+| Silo kapağı | `assets/audio/sfx/hatch_open.ogg` | Pole Position — Hydraulics & Pneumatics + Bottle Rocket Fx | `Machine_6_mono_06` + `Spacecraft_Bay Door_Lock Down_Large_01` |
+| Uyarı kornası | `assets/audio/sfx/launch_alarm.ogg` | David Dumais Audio — Alarms Pack 1 | `LargeAlarm5.2_Single_Slow_DDM_Loop` (3 tekrar) |
+| Çöl rüzgârı (döngü, stereo) | `assets/audio/sfx/desert_wind_loop.ogg` | Soundrangers — Wind | `wind_desert_01_60_loop` |
+| Üs uğultusu (döngü) | `assets/audio/sfx/base_hum_loop.ogg` | Articulated Sounds — 100 Fans, HVAC & Mechanical Drones | `FAN Outdoor AC Unit, Constant Blow Drone Noise, LOOP` (10–22 sn) |
 
-### Roket sesleri v2 (Kenney Sci-Fi Sounds 1.0 + Impact Sounds 1.0, CC0 + prosedürel)
-Hepsi `tools/make_rocket_sfx.py` ile üretildi; döngüler FFT ile süzülmüş gürültüden (kusursuz döngü).
+### Kenney Impact Sounds 1.0 (CC0)
 
-| Ses | Dosya yolu | Kaynak parçalar | Lisans |
+| Ses | Dosya yolu | Kaynak | Lisans |
 |---|---|---|---|
-| Booster gürlemesi (döngü) | `assets/audio/sfx/motor_booster_loop.ogg` | `thrusterFire_000` + `spaceEngineLarge_001` + prosedürel gürleme/çıtırtı | CC0 |
-| Sustainer (döngü) | `assets/audio/sfx/motor_sustainer_loop.ogg` | `thrusterFire_003` + prosedürel tıslama | CC0 |
-| Ateşleme çatlaması | `assets/audio/sfx/ignition_crack.ogg` | `explosionCrunch_002` + prosedürel kıvılcım | CC0 |
-| Yakıt bitişi | `assets/audio/sfx/burnout_sputter.ogg` | Prosedürel | Projeye özgü |
-| Hava sürtünmesi (döngü) | `assets/audio/sfx/air_rush_loop.ogg` | Prosedürel | Projeye özgü |
-| Çöl rüzgârı (döngü) | `assets/audio/sfx/desert_wind_loop.ogg` | Prosedürel | Projeye özgü |
-| Üs jeneratör uğultusu (döngü) | `assets/audio/sfx/base_hum_loop.ogg` | `spaceEngineLow_002` + prosedürel 50 Hz | CC0 |
-| Uzak patlama + vadi yankısı | `assets/audio/sfx/explosion_far.ogg` | `lowFrequency_explosion_000` + prosedürel yankı/kuyruk | CC0 |
-| Arayüz tıklaması | `assets/audio/sfx/ui_click.ogg` | `impactGeneric_light_001` (Impact Sounds) | CC0 |
+| Arayüz tıklaması | `assets/audio/sfx/ui_click.ogg` | `impactGeneric_light_001` ([kenney.nl](https://kenney.nl/assets/impact-sounds)) | CC0 |
 
 ## Projeye özgü (üretilmiş) varlıklar
 

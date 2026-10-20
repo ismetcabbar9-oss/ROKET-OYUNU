@@ -3,7 +3,7 @@ extends Resource
 ## Bölümün ortam sesi ayarları (rüzgâr, üs uğultusu, yankı bölgeleri).
 
 @export_group("Rüzgâr")
-@export_range(-60.0, 6.0, 0.5, "suffix:dB") var wind_volume_db: float = -15.0
+@export_range(-60.0, 6.0, 0.5, "suffix:dB") var wind_volume_db: float = -9.0
 ## Esintilerin ses seviyesine etkisi (± dB).
 @export_range(0.0, 20.0, 0.5, "suffix:dB") var gust_depth_db: float = 5.0
 ## Esinti sıklığı (düşük = yavaş, uzun esintiler).

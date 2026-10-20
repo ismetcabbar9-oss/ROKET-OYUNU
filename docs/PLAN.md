@@ -79,8 +79,8 @@ yollar, beton zeminler, çitler, yapılar ile okunur bir mekan.
 ## Faz 3 — Roket sesleri v2  ✅ tamamlandı, tablet onayı bekleniyor
 > Sonuç: katmanlı motor (MissileAudio, füze başına MissileSoundSettings), doppler, ses hızıyla
 > gecikmeli yakın/uzak patlama, rüzgâr + üs uğultusu + kanyon/vadi yankısı, 5 veri yolu ve
-> UserSettings seviyeleri; 44 birim testi. Kaynaklar: Kenney CC0 + prosedürel sentez (Sonniss
-> paketleri gerekmedi; daha zengin kayıt istenirse ileride eklenebilir).
+> UserSettings seviyeleri; 44 birim testi. Kaynaklar: gerçek kayıtlar — Sonniss GDC paketleri (jet
+> art yakıcı, RPG atışı, patlamalar, çöl rüzgârı, hidrolik) + Kenney arayüz tıklaması; sentez yok.
 - Katmanlı motor sesi: ateşleme çatlaması, booster gürlemesi (döngü), sustainer, yakıt bitişi,
   hıza bağlı hava sürtünmesi/rüzgâr, kameraya göre geçiş (doppler).
 - Ortam: çöl rüzgârı, üs uğultusu; kanyonda yankı bölgeleri (Area3D + reverb).

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1")
-wind_volume_db = -15.0
+wind_volume_db = -9.0
 gust_depth_db = 5.0
 gust_frequency = 0.12
 hum_zones = PackedStringArray("Servis alanı", "Yakıt deposu", "Hedef kompleksi")
