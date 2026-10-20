@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/models/missiles/tufan/model.gltf" id="1_6ied2"]
+
+[node name="TufanModel" type="Node3D" unique_id=263572684]
+
+[node name="Model" parent="." unique_id=1368519277 instance=ExtResource("1_6ied2")]
+transform = Transform3D(38.017204, 0, 0, 0, 0, 38.017204, 0, -38.017204, 0, -0.00089145935, 2.6865594, 10.756178)

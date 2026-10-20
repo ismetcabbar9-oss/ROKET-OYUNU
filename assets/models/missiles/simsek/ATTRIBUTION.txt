@@ -1,0 +1,4 @@
+"Fattah hypersonic missile" by Mehdi Shahsavan (https://sketchfab.com/ahmagh2e)
+Source: https://sketchfab.com/3d-models/fattah-hypersonic-missile-a2f3cee071fd45c098a5ead2b1aebbaf
+License: CC-BY 4.0
+Changes: textures resized to <= 2048px for mobile.

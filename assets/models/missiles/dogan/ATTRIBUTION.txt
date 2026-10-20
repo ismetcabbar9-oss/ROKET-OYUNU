@@ -1,0 +1,4 @@
+"Kh-38MT air-to-ground missile" by Jeyhun1985 (https://sketchfab.com/Jeyhun1985)
+Source: https://sketchfab.com/3d-models/kh-38mt-air-to-ground-missile-559e695e8ade454eb575745cc1213ab9
+License: CC-BY 4.0
+Changes: textures resized to <= 2048px for mobile.

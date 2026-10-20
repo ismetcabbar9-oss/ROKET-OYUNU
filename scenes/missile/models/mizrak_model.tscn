@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/models/missiles/mizrak/model.gltf" id="1_wn330"]
+
+[node name="MizrakModel" type="Node3D" unique_id=9810562]
+
+[node name="Model" parent="." unique_id=1652852519 instance=ExtResource("1_wn330")]
+transform = Transform3D(0.916361, 0, 0, 0, 0.916361, 0, 0, 0, 0.916361, -1.0923874e-06, -1.6315924, 0.7031606)

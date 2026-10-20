@@ -1,0 +1,4 @@
+"Strategic nuclear missile R-36M (SS-18 Satan)" by Bogdan Kuznetsov (https://sketchfab.com/kuznetsov_bogdan)
+Source: https://sketchfab.com/3d-models/strategic-nuclear-missile-r-36m-ss-18-satan-de83c0d0a16144efa499b44975740d58
+License: CC-BY 4.0
+Changes: textures resized to <= 2048px for mobile.

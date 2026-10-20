@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/models/missiles/dogan/model.gltf" id="1_im44u"]
+
+[node name="DoganModel" type="Node3D" unique_id=2106363168]
+
+[node name="Model" parent="." unique_id=1645859643 instance=ExtResource("1_im44u")]
+transform = Transform3D(0, 0, 1.006639, 0, 1.006639, 0, -1.006639, 0, 0, 0, -0.0067545404, 0)

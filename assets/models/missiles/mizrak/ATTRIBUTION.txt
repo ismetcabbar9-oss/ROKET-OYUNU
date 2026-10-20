@@ -1,0 +1,4 @@
+"R-360 "Neptune" anti-ship cruise missile" by MrZeuglodon (https://sketchfab.com/MrZeuglodon)
+Source: https://sketchfab.com/3d-models/r-360-neptune-anti-ship-cruise-missile-a64c109936da417eb7ce4346a801a276
+License: CC-BY 4.0
+Changes: textures resized to <= 2048px for mobile.

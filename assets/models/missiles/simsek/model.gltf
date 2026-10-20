@@ -1,0 +1,332 @@
+{
+ "accessors": [
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 227,
+   "max": [
+    412.3549499511719,
+    40.344478607177734,
+    47.79999923706055
+   ],
+   "min": [
+    -205.05360412597656,
+    -55.255523681640625,
+    -47.80000305175781
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "byteOffset": 2724,
+   "componentType": 5126,
+   "count": 227,
+   "max": [
+    0.1031029224395752,
+    0.9062193036079407,
+    0.9062193036079407
+   ],
+   "min": [
+    -0.051807940006256104,
+    -0.9771131277084351,
+    -0.9062193036079407
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5126,
+   "count": 227,
+   "max": [
+    1.0,
+    0.8900309205055237,
+    0.5066125392913818,
+    1.0
+   ],
+   "min": [
+    -1.0,
+    -0.8900361061096191,
+    -0.5081336498260498,
+    -1.0
+   ],
+   "type": "VEC4"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 227,
+   "max": [
+    0.9298639893531799,
+    0.8392770290374756
+   ],
+   "min": [
+    0.007594000082463026,
+    0.0939129963517189
+   ],
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 0,
+   "componentType": 5125,
+   "count": 573,
+   "type": "SCALAR"
+  },
+  {
+   "bufferView": 2,
+   "byteOffset": 5448,
+   "componentType": 5126,
+   "count": 17729,
+   "max": [
+    412.3549499511719,
+    40.344478607177734,
+    47.79999923706055
+   ],
+   "min": [
+    -412.3549499511719,
+    -55.255523681640625,
+    -47.80000305175781
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "byteOffset": 218196,
+   "componentType": 5126,
+   "count": 17729,
+   "max": [
+    1.0,
+    0.9999841451644897,
+    0.9999841451644897
+   ],
+   "min": [
+    -1.0,
+    -0.9999841451644897,
+    -0.9999841451644897
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 3,
+   "byteOffset": 3632,
+   "componentType": 5126,
+   "count": 17729,
+   "max": [
+    1.0,
+    1.0,
+    0.8452696800231934,
+    1.0
+   ],
+   "min": [
+    -1.0,
+    -1.0,
+    -0.8443148136138916,
+    1.0
+   ],
+   "type": "VEC4"
+  },
+  {
+   "bufferView": 1,
+   "byteOffset": 1816,
+   "componentType": 5126,
+   "count": 17729,
+   "max": [
+    0.9876660108566284,
+    0.9924060106277466
+   ],
+   "min": [
+    0.007594000082463026,
+    0.007594000082463026
+   ],
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 0,
+   "byteOffset": 2292,
+   "componentType": 5125,
+   "count": 58623,
+   "type": "SCALAR"
+  }
+ ],
+ "asset": {
+  "extras": {
+   "author": "Mehdi Shahsavan (https://sketchfab.com/ahmagh2e)",
+   "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+   "source": "https://sketchfab.com/3d-models/fattah-hypersonic-missile-a2f3cee071fd45c098a5ead2b1aebbaf",
+   "title": "Fattah hypersonic missile"
+  },
+  "generator": "Sketchfab-16.56.0",
+  "version": "2.0"
+ },
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 236784,
+   "name": "floatBufferViews",
+   "target": 34963
+  },
+  {
+   "buffer": 0,
+   "byteLength": 143648,
+   "byteOffset": 236784,
+   "byteStride": 8,
+   "name": "floatBufferViews",
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 430944,
+   "byteOffset": 380432,
+   "byteStride": 12,
+   "name": "floatBufferViews",
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 287296,
+   "byteOffset": 811376,
+   "byteStride": 16,
+   "name": "floatBufferViews",
+   "target": 34962
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 1098672,
+   "uri": "scene.bin"
+  }
+ ],
+ "images": [
+  {
+   "uri": "textures/default_baseColor.jpg"
+  },
+  {
+   "uri": "textures/default_metallicRoughness.png"
+  },
+  {
+   "uri": "textures/default_normal.png"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "default",
+   "normalTexture": {
+    "index": 2
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 0
+    },
+    "metallicRoughnessTexture": {
+     "index": 1
+    }
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "Object_0",
+   "primitives": [
+    {
+     "attributes": {
+      "NORMAL": 1,
+      "POSITION": 0,
+      "TANGENT": 2,
+      "TEXCOORD_0": 3
+     },
+     "indices": 4,
+     "material": 0,
+     "mode": 4
+    }
+   ]
+  },
+  {
+   "name": "Object_1",
+   "primitives": [
+    {
+     "attributes": {
+      "NORMAL": 6,
+      "POSITION": 5,
+      "TANGENT": 7,
+      "TEXCOORD_0": 8
+     },
+     "indices": 9,
+     "material": 0,
+     "mode": 4
+    }
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "children": [
+    1
+   ],
+   "matrix": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    2.220446049250313e-16,
+    -1.0,
+    0.0,
+    0.0,
+    1.0,
+    2.220446049250313e-16,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "name": "Sketchfab_model"
+  },
+  {
+   "children": [
+    2,
+    3
+   ],
+   "name": "fatah.obj.cleaner.materialmerger.gles"
+  },
+  {
+   "mesh": 0,
+   "name": "Object_2"
+  },
+  {
+   "mesh": 1,
+   "name": "Object_3"
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987,
+   "wrapS": 10497,
+   "wrapT": 10497
+  }
+ ],
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Sketchfab_Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  }
+ ]
+}

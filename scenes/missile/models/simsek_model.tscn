@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/models/missiles/simsek/model.gltf" id="1_jwhjc"]
+
+[node name="SimsekModel" type="Node3D" unique_id=1495609389]
+
+[node name="Model" parent="." unique_id=752948421 instance=ExtResource("1_jwhjc")]
+transform = Transform3D(0, 0, -0.011519201, 0, 0.011519201, 0, 0.011519201, 0, 0, 0.08588164, 0, -3.5153812e-07)
