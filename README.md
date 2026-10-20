@@ -40,12 +40,24 @@ Dönüş hızı, atalet (`turn_response`), sapma/titreşim (`wobble_*`), hız, i
 kamera uzaklığı ve patlama büyüklüğü buradadır. Arazi biçimi: `config/terrain/valley_01.tres`
 (değiştirdikten sonra araziyi yeniden üretin, aşağıya bakın).
 
+## Ses
+- Veri yolları: **Master** (sınırlayıcı) → **SFX**, **Ambient**, **UI**; kanyon/vadi yankısı **Canyon**
+  veri yolunda (`default_bus_layout.tres`). Seviyeler `UserSettings` içinde (`sfx_volume`,
+  `ambient_volume`, `ui_volume`; menü Faz 7'de).
+- Füze sesi katmanlıdır (`MissileAudio`): ateşleme çatlaması → booster → sustainer → yakıt bitişi,
+  üstüne hıza bağlı hava sürtünmesi; doppler açık. Füze başına ayarlar
+  `config/missiles/<füze>.tres` → *Ses* grubunda.
+- Patlamalar yakın/uzak iki katmanlıdır ve ses hızıyla gecikir (uzaktaki patlamanın gümlemesi sonra gelir).
+- Ortam: esintili çöl rüzgârı, üs bölgelerinde jeneratör uğultusu, kanyon geçidinde ve sırtın
+  ardındaki vadide yankı (`config/audio/valley_01_ambient.tres`).
+
 ## Proje yapısı
 | Klasör | İçerik |
 |---|---|
 | `autoload/` | Global düğümler: `GameState`, `UserSettings` (kontrol modu, hassasiyet, ses) |
 | `config/` | Oyun hissi ve bölüm ayarları (`.tres` Resource) |
 | `scripts/missile/` | `MissileFlightModel` (saf uçuş fiziği), `Missile`, `MissileDefinition`, egzoz |
+| `scripts/audio/` | `AmbientAudio` (rüzgâr, uğultu, yankı bölgeleri), `AmbientSoundSettings` |
 | `scripts/launcher/` | `Launcher` (fırlatma dizisi), `LauncherDefinition`, `LauncherCameraShot`, `HydraulicRam` |
 | `scripts/input/` | `SteerInput` tabanı, dokunmatik ve jiroskop girdileri |
 | `scripts/camera/` | `ChaseCamera` (takip, arazi çarpışması, sarsıntı) |
@@ -80,6 +92,9 @@ xvfb-run godot --path . -s res://tools/godot/build_base_layout.gd -- \
 
 # Fırlatma rampası sahnelerini yeniden kur (scenes/launchers/, assets/models/launchers/)
 godot --headless --path . -s res://tools/godot/build_launchers.gd
+
+# Roket ve ortam seslerini üret (motor katmanları, hava, rüzgâr, uğultu, uzak patlama, arayüz)
+python3 tools/make_rocket_sfx.py <kenney_sci-fi-sounds/Audio> <kenney_impact-sounds/Audio> assets/audio/sfx
 
 # Rampa seslerini üret (Kenney Sci-Fi Sounds + Impact Sounds, CC0)
 python3 tools/make_launch_sfx.py <kenney_sci-fi-sounds/Audio> <kenney_impact-sounds/Audio> assets/audio/sfx

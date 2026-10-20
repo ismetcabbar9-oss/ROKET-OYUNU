@@ -2,7 +2,6 @@
 """Kenney Sci-Fi Sounds (CC0) kaynaklarından oyun seslerini üretir.
 
 Kullanım: python3 tools/make_sfx.py <kenney_sci-fi-sounds/Audio> assets/audio/sfx
-- rocket_motor_loop.ogg : thrusterFire_000, çapraz geçişle kusursuz döngü
 - explosion_large.ogg   : lowFrequency_explosion_000 + explosionCrunch_004 katmanı
 (ffmpeg gerektirir)
 """
@@ -36,13 +35,6 @@ def encode(samples: np.ndarray, path: Path) -> None:
 def main() -> None:
     src, out = Path(sys.argv[1]), Path(sys.argv[2])
     out.mkdir(parents=True, exist_ok=True)
-
-    motor = decode(src / "thrusterFire_000.ogg")
-    fade = int(0.6 * RATE)
-    loop = motor[: len(motor) - fade].copy()
-    t = np.linspace(0.0, 1.0, fade, dtype=np.float32)
-    loop[:fade] = motor[:fade] * t + motor[len(motor) - fade:] * (1.0 - t)
-    encode(loop, out / "rocket_motor_loop.ogg")
 
     boom = decode(src / "lowFrequency_explosion_000.ogg")
     crunch = decode(src / "explosionCrunch_004.ogg")

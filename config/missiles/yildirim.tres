@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="MissileDefinition" load_steps=5 format=3]
+[gd_resource type="Resource" script_class="MissileDefinition" load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://scripts/missile/missile_definition.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/missile/missile_flight_settings.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/missile/missile_sound_settings.gd" id="snd"]
 [ext_resource type="PackedScene" path="res://scenes/missile/models/yildirim_model.tscn" id="3"]
 
 [sub_resource type="Resource" id="flight"]
@@ -27,6 +28,14 @@ wobble_seed = 303
 fuel_seconds = 14.0
 max_flight_seconds = 24.0
 
+[sub_resource type="Resource" id="sound"]
+script = ExtResource("snd")
+booster_seconds = 3.6
+booster_pitch = 0.82
+sustainer_pitch = 0.9
+engine_volume_db = 2.0
+air_full_speed = 150.0
+
 [resource]
 script = ExtResource("1")
 id = &"yildirim"
@@ -34,6 +43,7 @@ display_name = "Yıldırım"
 description = "Ağır ve çok hızlı taktik balistik füze. Geniş döner, ataleti yüksek, gücü büyük."
 model_scene = ExtResource("3")
 flight = SubResource("flight")
+sound = SubResource("sound")
 length = 8.9
 body_radius = 0.32
 exhaust_scale = 1.5

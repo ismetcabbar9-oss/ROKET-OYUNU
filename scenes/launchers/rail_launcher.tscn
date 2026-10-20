@@ -24,7 +24,7 @@ height = 0.26
 radial_segments = 8
 rings = 4
 
-[node name="RailLauncher" type="Node3D" unique_id=1573151241 node_paths=PackedStringArray("cradle", "blast_point", "beacons", "alarm_sound", "mechanism_sound", "lock_sound", "raise_pivot", "hatches", "clamps", "rams")]
+[node name="RailLauncher" type="Node3D" unique_id=2035458874 node_paths=PackedStringArray("cradle", "blast_point", "beacons", "alarm_sound", "mechanism_sound", "lock_sound", "raise_pivot", "hatches", "clamps", "rams")]
 script = ExtResource("1_d5uba")
 definition = ExtResource("2_atduk")
 cradle = NodePath("Rail/Cradle")
@@ -46,87 +46,90 @@ clamps = [NodePath("Rail/ClampLeft"), NodePath("Rail/ClampRight")]
 clamp_open_deg = 65.0
 rams = [NodePath("Ram")]
 
-[node name="Plinth" type="MeshInstance3D" parent="." unique_id=1630002757]
+[node name="Plinth" type="MeshInstance3D" parent="." unique_id=1057678804]
 material_override = ExtResource("4_puf7q")
 mesh = ExtResource("5_if10p")
 
-[node name="Rail" type="Node3D" parent="." unique_id=1932861703]
+[node name="Rail" type="Node3D" parent="." unique_id=1973303232]
 transform = Transform3D(1, 0, 0, 0, 0.99026805, -0.1391731, 0, 0.1391731, 0.99026805, 0, 1.95, 3.4)
 
-[node name="RailMesh" type="MeshInstance3D" parent="Rail" unique_id=1359598374]
+[node name="RailMesh" type="MeshInstance3D" parent="Rail" unique_id=1276213643]
 material_override = ExtResource("6_53luf")
 mesh = ExtResource("7_i7peb")
 
-[node name="ClampLeft" type="Node3D" parent="Rail" unique_id=145900233]
+[node name="ClampLeft" type="Node3D" parent="Rail" unique_id=407952181]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.12, -4.6)
 
-[node name="Mesh" type="MeshInstance3D" parent="Rail/ClampLeft" unique_id=1149697544]
+[node name="Mesh" type="MeshInstance3D" parent="Rail/ClampLeft" unique_id=1409673445]
 material_override = ExtResource("6_53luf")
 cast_shadow = 0
 visibility_range_end = 90.0
 mesh = ExtResource("8_gfbyg")
 
-[node name="ClampRight" type="Node3D" parent="Rail" unique_id=1791498992]
+[node name="ClampRight" type="Node3D" parent="Rail" unique_id=1677118069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.12, -4.6)
 
-[node name="Mesh" type="MeshInstance3D" parent="Rail/ClampRight" unique_id=2027770955]
+[node name="Mesh" type="MeshInstance3D" parent="Rail/ClampRight" unique_id=412174490]
 material_override = ExtResource("6_53luf")
 cast_shadow = 0
 visibility_range_end = 90.0
 mesh = ExtResource("9_2g7sy")
 
-[node name="Cradle" type="Marker3D" parent="Rail" unique_id=420154430]
+[node name="Cradle" type="Marker3D" parent="Rail" unique_id=920845780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, -4.6)
 
-[node name="RamAttach" type="Marker3D" parent="Rail" unique_id=2008834315]
+[node name="RamAttach" type="Marker3D" parent="Rail" unique_id=835229691]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, -6.4)
 
-[node name="RamAnchor" type="Marker3D" parent="." unique_id=908232287]
+[node name="RamAnchor" type="Marker3D" parent="." unique_id=1209536706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -3.2)
 
-[node name="Ram" type="Node3D" parent="." unique_id=393383957 node_paths=PackedStringArray("anchor", "attach", "barrel", "rod")]
+[node name="Ram" type="Node3D" parent="." unique_id=1088457472 node_paths=PackedStringArray("anchor", "attach", "barrel", "rod")]
 script = ExtResource("10_7lip6")
 anchor = NodePath("../RamAnchor")
 attach = NodePath("../Rail/RamAttach")
 barrel = NodePath("Barrel")
 rod = NodePath("Rod")
 
-[node name="Barrel" type="MeshInstance3D" parent="Ram" unique_id=1641928458]
+[node name="Barrel" type="MeshInstance3D" parent="Ram" unique_id=898878875]
 material_override = ExtResource("6_53luf")
 cast_shadow = 0
 visibility_range_end = 90.0
 mesh = ExtResource("11_foy73")
 
-[node name="Rod" type="MeshInstance3D" parent="Ram" unique_id=1918951547]
+[node name="Rod" type="MeshInstance3D" parent="Ram" unique_id=1119533209]
 material_override = ExtResource("6_53luf")
 cast_shadow = 0
 visibility_range_end = 90.0
 mesh = ExtResource("12_us5p0")
 
-[node name="Beacon" type="MeshInstance3D" parent="." unique_id=1907927781]
+[node name="Beacon" type="MeshInstance3D" parent="." unique_id=1108282435]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 2.7, 2.2)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_bew3e")
 
-[node name="BlastPoint" type="Marker3D" parent="." unique_id=1206380385]
+[node name="BlastPoint" type="Marker3D" parent="." unique_id=460833585]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 5)
 
-[node name="Alarm" type="AudioStreamPlayer3D" parent="." unique_id=647544628]
+[node name="Alarm" type="AudioStreamPlayer3D" parent="." unique_id=1131085836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 stream = ExtResource("14_aijyw")
 volume_db = -6.0
 unit_size = 14.0
 max_distance = 600.0
+bus = &"SFX"
 
-[node name="Mechanism" type="AudioStreamPlayer3D" parent="." unique_id=226251095]
+[node name="Mechanism" type="AudioStreamPlayer3D" parent="." unique_id=881348062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 stream = ExtResource("15_yns1u")
 volume_db = -4.0
 unit_size = 14.0
 max_distance = 600.0
+bus = &"SFX"
 
-[node name="Lock" type="AudioStreamPlayer3D" parent="." unique_id=237024669]
+[node name="Lock" type="AudioStreamPlayer3D" parent="." unique_id=1965298142]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 stream = ExtResource("16_kdned")
 unit_size = 14.0
 max_distance = 600.0
+bus = &"SFX"

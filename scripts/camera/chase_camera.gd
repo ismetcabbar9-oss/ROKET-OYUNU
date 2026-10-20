@@ -57,6 +57,8 @@ var _blend_duration: float = 0.0
 func _ready() -> void:
 	# Kamera _process içinde hareket ettiriliyor; fizik interpolasyonu ona uygulanmamalı.
 	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	# Kamera _process'te hareket eder; füzelerin doppler kaymasını kamera hızına göre hesapla
+	doppler_tracking = Camera3D.DOPPLER_TRACKING_IDLE_STEP
 	add_to_group(Explosion.SHAKE_GROUP)
 	_noise.frequency = 2.5
 	fov = base_fov

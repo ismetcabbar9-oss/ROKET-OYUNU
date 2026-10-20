@@ -21,6 +21,10 @@ extends Resource
 @export_range(1.0, 60.0, 0.5, "suffix:m") var camera_distance: float = 9.0
 @export_range(0.0, 20.0, 0.1, "suffix:m") var camera_height: float = 2.2
 
+@export_group("Ses")
+## Motor katmanları ve hava sürtünmesi; boşsa varsayılan ayarlar kullanılır.
+@export var sound: MissileSoundSettings
+
 @export_group("Savaş başlığı")
 ## Patlama yarıçapı (hedef/yıkım adımında kullanılacak).
 @export_range(1.0, 100.0, 0.5, "suffix:m") var blast_radius: float = 14.0

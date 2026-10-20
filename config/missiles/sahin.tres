@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="MissileDefinition" load_steps=5 format=3]
+[gd_resource type="Resource" script_class="MissileDefinition" load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://scripts/missile/missile_definition.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/missile/missile_flight_settings.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/missile/missile_sound_settings.gd" id="snd"]
 [ext_resource type="PackedScene" path="res://scenes/missile/models/sahin_model.tscn" id="3"]
 
 [sub_resource type="Resource" id="flight"]
@@ -27,6 +28,14 @@ wobble_seed = 101
 fuel_seconds = 20.0
 max_flight_seconds = 30.0
 
+[sub_resource type="Resource" id="sound"]
+script = ExtResource("snd")
+booster_seconds = 1.6
+booster_pitch = 1.18
+sustainer_pitch = 1.22
+engine_volume_db = -2.0
+air_full_speed = 90.0
+
 [resource]
 script = ExtResource("1")
 id = &"sahin"
@@ -34,6 +43,7 @@ display_name = "Şahin"
 description = "Kısa menzilli, çevik taktik füze. Keskin döner ama yakıtı az ve hafif sallanır."
 model_scene = ExtResource("3")
 flight = SubResource("flight")
+sound = SubResource("sound")
 length = 3.2
 body_radius = 0.22
 exhaust_scale = 0.8

@@ -225,8 +225,10 @@ cull_mask = 1
 stream = ExtResource("5")
 unit_size = 40.0
 max_distance = 3000.0
+bus = &"SFX"
 
 [node name="Pof" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6")
 unit_size = 30.0
 max_distance = 2000.0
+bus = &"SFX"

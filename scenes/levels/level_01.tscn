@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3]
+[gd_scene load_steps=23 format=3]
 
 [ext_resource type="Script" path="res://scripts/level/test_range_controller.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/levels/environment/desert_environment.tscn" id="2"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scripts/input/touch_steer_input.gd" id="14"]
 [ext_resource type="Script" path="res://scripts/input/gyro_steer_input.gd" id="15"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="16"]
+[ext_resource type="PackedScene" path="res://scenes/audio/ambient_audio.tscn" id="19"]
 
 [node name="Level01" type="Node3D" node_paths=PackedStringArray("launchers", "target_point", "projectiles", "camera", "hud", "touch_input", "gyro_input")]
 script = ExtResource("1")
@@ -55,6 +56,9 @@ transform = Transform3D(0.98261, 0, 0.18567, 0, 1, 0, -0.18567, 0, 0.98261, -87.
 
 
 
+
+[node name="AmbientAudio" parent="." instance=ExtResource("19")]
+terrain_shape = ExtResource("10")
 
 [node name="Projectiles" type="Node3D" parent="."]
 

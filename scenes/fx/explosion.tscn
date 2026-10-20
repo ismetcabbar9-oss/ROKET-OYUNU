@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3]
+[gd_scene load_steps=36 format=3]
 
 [ext_resource type="Script" path="res://scripts/fx/explosion.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/textures/fx/fire_puff.png" id="2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" path="res://assets/textures/fx/glow_dot.png" id="4"]
 [ext_resource type="Texture2D" path="res://assets/textures/fx/scorch.png" id="5"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/explosion_large.ogg" id="6"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/explosion_far.ogg" id="7"]
 
 [sub_resource type="Gradient" id="fire_grad"]
 offsets = PackedFloat32Array(0, 0.12, 0.35, 0.65, 1)
@@ -174,12 +175,13 @@ color_ramp = SubResource("dust_ramp")
 [sub_resource type="QuadMesh" id="dust_quad"]
 material = SubResource("smoke_mat")
 
-[node name="Explosion" type="Node3D" node_paths=PackedStringArray("particles", "flash", "scorch", "sound")]
+[node name="Explosion" type="Node3D" node_paths=PackedStringArray("particles", "flash", "scorch", "sound", "far_sound")]
 script = ExtResource("1")
 particles = [NodePath("Fireball"), NodePath("Smoke"), NodePath("Sparks"), NodePath("Dust")]
 flash = NodePath("Flash")
 scorch = NodePath("Scorch")
 sound = NodePath("Sound")
+far_sound = NodePath("FarSound")
 
 [node name="Fireball" type="GPUParticles3D" parent="."]
 cast_shadow = 0
@@ -243,3 +245,11 @@ cull_mask = 1
 stream = ExtResource("6")
 unit_size = 60.0
 max_distance = 4000.0
+bus = &"SFX"
+
+[node name="FarSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7")
+unit_size = 160.0
+max_distance = 6000.0
+attenuation_filter_cutoff_hz = 20500.0
+bus = &"SFX"

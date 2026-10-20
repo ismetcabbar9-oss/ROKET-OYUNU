@@ -50,7 +50,6 @@ Oyunda gerçek ürün/silah isimleri ve ulusal işaretler kullanılmaz: füzeler
 
 | Varlık | Dosya yolu | Kaynak | Lisans | Değişiklik |
 |---|---|---|---|---|
-| Sci-Fi Sounds 1.0 — `thrusterFire_000` | `assets/audio/sfx/rocket_motor_loop.ogg` | [kenney.nl](https://kenney.nl/assets/sci-fi-sounds) | CC0 | Kusursuz döngü için çapraz geçiş (`tools/make_sfx.py`) |
 | Sci-Fi Sounds 1.0 — `lowFrequency_explosion_000` + `explosionCrunch_004` | `assets/audio/sfx/explosion_large.ogg` | [kenney.nl](https://kenney.nl/assets/sci-fi-sounds) | CC0 | İki ses katmanlandı (`tools/make_sfx.py`) |
 
 ### Fırlatma rampası sesleri (Kenney Sci-Fi Sounds 1.0 + Impact Sounds 1.0, CC0)
@@ -64,6 +63,21 @@ Hepsi `tools/make_launch_sfx.py` ile üretildi.
 | Silo kapağı | `assets/audio/sfx/hatch_open.ogg` | `doorOpen_001` (yavaşlatıldı) + `impactPlate_heavy_001` + prosedürel sürtünme | CC0 |
 | Soğuk fırlatma "pof" | `assets/audio/sfx/cold_launch_pof.ogg` | `lowFrequency_explosion_001` + prosedürel gaz tıslaması | CC0 |
 | Ateşleme gürlemesi | `assets/audio/sfx/ignition_roar.ogg` | `thrusterFire_002` + `explosionCrunch_000` + `lowFrequency_explosion_000` | CC0 |
+
+### Roket sesleri v2 (Kenney Sci-Fi Sounds 1.0 + Impact Sounds 1.0, CC0 + prosedürel)
+Hepsi `tools/make_rocket_sfx.py` ile üretildi; döngüler FFT ile süzülmüş gürültüden (kusursuz döngü).
+
+| Ses | Dosya yolu | Kaynak parçalar | Lisans |
+|---|---|---|---|
+| Booster gürlemesi (döngü) | `assets/audio/sfx/motor_booster_loop.ogg` | `thrusterFire_000` + `spaceEngineLarge_001` + prosedürel gürleme/çıtırtı | CC0 |
+| Sustainer (döngü) | `assets/audio/sfx/motor_sustainer_loop.ogg` | `thrusterFire_003` + prosedürel tıslama | CC0 |
+| Ateşleme çatlaması | `assets/audio/sfx/ignition_crack.ogg` | `explosionCrunch_002` + prosedürel kıvılcım | CC0 |
+| Yakıt bitişi | `assets/audio/sfx/burnout_sputter.ogg` | Prosedürel | Projeye özgü |
+| Hava sürtünmesi (döngü) | `assets/audio/sfx/air_rush_loop.ogg` | Prosedürel | Projeye özgü |
+| Çöl rüzgârı (döngü) | `assets/audio/sfx/desert_wind_loop.ogg` | Prosedürel | Projeye özgü |
+| Üs jeneratör uğultusu (döngü) | `assets/audio/sfx/base_hum_loop.ogg` | `spaceEngineLow_002` + prosedürel 50 Hz | CC0 |
+| Uzak patlama + vadi yankısı | `assets/audio/sfx/explosion_far.ogg` | `lowFrequency_explosion_000` + prosedürel yankı/kuyruk | CC0 |
+| Arayüz tıklaması | `assets/audio/sfx/ui_click.ogg` | `impactGeneric_light_001` (Impact Sounds) | CC0 |
 
 ## Projeye özgü (üretilmiş) varlıklar
 

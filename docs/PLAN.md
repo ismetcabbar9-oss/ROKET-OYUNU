@@ -63,7 +63,7 @@ yollar, beton zeminler, çitler, yapılar ile okunur bir mekan.
 
 **Siz test edersiniz:** mekan hissi, okunabilirlik, FPS. Onay → Faz 2.
 
-## Faz 2 — Fırlatma rampaları (mekanizma + ses + sinematik)  ✅ tamamlandı, tablet onayı bekleniyor
+## Faz 2 — Fırlatma rampaları (mekanizma + ses + sinematik)  ✅ tamamlandı, onaylandı
 > Sonuç: 3 rampa (Mobil TEL, Eğik Ray, Dikey Silo), 18 kamera çekiminin en ağırı 143 draw call /
 > 322 bin üçgen (`tools/godot/launcher_shot_report.tscn`); 36 birim testi. Otopilotla 6 füze-rampa
 > eşleşmesinden 5'i hedefi vuruyor (Yıldırım–kanyon geçişi Faz 1'de de otopilot için çok dar).
@@ -76,7 +76,11 @@ yollar, beton zeminler, çitler, yapılar ile okunur bir mekan.
 - Fırlatma efektleri: pist üzerinde egzoz bulutu, toz, yanık izi, kısa kamera sarsıntısı.
 - Hangi füze hangi rampadan atılabilir (tanımda).
 
-## Faz 3 — Roket sesleri v2
+## Faz 3 — Roket sesleri v2  ✅ tamamlandı, tablet onayı bekleniyor
+> Sonuç: katmanlı motor (MissileAudio, füze başına MissileSoundSettings), doppler, ses hızıyla
+> gecikmeli yakın/uzak patlama, rüzgâr + üs uğultusu + kanyon/vadi yankısı, 5 veri yolu ve
+> UserSettings seviyeleri; 44 birim testi. Kaynaklar: Kenney CC0 + prosedürel sentez (Sonniss
+> paketleri gerekmedi; daha zengin kayıt istenirse ileride eklenebilir).
 - Katmanlı motor sesi: ateşleme çatlaması, booster gürlemesi (döngü), sustainer, yakıt bitişi,
   hıza bağlı hava sürtünmesi/rüzgâr, kameraya göre geçiş (doppler).
 - Ortam: çöl rüzgârı, üs uğultusu; kanyonda yankı bölgeleri (Area3D + reverb).

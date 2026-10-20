@@ -31,6 +31,8 @@ enum Mode { READY, LAUNCHING, FLYING, AFTERMATH }
 @export var fuel_bar: ProgressBar
 @export var telemetry_panel: Control
 @export var warning_label: Label
+## Buton tıklama sesi (UI veri yolu).
+@export var click_sound: AudioStreamPlayer
 
 var _missile_buttons: Array[TouchButton] = []
 var _launcher_buttons: Array[TouchButton] = []
@@ -43,6 +45,8 @@ func _ready() -> void:
 	detonate_button.pressed.connect(detonate_pressed.emit)
 	control_button.pressed.connect(control_mode_toggled.emit)
 	calibrate_button.pressed.connect(calibrate_pressed.emit)
+	for b: TouchButton in [fire_button, detonate_button, control_button, calibrate_button]:
+		b.pressed.connect(_click)
 	refresh_control_mode()
 
 
@@ -109,6 +113,11 @@ func show_message(text: String, seconds: float = 2.5) -> void:
 				status_label.visible = false)
 
 
+func _click() -> void:
+	if click_sound != null:
+		click_sound.play()
+
+
 func _on_fire_button() -> void:
 	if _mode == Mode.LAUNCHING:
 		skip_pressed.emit()
@@ -126,6 +135,7 @@ func _fill_list(list: VBoxContainer, old: Array[TouchButton], names: PackedStrin
 		button.font_size = 22
 		button.custom_minimum_size = Vector2(210, height)
 		button.pressed.connect(on_press.emit.bind(i))
+		button.pressed.connect(_click)
 		list.add_child(button)
 		buttons.append(button)
 	return buttons

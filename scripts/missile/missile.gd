@@ -9,6 +9,7 @@ signal detonated(position: Vector3, normal: Vector3, collider: Object)
 enum Phase { ON_RAIL, FLYING, DONE }
 
 @export var exhaust: MissileExhaust
+@export var audio: MissileAudio
 @export var visual_root: Node3D
 @export var collision_shape: CollisionShape3D
 
@@ -18,6 +19,8 @@ var phase: Phase = Phase.ON_RAIL
 
 var _model: MissileFlightModel
 var _state: MissileState
+var _burning: bool = false
+var _burn_time: float = 0.0
 
 
 ## Füzeyi bir türle kurar (fırlatmadan önce, sahneye eklendikten sonra çağrılır).
@@ -34,6 +37,8 @@ func setup(p_definition: MissileDefinition) -> void:
 
 	exhaust.position = Vector3(0.0, 0.0, definition.length * 0.5)
 	exhaust.configure(definition.exhaust_scale)
+	audio.position = exhaust.position
+	audio.configure(definition.sound, definition.flight.max_speed)
 	_model = MissileFlightModel.new(definition.flight)
 
 
@@ -41,13 +46,14 @@ func setup(p_definition: MissileDefinition) -> void:
 func ignite_on_rail() -> void:
 	if phase == Phase.ON_RAIL:
 		exhaust.set_throttle(1.0)
-		exhaust.set_speed_ratio(0.0)
+		_ignite()
 
 
 func launch(steer: SteerInput) -> void:
 	steer_source = steer
 	_state = _model.create_state(global_transform)
 	phase = Phase.FLYING
+	_ignite()
 
 
 func get_speed() -> float:
@@ -77,13 +83,16 @@ func detonate_now() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if _burning:
+		_burn_time += delta
+		var fuel: float = _state.fuel if _state != null else definition.flight.fuel_seconds
+		audio.update(_burn_time, fuel, get_speed(), delta)
 	if phase != Phase.FLYING:
 		return
 	var steer: Vector2 = steer_source.get_steer() if steer_source != null else Vector2.ZERO
 	_model.step(_state, steer, delta)
 	global_basis = _state.get_basis()
 	exhaust.set_throttle(1.0 if _state.fuel > 0.0 else 0.0)
-	exhaust.set_speed_ratio(_state.speed / definition.flight.max_speed)
 
 	var collision: KinematicCollision3D = move_and_collide(_state.get_velocity() * delta)
 	if collision != null:
@@ -94,8 +103,15 @@ func _physics_process(delta: float) -> void:
 		_detonate(global_position, Vector3.UP, null)
 
 
+func _ignite() -> void:
+	if not _burning:
+		_burning = true
+		audio.ignite()
+
+
 func _detonate(at: Vector3, normal: Vector3, collider: Object) -> void:
 	phase = Phase.DONE
+	audio.stop_all()
 	exhaust.detach_trail(get_parent())
 	detonated.emit(at, normal, collider)
 	queue_free()

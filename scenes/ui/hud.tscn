@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/ui/touch_joystick.gd" id="2"]
 [ext_resource type="Script" path="res://scripts/ui/touch_button.gd" id="3"]
 
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui_click.ogg" id="ui_click"]
 [sub_resource type="LabelSettings" id="title"]
 font_size = 34
 outline_size = 8
@@ -67,7 +68,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("joystick", "fire_button", "detonate_button", "control_button", "calibrate_button", "missile_list", "launcher_list", "missile_name", "missile_description", "status_label", "speed_label", "altitude_label", "time_label", "target_label", "fuel_bar", "telemetry_panel", "warning_label")]
+[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("joystick", "fire_button", "detonate_button", "control_button", "calibrate_button", "missile_list", "launcher_list", "missile_name", "missile_description", "status_label", "speed_label", "altitude_label", "time_label", "target_label", "fuel_bar", "telemetry_panel", "warning_label", "click_sound")]
 script = ExtResource("1")
 joystick = NodePath("Root/Joystick")
 fire_button = NodePath("Root/FireButton")
@@ -86,6 +87,7 @@ target_label = NodePath("Root/Telemetry/Row/Target/Value")
 fuel_bar = NodePath("Root/Telemetry/Row/Fuel/Bar")
 telemetry_panel = NodePath("Root/Telemetry")
 warning_label = NodePath("Root/Warning")
+click_sound = NodePath("Click")
 
 [node name="Root" type="Control" parent="."]
 layout_mode = 3
@@ -349,3 +351,7 @@ custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 text = "0 m"
 label_settings = SubResource("value")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("ui_click")
+bus = &"UI"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AmbientSoundSettings" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/audio/ambient_sound_settings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+wind_volume_db = -15.0
+gust_depth_db = 5.0
+gust_frequency = 0.12
+hum_zones = PackedStringArray("Servis alanı", "Yakıt deposu", "Hedef kompleksi")
+hum_volume_db = -8.0
+canyon_reverb_amount = 0.75
+valley_reverb_amount = 0.3

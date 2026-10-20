@@ -2,11 +2,11 @@ class_name MissileExhaust
 extends Node3D
 ## Füzenin kuyruğundaki motor görselleri: alev konisi, titreşen ışık ve duman izi.
 ## Füze bu düğümü kuyruğa yerleştirir ve throttle'ı (0..1) her karede ayarlar.
+## Motor sesi ayrı bileşende: MissileAudio.
 
 @export var flame: MeshInstance3D
 @export var light: OmniLight3D
 @export var smoke: GPUParticles3D
-@export var motor_sound: AudioStreamPlayer3D
 @export var light_energy: float = 3.0
 
 var _throttle: float = 0.0
@@ -34,15 +34,6 @@ func set_throttle(value: float) -> void:
 	flame.visible = on
 	_flame_material.set_shader_parameter(&"throttle", _throttle)
 	smoke.emitting = on
-	if on and not motor_sound.playing:
-		motor_sound.play()
-	elif not on and motor_sound.playing:
-		motor_sound.stop()
-
-
-## Motor sesinin perdesini hıza göre ayarlar (0..1 arası hız oranı).
-func set_speed_ratio(ratio: float) -> void:
-	motor_sound.pitch_scale = lerpf(0.85, 1.25, clampf(ratio, 0.0, 1.0))
 
 
 ## Füze yok olurken duman izini dünyaya bırakır; iz kendi ömrünü tamamlayıp silinir.

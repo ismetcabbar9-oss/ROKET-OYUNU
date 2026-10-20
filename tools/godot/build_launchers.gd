@@ -302,6 +302,7 @@ func _sounds(root: Launcher, mechanism_file: String) -> void:
 		p.volume_db = spec[2]
 		p.unit_size = 14.0
 		p.max_distance = 600.0
+		p.bus = &"SFX"
 		p.position.y = 2.0
 		_add(root, p)
 		players.append(p)
