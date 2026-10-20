@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/fence/fence_panel_mesh.res" id="1_oxp7j"]
+
+[node name="FencePanel" type="Node3D" unique_id=1806882249]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=2090176527]
+mesh = ExtResource("1_oxp7j")

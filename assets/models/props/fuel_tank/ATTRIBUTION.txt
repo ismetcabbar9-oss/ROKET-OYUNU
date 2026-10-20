@@ -1,0 +1,4 @@
+"Rusty airbase fuel tank" by LuddePudde (https://sketchfab.com/luddepubde)
+Source: https://sketchfab.com/3d-models/rusty-airbase-fuel-tank-5ac257aee23e47e0a0f91a4e07a40692
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

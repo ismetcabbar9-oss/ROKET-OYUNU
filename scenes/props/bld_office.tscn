@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/mil_buildings/bld_office_mesh.res" id="1_ob0lx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4nxf7"]
+size = Vector3(22, 10.765703, 15.612375)
+
+[node name="BldOffice" type="StaticBody3D" unique_id=1320650234]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1948553039]
+mesh = ExtResource("1_ob0lx")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1310435600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9073486e-06, 5.3828516, 4.7683716e-07)
+shape = SubResource("BoxShape3D_4nxf7")

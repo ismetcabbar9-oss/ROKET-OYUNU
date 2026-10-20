@@ -1,0 +1,4 @@
+"Checkpoint Building" by tylerlherring (https://sketchfab.com/tylerlherring)
+Source: https://sketchfab.com/3d-models/checkpoint-building-631b5e0c67da4be68a16fb7955f1652f
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

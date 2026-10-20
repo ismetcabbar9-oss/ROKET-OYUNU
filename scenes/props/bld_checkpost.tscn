@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/mil_buildings/bld_checkpost_mesh.res" id="1_eda7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1xsb1"]
+size = Vector3(6.5, 2.7771533, 3.7275405)
+
+[node name="BldCheckpost" type="StaticBody3D" unique_id=439909746]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=240496711]
+mesh = ExtResource("1_eda7s")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=953409328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3885766, -1.1920929e-07)
+shape = SubResource("BoxShape3D_1xsb1")

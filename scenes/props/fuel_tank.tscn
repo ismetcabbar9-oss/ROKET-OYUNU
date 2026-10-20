@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/fuel_tank/fuel_tank_mesh.res" id="1_apd7f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gujjr"]
+size = Vector3(7.756218, 4.9029484, 9)
+
+[node name="FuelTank" type="StaticBody3D" unique_id=1063398990]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=225961347]
+mesh = ExtResource("1_apd7f")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=700614825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4514742, 0)
+shape = SubResource("BoxShape3D_gujjr")

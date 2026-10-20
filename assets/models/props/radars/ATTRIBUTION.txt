@@ -1,0 +1,4 @@
+"Radars_01" by Helley (https://sketchfab.com/Helley)
+Source: https://sketchfab.com/3d-models/radars-01-730724d01c8446f9801147e66ae67ac8
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

@@ -26,7 +26,10 @@ hazır ayarlar** (şafak/öğle/gün batımı/gece).
 
 ---
 
-## Faz 1 — Düzenli çöl üssü (mekan v2)  ← İLK BU
+## Faz 1 — Düzenli çöl üssü (mekan v2)  ✅ tamamlandı, tablet onayı bekleniyor
+> Sonuç: en ağır görüş (rampa) 141 draw call / 344 bin üçgen; kanyon ~300 bin; 29 birim testi.
+> Not: masaüstünde "soft" gölge filtresi bazı GPU'larda standart malzemeleri kararttı; proje
+> genelinde Android varsayılanı olan "hard" filtreye sabitlendi (daha ucuz, her cihazda aynı).
 **Amaç:** Kanyonun içine, gerçekçi ve "tasarlanmış" görünen bir üs: dağınık doğa değil,
 yollar, beton zeminler, çitler, yapılar ile okunur bir mekan.
 

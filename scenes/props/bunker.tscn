@@ -1,8 +1,17 @@
 [gd_scene format=3]
 
-[ext_resource type="PackedScene" path="res://assets/models/props/bunker/model.gltf" id="1_cr2w0"]
+[ext_resource type="ArrayMesh" path="res://assets/models/props/bunker/bunker_mesh.res" id="1_cr2w0"]
 
-[node name="Bunker" type="Node3D" unique_id=839106672]
+[sub_resource type="BoxShape3D" id="BoxShape3D_2m1oc"]
+size = Vector3(14, 4.829049, 11.410688)
 
-[node name="Model" parent="." unique_id=384439446 instance=ExtResource("1_cr2w0")]
-transform = Transform3D(0, 0, 0.0076771746, 0, 0.0076771746, 0, -0.0076771746, 0, 0, -1.7446225, -0.040078163, 0.04425762)
+[node name="Bunker" type="StaticBody3D" unique_id=2056876649]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=710558821]
+mesh = ExtResource("1_cr2w0")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=104609354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4145246, 0)
+shape = SubResource("BoxShape3D_2m1oc")

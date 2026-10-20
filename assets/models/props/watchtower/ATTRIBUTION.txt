@@ -1,0 +1,4 @@
+"Watchtower" by Mehdi Shahsavan (https://sketchfab.com/ahmagh2e)
+Source: https://sketchfab.com/3d-models/watchtower-bda39e79dbfa4976b1791b6b1f58259c
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

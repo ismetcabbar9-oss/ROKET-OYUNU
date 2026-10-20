@@ -1,0 +1,4 @@
+"Modular Chain Link Fence Set" by FrodoUndead (https://sketchfab.com/FrodoUndead)
+Source: https://sketchfab.com/3d-models/modular-chain-link-fence-set-bd85a8005ff0403cab2f1e9845016b8f
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

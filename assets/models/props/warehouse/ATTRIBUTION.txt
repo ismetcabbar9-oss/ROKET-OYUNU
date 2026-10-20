@@ -1,0 +1,4 @@
+"Warehouse Building" by rajibkc (https://sketchfab.com/rajibkc)
+Source: https://sketchfab.com/3d-models/warehouse-building-08a4f422bc634033b8023d53beaf8242
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

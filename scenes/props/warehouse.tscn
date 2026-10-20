@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/warehouse/warehouse_mesh.res" id="1_amf7h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ikrj"]
+size = Vector3(9.801063, 12.999999, 15.53947)
+
+[node name="Warehouse" type="StaticBody3D" unique_id=2062467453]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1114734384]
+mesh = ExtResource("1_amf7h")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=919289413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7683716e-07, 6.4999995, 0)
+shape = SubResource("BoxShape3D_5ikrj")

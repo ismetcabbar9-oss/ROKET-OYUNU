@@ -1,0 +1,4 @@
+"Hangar" by nermin (https://sketchfab.com/nermin)
+Source: https://sketchfab.com/3d-models/hangar-64f7d287f5274029bc29755a9839ebbf
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

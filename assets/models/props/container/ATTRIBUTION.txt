@@ -1,0 +1,4 @@
+"Shipping container" by Evan (https://sketchfab.com/Evanz)
+Source: https://sketchfab.com/3d-models/shipping-container-5c26a86ff20c4df689b5fbd760337845
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

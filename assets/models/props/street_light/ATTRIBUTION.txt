@@ -1,0 +1,4 @@
+"Street Light" by KloWorks (https://sketchfab.com/kloworks)
+Source: https://sketchfab.com/3d-models/street-light-2d44b333f56c4faaab1bd2007868cc37
+License: CC-BY 4.0
+Changes: textures resized to <= 512px for mobile.

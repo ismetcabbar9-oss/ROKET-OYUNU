@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/humvee/humvee_mesh.res" id="1_iducr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iv37e"]
+size = Vector3(2.032435, 3.634607, 4.7)
+
+[node name="Humvee" type="StaticBody3D" unique_id=1361909430]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=557717677]
+mesh = ExtResource("1_iducr")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1772080391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 1.8173035, 0)
+shape = SubResource("BoxShape3D_iv37e")

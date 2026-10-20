@@ -2,7 +2,7 @@
 """Efekt dokularını prosedürel olarak üretir (projeye özgü, lisans gerektirmez).
 
 Kullanım: python3 tools/generate_fx_textures.py assets/textures/fx
-Çıktılar: smoke_puff.png, fire_puff.png, glow_dot.png, scorch.png
+Çıktılar: smoke_puff.png, fire_puff.png, glow_dot.png, scorch.png, dry_shrub.png
 """
 import sys
 from pathlib import Path
@@ -40,6 +40,43 @@ def save_rgba(path: Path, rgb: np.ndarray, alpha: np.ndarray) -> None:
     Image.fromarray((rgba * 255).astype(np.uint8), "RGBA").save(path, optimize=True)
 
 
+def dry_shrub(size: int = 256, seed: int = 9) -> Image.Image:
+    """Kuru çöl çalısı: tabandan yelpaze gibi açılan ince, gri-kahve dallar ve seyrek, soluk
+    gri-yeşil yapraklar; kubbe biçimli ve tuvalin içinde kalır."""
+    from PIL import ImageDraw
+    rng = np.random.default_rng(seed)
+    img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    cx, base = size / 2, size - 3
+
+    def inside(x: float, y: float) -> bool:
+        # Kubbe: (x, y) tabandaki merkeze göre elips içinde mi?
+        return ((x - cx) / (size * 0.47)) ** 2 + ((base - y) / (size * 0.8)) ** 2 <= 1.0
+
+    def branch(x: float, y: float, angle: float, length: float, width: float, depth: int) -> None:
+        if depth == 0 or length < 3:
+            return
+        x2 = x + np.cos(angle) * length
+        y2 = y - np.sin(angle) * length
+        if not inside(x2, y2):
+            return
+        # Renkler doğrusal uzayda gerçekçi çöl çalısı yansıtıcılığına (~0.3) denk gelecek kadar açık
+        tone = int(rng.integers(105, 130))
+        d.line([(x, y), (x2, y2)], fill=(tone + 15, tone + 4, tone - 14, 255), width=max(1, int(round(width))))
+        if depth <= 2 and rng.random() < 0.55:
+            for _ in range(int(rng.integers(1, 3))):
+                lx, ly = x2 + rng.normal(0, 2.5), y2 + rng.normal(0, 2.5)
+                g = int(rng.integers(125, 150))
+                d.ellipse([lx - 1.6, ly - 1.2, lx + 1.6, ly + 1.2], fill=(g, g + 6, g - 26, 255))
+        for _ in range(int(rng.integers(2, 4))):
+            branch(x2, y2, angle + rng.normal(0, 0.5), length * rng.uniform(0.62, 0.8), width * 0.72, depth - 1)
+
+    for _ in range(16):
+        a = np.pi / 2 + rng.uniform(-1.15, 1.15)
+        branch(cx + rng.normal(0, 4), base, a, size * rng.uniform(0.12, 0.17), 3.2, 6)
+    return img
+
+
 def main() -> None:
     out = Path(sys.argv[1])
     out.mkdir(parents=True, exist_ok=True)
@@ -71,6 +108,7 @@ def main() -> None:
     alpha = np.clip(edge * 1.4 - 0.2, 0, 1) ** 1.2
     tone = 0.05 + 0.12 * fractal_noise(big, 5)
     save_rgba(out / "scorch.png", np.dstack([tone, tone * 0.95, tone * 0.9]), alpha * 0.92)
+    dry_shrub().save(out / "dry_shrub.png", optimize=True)
     print("üretildi:", sorted(p.name for p in out.glob("*.png")))
 
 

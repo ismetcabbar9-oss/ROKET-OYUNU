@@ -1,0 +1,4 @@
+"Warehouses" by 99.Miles (https://sketchfab.com/99.Miles)
+Source: https://sketchfab.com/3d-models/warehouses-e6e105d35b3f486292c42ffa52f363c0
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

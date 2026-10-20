@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/hangar/hangar_mesh.res" id="1_5127n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8h8y"]
+size = Vector3(21.016823, 9.043492, 30)
+
+[node name="Hangar" type="StaticBody3D" unique_id=959743337]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1231545607]
+mesh = ExtResource("1_5127n")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=970670304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.521746, 0)
+shape = SubResource("BoxShape3D_n8h8y")

@@ -1,0 +1,4 @@
+"Sandbag Wall 05" by Pypunk (https://sketchfab.com/PieterSnauwaert)
+Source: https://sketchfab.com/3d-models/sandbag-wall-05-b5994d5a6a2648e59cf86ea1951bacaf
+License: CC-BY 4.0
+Changes: textures resized to <= 512px for mobile.

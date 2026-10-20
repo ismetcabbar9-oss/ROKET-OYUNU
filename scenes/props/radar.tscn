@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/radars/radar_mesh.res" id="1_crld3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcbob"]
+albedo_color = Color(0.33, 0.36, 0.27, 1)
+roughness = 0.75
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7fq2l"]
+size = Vector3(4.830616, 6.1064153, 8)
+
+[node name="Radar" type="StaticBody3D" unique_id=802490879]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1233136266]
+material_override = SubResource("StandardMaterial3D_tcbob")
+mesh = ExtResource("1_crld3")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=366425931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 3.0532076, 0)
+shape = SubResource("BoxShape3D_7fq2l")

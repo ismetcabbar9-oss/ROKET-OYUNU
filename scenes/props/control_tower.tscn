@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/control_tower/control_tower_mesh.res" id="1_st4v3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8nv42"]
+size = Vector3(6.1224813, 24, 6.1224813)
+
+[node name="ControlTower" type="StaticBody3D" unique_id=1095400190]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=998869490]
+mesh = ExtResource("1_st4v3")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1922218372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+shape = SubResource("BoxShape3D_8nv42")

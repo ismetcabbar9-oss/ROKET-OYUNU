@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/ural_truck/ural_truck_mesh.res" id="1_1s44w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fi032"]
+size = Vector3(2.9890075, 3.2014015, 7.4000006)
+
+[node name="UralTruck" type="StaticBody3D" unique_id=993194983]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=815573925]
+mesh = ExtResource("1_1s44w")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1927238920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6007007, 2.3841858e-07)
+shape = SubResource("BoxShape3D_fi032")

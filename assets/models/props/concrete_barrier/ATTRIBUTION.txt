@@ -1,0 +1,4 @@
+"Concrete Barrier" by YadroGames (https://sketchfab.com/yadrogames)
+Source: https://sketchfab.com/3d-models/concrete-barrier-afaab6285c484c36aab250e06727d471
+License: CC-BY 4.0
+Changes: textures resized to <= 512px for mobile.

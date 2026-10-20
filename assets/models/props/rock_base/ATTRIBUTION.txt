@@ -1,0 +1,4 @@
+"Desert Rock Base" by bilgehan.korkmaz (https://sketchfab.com/bilgehan.korkmaz)
+Source: https://sketchfab.com/3d-models/desert-rock-base-62da7c177a6241eebe94c4eba6fc81b7
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

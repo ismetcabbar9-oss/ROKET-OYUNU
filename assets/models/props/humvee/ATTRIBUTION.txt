@@ -1,0 +1,4 @@
+"Low Poly Humvee vehicle" by Duane's Mind (https://sketchfab.com/duanesmind)
+Source: https://sketchfab.com/3d-models/low-poly-humvee-vehicle-fac4178dc3db4eb9abf7f45425125e1e
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

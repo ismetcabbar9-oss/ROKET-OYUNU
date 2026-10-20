@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/concrete_barrier/concrete_barrier_mesh.res" id="1_n1l8l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4wuo8"]
+size = Vector3(3.2, 1.6240001, 0.9220428)
+
+[node name="ConcreteBarrier" type="StaticBody3D" unique_id=1041211027]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=2145611630]
+mesh = ExtResource("1_n1l8l")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=2093723212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0.81200004, 0)
+shape = SubResource("BoxShape3D_4wuo8")

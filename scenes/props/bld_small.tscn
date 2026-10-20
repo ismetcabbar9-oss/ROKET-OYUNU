@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/mil_buildings/bld_small_mesh.res" id="1_y3hpp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pl244"]
+size = Vector3(7.5, 3.4491892, 4.5440826)
+
+[node name="BldSmall" type="StaticBody3D" unique_id=1781187277]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=2003938682]
+mesh = ExtResource("1_y3hpp")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=838902227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7245946, 0)
+shape = SubResource("BoxShape3D_pl244")

@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/checkpoint/checkpoint_mesh.res" id="1_1x1wg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wh4no"]
+size = Vector3(4.5, 2.0646715, 4.097332)
+
+[node name="Checkpoint" type="StaticBody3D" unique_id=365432240]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1216572950]
+mesh = ExtResource("1_1x1wg")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1153598558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0323358, 2.3841858e-07)
+shape = SubResource("BoxShape3D_wh4no")

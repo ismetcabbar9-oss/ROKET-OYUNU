@@ -60,6 +60,14 @@ godot --headless --path . -s res://tools/godot/generate_terrain.gd -- \
 # Otomatik pilotla uçuş testi (füze no: 0 Şahin, 1 Kartal, 2 Yıldırım)
 godot --headless --path . --fixed-fps 60 res://tools/godot/flight_test.tscn -- 1 /tmp/ucus
 
+# Sahne nesnesi pişir: parçaları birleştir, ölçekle, tabanı zemine oturt, isteğe bağlı üçgen azalt
+godot --headless --path . -s res://tools/godot/bake_prop.gd -- \
+    res://assets/models/props/<isim>/model.gltf <isim> <boyut_m> <x|y|z|max> [--collision] [--tris=N]
+
+# Üs yerleşimini yeniden kur (MultiMesh verisi için --headless DEĞİL, ekransızda xvfb-run)
+xvfb-run godot --path . -s res://tools/godot/build_base_layout.gd -- \
+    res://config/terrain/valley_01.tres res://scenes/levels/valley_01/base_layout.tscn res://assets/terrain/valley_01/layout
+
 # Sketchfab'den model ara / indir (yalnızca CC0 ve CC-BY kabul edilir)
 python3 tools/sketchfab_fetch.py search "missile"
 python3 tools/sketchfab_fetch.py download <uid> <isim>

@@ -1,0 +1,4 @@
+"Military Environment Buildings. Modular" by Salah3D (https://sketchfab.com/abbasyounis214)
+Source: https://sketchfab.com/3d-models/military-environment-buildings-modular-371eb5dc09a9448aa932b957100f86c8
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

@@ -1,0 +1,4 @@
+"Ural 4320" by Brout (https://sketchfab.com/davidbroutian)
+Source: https://sketchfab.com/3d-models/ural-4320-f953c51a5dbc4a15949f4dcc0905c4e8
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

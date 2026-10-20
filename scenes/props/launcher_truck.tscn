@@ -1,11 +1,8 @@
 [gd_scene format=3]
 
-[ext_resource type="PackedScene" path="res://assets/models/props/launcher_truck/model.gltf" id="1_a718m"]
+[ext_resource type="ArrayMesh" path="res://assets/models/props/launcher_truck/launcher_truck_mesh.res" id="1_a718m"]
 
-[node name="LauncherTruck" type="Node3D" unique_id=1686189652]
+[node name="LauncherTruck" type="Node3D" unique_id=956125912]
 
-[node name="Model" parent="." unique_id=680692555 instance=ExtResource("1_a718m")]
-transform = Transform3D(-0.012803047, 0, 0, 0, 0.012803047, 0, 0, 0, -0.012803047, 0, -0.00096797943, 0.37633994)
-
-[node name="Object_2" parent="Model/Sketchfab_model/Shaanxi SX2190_obj_cleaner_materialmerger_gles" index="0"]
-visible = false
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=889164102]
+mesh = ExtResource("1_a718m")

@@ -1,0 +1,4 @@
+"Eroded Desert Rock" by bilgehan.korkmaz (https://sketchfab.com/bilgehan.korkmaz)
+Source: https://sketchfab.com/3d-models/eroded-desert-rock-b6f6b255971d4b91bb708e406671535a
+License: CC-BY 4.0
+Changes: textures resized to <= 1024px for mobile.

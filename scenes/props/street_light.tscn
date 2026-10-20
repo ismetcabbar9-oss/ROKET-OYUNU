@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/props/street_light/street_light_mesh.res" id="1_mf0ye"]
+
+[node name="StreetLight" type="Node3D" unique_id=301173863]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=541464352]
+mesh = ExtResource("1_mf0ye")
