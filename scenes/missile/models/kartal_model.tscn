@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/models/missiles/kartal/model.gltf" id="1_mdle4"]
+
+[node name="StormShadowModel" type="Node3D" unique_id=189573720]
+
+[node name="Model" parent="." unique_id=998445365 instance=ExtResource("1_mdle4")]
+transform = Transform3D(0, 0, 0.9836059, 0, 0.9836059, 0, -0.9836059, 0, 0, 0, 0.028268179, -0.0037664638)

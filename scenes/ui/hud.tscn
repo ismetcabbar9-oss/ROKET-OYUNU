@@ -23,6 +23,12 @@ font_color = Color(1, 0.86, 0.6, 1)
 outline_size = 8
 outline_color = Color(0, 0, 0, 0.6)
 
+[sub_resource type="LabelSettings" id="warning"]
+font_size = 40
+font_color = Color(1, 0.3, 0.2, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 0.7)
+
 [sub_resource type="LabelSettings" id="value"]
 font_size = 28
 
@@ -61,7 +67,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("joystick", "fire_button", "detonate_button", "control_button", "calibrate_button", "missile_list", "missile_name", "missile_description", "status_label", "speed_label", "altitude_label", "time_label", "target_label", "fuel_bar", "telemetry_panel")]
+[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("joystick", "fire_button", "detonate_button", "control_button", "calibrate_button", "missile_list", "missile_name", "missile_description", "status_label", "speed_label", "altitude_label", "time_label", "target_label", "fuel_bar", "telemetry_panel", "warning_label")]
 script = ExtResource("1")
 joystick = NodePath("Root/Joystick")
 fire_button = NodePath("Root/FireButton")
@@ -78,6 +84,7 @@ time_label = NodePath("Root/Telemetry/Row/Time/Value")
 target_label = NodePath("Root/Telemetry/Row/Target/Value")
 fuel_bar = NodePath("Root/Telemetry/Row/Fuel/Bar")
 telemetry_panel = NodePath("Root/Telemetry")
+warning_label = NodePath("Root/Warning")
 
 [node name="Root" type="Control" parent="."]
 layout_mode = 3
@@ -128,6 +135,24 @@ offset_bottom = 150.0
 grow_horizontal = 2
 text = "Durum"
 label_settings = SubResource("status")
+horizontal_alignment = 1
+
+[node name="Warning" type="Label" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -120.0
+offset_right = 360.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SINIR!"
+label_settings = SubResource("warning")
 horizontal_alignment = 1
 
 [node name="ControlButton" type="Control" parent="Root"]

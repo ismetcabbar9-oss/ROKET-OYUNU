@@ -18,10 +18,14 @@ enum State { READY, FLYING, AFTERMATH }
 @export var gyro_input: GyroSteerInput
 ## Patlamadan sonra yeni füzenin rampaya gelmesine kadar geçen süre.
 @export var aftermath_seconds: float = 3.0
+## Oyun alanı dışında kalınabilecek süre; sonra füze kendini imha eder.
+@export var out_of_bounds_seconds: float = 3.0
 
 var state: State = State.READY
 var selected_index: int = 0
 var current_missile: Missile
+
+var _out_of_bounds_time: float = 0.0
 
 
 func _ready() -> void:
@@ -49,6 +53,7 @@ func fire() -> void:
 	input.calibrate()
 	current_missile.launch(input)
 	state = State.FLYING
+	_out_of_bounds_time = 0.0
 	hud.set_mode(Hud.Mode.FLYING)
 	hud.show_message("Füze yolda! Hedef kuzeyde, vadinin sonunda.", 3.0)
 
@@ -95,11 +100,28 @@ func _on_missile_detonated(at: Vector3, normal: Vector3, collider: Object) -> vo
 	get_tree().create_timer(aftermath_seconds).timeout.connect(_spawn_on_rail)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if state == State.FLYING and is_instance_valid(current_missile):
 		var pos: Vector3 = current_missile.global_position
 		hud.update_telemetry(current_missile.get_speed(), _altitude(pos), current_missile.get_fuel_ratio(),
 			current_missile.get_flight_time(), _target_distance(pos))
+		_check_bounds(pos, delta)
+
+
+## Görünmez sınır: koridordan çıkan ya da tavanı aşan füzeye süre tanınır, sonra imha edilir.
+func _check_bounds(pos: Vector3, delta: float) -> void:
+	if terrain_shape == null or terrain_shape.is_in_play_area(pos):
+		if _out_of_bounds_time > 0.0:
+			_out_of_bounds_time = 0.0
+			hud.set_warning("")
+		return
+	_out_of_bounds_time += delta
+	var left: float = out_of_bounds_seconds - _out_of_bounds_time
+	if left <= 0.0:
+		hud.set_warning("")
+		current_missile.detonate_now()
+		return
+	hud.set_warning("SINIR! Geri dön  %.1f" % left)
 
 
 func _active_input() -> SteerInput:

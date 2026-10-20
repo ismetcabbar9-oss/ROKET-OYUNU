@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/models/missiles/sahin/model.gltf" id="1_ok48h"]
+
+[node name="HastaModel" type="Node3D" unique_id=589962514]
+
+[node name="Model" parent="." unique_id=736537554 instance=ExtResource("1_ok48h")]
+transform = Transform3D(-0.0028017843, 0, 0, 0, 0.0028017843, 0, 0, 0, -0.0028017843, 1.5813662, -0.93737537, 5.5590453)
+
+[node name="Hasta_Missile_Close" parent="Model/Sketchfab_model/Hasta Missile_fbx/RootNode" index="0"]
+visible = false
+
+[node name="Hasta_Missile_Open_Material #5874_0" parent="Model/Sketchfab_model/Hasta Missile_fbx/RootNode/Hasta_Missile_Open" index="4"]
+visible = false

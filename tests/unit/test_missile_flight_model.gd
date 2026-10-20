@@ -195,7 +195,7 @@ func test_expires_after_max_flight_time() -> void:
 
 
 func test_shipped_missile_definitions_are_valid() -> void:
-	for path: String in ["res://config/missiles/hasta.tres", "res://config/missiles/storm_shadow.tres", "res://config/missiles/fateh110.tres"]:
+	for path: String in ["res://config/missiles/sahin.tres", "res://config/missiles/kartal.tres", "res://config/missiles/yildirim.tres"]:
 		var def: MissileDefinition = load(path) as MissileDefinition
 		assert_not_null(def, path)
 		assert_not_null(def.model_scene, path)

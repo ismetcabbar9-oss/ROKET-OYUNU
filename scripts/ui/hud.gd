@@ -26,6 +26,7 @@ enum Mode { READY, FLYING, AFTERMATH }
 @export var target_label: Label
 @export var fuel_bar: ProgressBar
 @export var telemetry_panel: Control
+@export var warning_label: Label
 
 var _missile_buttons: Array[TouchButton] = []
 var _message_timer: SceneTreeTimer
@@ -65,6 +66,8 @@ func set_mode(mode: Mode) -> void:
 	missile_list.visible = mode == Mode.READY
 	missile_description.visible = mode == Mode.READY
 	detonate_button.visible = mode == Mode.FLYING
+	if mode != Mode.FLYING:
+		set_warning("")
 	telemetry_panel.modulate.a = 1.0 if mode == Mode.FLYING else 0.55
 
 
@@ -73,6 +76,12 @@ func refresh_control_mode() -> void:
 	control_button.text = "Kontrol:\nJİROSKOP" if gyro else "Kontrol:\nJOYSTICK"
 	calibrate_button.visible = gyro
 	joystick.visible = not gyro
+
+
+## Sürekli gösterilen uyarı (ör. sınır dışı); boş metin gizler.
+func set_warning(text: String) -> void:
+	warning_label.text = text
+	warning_label.visible = text != ""
 
 
 func show_message(text: String, seconds: float = 2.5) -> void:

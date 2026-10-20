@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" path="res://scenes/levels/environment/desert_environment.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://assets/terrain/valley_01/terrain.tscn" id="3"]
 [ext_resource type="Script" path="res://scripts/missile/missile_definition.gd" id="4"]
-[ext_resource type="Resource" path="res://config/missiles/hasta.tres" id="5"]
-[ext_resource type="Resource" path="res://config/missiles/storm_shadow.tres" id="6"]
-[ext_resource type="Resource" path="res://config/missiles/fateh110.tres" id="7"]
+[ext_resource type="Resource" path="res://config/missiles/sahin.tres" id="5"]
+[ext_resource type="Resource" path="res://config/missiles/kartal.tres" id="6"]
+[ext_resource type="Resource" path="res://config/missiles/yildirim.tres" id="7"]
 [ext_resource type="PackedScene" path="res://scenes/missile/missile.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://scenes/fx/explosion.tscn" id="9"]
 [ext_resource type="Resource" path="res://config/terrain/valley_01.tres" id="10"]
@@ -36,7 +36,7 @@ gyro_input = NodePath("Inputs/Gyro")
 [node name="Terrain" parent="." instance=ExtResource("3")]
 
 [node name="LaunchSite" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 14, 780)
+transform = Transform3D(0.70215, 0, -0.71203, 0, 1, 0, 0.71203, 0, 0.70215, 76.2, 14, 790)
 
 [node name="LauncherTruck" parent="LaunchSite" instance=ExtResource("11")]
 
@@ -44,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 14, 780)
 transform = Transform3D(1, 0, 0, 0, 0.951057, -0.309017, 0, 0.309017, 0.951057, 0, 3.6, -0.5)
 
 [node name="TargetArea" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 6, -640)
+transform = Transform3D(0.98261, 0, 0.18567, 0, 1, 0, -0.18567, 0, 0.98261, -87.6, 6.05, -640)
 
 [node name="Bunker1" parent="TargetArea" instance=ExtResource("12")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -38, 0, 22)
@@ -58,11 +58,11 @@ transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -6, 0, -66
 [node name="Projectiles" type="Node3D" parent="."]
 
 [node name="ChaseCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 20, 800)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, 20, 810)
 current = true
 fov = 60.0
 near = 0.15
-far = 9000.0
+far = 4500.0
 script = ExtResource("13")
 
 [node name="Inputs" type="Node" parent="."]

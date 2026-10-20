@@ -1,339 +1,351 @@
 [gd_scene format=3]
 
-[ext_resource type="Material" path="res://materials/terrain/terrain_valley.tres" id="1_862io"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_0.res" id="2_5o8ik"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_0.res" id="3_0c23w"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_0.res" id="4_0apgf"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_0.res" id="5_qfoko"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_0.res" id="6_mw8jl"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_0.res" id="7_hirer"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_0.res" id="8_12m2g"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_0.res" id="9_v1dkh"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_1.res" id="10_vfwii"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_1.res" id="11_oag2p"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_1.res" id="12_uccgt"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_1.res" id="13_33qgf"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_1.res" id="14_qaor6"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_1.res" id="15_y0eou"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_1.res" id="16_eeqnr"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_1.res" id="17_8rwih"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_2.res" id="18_1egdr"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_2.res" id="19_4papb"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_2.res" id="20_8crl6"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_2.res" id="21_2pa1j"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_2.res" id="22_ohh6n"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_2.res" id="23_iar7p"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_2.res" id="24_s24ih"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_2.res" id="25_j780e"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_3.res" id="26_wtbf1"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_3.res" id="27_q04j2"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_3.res" id="28_ggoo5"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_3.res" id="29_6oo54"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_3.res" id="30_xy5th"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_3.res" id="31_mbobi"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_3.res" id="32_8ptwl"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_3.res" id="33_v6w2w"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_4.res" id="34_fk14k"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_4.res" id="35_psl8j"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_4.res" id="36_0wira"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_4.res" id="37_10neu"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_4.res" id="38_1n6q1"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_4.res" id="39_nnf0q"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_4.res" id="40_70f53"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_4.res" id="41_8wltk"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_5.res" id="42_r42oc"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_5.res" id="43_0u8gh"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_5.res" id="44_odrt4"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_5.res" id="45_ibw1v"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_5.res" id="46_42pu2"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_5.res" id="47_tbi7f"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_5.res" id="48_15btw"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_5.res" id="49_jpov2"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_6.res" id="50_0wklm"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_6.res" id="51_t4xlh"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_6.res" id="52_rjm52"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_6.res" id="53_2pmxc"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_6.res" id="54_q5osf"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_6.res" id="55_kf0vk"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_6.res" id="56_6jvry"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_6.res" id="57_elqu2"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_7.res" id="58_5csum"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_7.res" id="59_entuq"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_7.res" id="60_oarwq"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_7.res" id="61_kqwji"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_7.res" id="62_33kb2"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_7.res" id="63_wixng"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_7.res" id="64_ksg7c"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_7.res" id="65_rxggr"]
-[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/backdrop.res" id="66_6a87s"]
-[ext_resource type="Shape3D" path="res://assets/terrain/valley_01/collision.res" id="67_xjhgp"]
-
-[node name="Terrain" type="Node3D" unique_id=568039543]
-
-[node name="Chunk_0_0" type="MeshInstance3D" parent="." unique_id=2131032333]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("2_5o8ik")
-
-[node name="Chunk_1_0" type="MeshInstance3D" parent="." unique_id=336228470]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("3_0c23w")
-
-[node name="Chunk_2_0" type="MeshInstance3D" parent="." unique_id=224732163]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("4_0apgf")
-
-[node name="Chunk_3_0" type="MeshInstance3D" parent="." unique_id=567237834]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("5_qfoko")
-
-[node name="Chunk_4_0" type="MeshInstance3D" parent="." unique_id=969595945]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("6_mw8jl")
-
-[node name="Chunk_5_0" type="MeshInstance3D" parent="." unique_id=1106770758]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("7_hirer")
-
-[node name="Chunk_6_0" type="MeshInstance3D" parent="." unique_id=1052565802]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("8_12m2g")
-
-[node name="Chunk_7_0" type="MeshInstance3D" parent="." unique_id=1003451705]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("9_v1dkh")
-
-[node name="Chunk_0_1" type="MeshInstance3D" parent="." unique_id=1476301542]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("10_vfwii")
-
-[node name="Chunk_1_1" type="MeshInstance3D" parent="." unique_id=1268772236]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("11_oag2p")
-
-[node name="Chunk_2_1" type="MeshInstance3D" parent="." unique_id=1990670875]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("12_uccgt")
-
-[node name="Chunk_3_1" type="MeshInstance3D" parent="." unique_id=1457077485]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("13_33qgf")
-
-[node name="Chunk_4_1" type="MeshInstance3D" parent="." unique_id=448618761]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("14_qaor6")
-
-[node name="Chunk_5_1" type="MeshInstance3D" parent="." unique_id=554622632]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("15_y0eou")
-
-[node name="Chunk_6_1" type="MeshInstance3D" parent="." unique_id=239747730]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("16_eeqnr")
-
-[node name="Chunk_7_1" type="MeshInstance3D" parent="." unique_id=228335375]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("17_8rwih")
-
-[node name="Chunk_0_2" type="MeshInstance3D" parent="." unique_id=1543287080]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("18_1egdr")
-
-[node name="Chunk_1_2" type="MeshInstance3D" parent="." unique_id=63235347]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("19_4papb")
-
-[node name="Chunk_2_2" type="MeshInstance3D" parent="." unique_id=550949715]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("20_8crl6")
-
-[node name="Chunk_3_2" type="MeshInstance3D" parent="." unique_id=592425730]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("21_2pa1j")
-
-[node name="Chunk_4_2" type="MeshInstance3D" parent="." unique_id=1305029214]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("22_ohh6n")
-
-[node name="Chunk_5_2" type="MeshInstance3D" parent="." unique_id=1588247580]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("23_iar7p")
-
-[node name="Chunk_6_2" type="MeshInstance3D" parent="." unique_id=1437690153]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("24_s24ih")
-
-[node name="Chunk_7_2" type="MeshInstance3D" parent="." unique_id=717322579]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("25_j780e")
-
-[node name="Chunk_0_3" type="MeshInstance3D" parent="." unique_id=919574077]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("26_wtbf1")
-
-[node name="Chunk_1_3" type="MeshInstance3D" parent="." unique_id=2094205022]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("27_q04j2")
-
-[node name="Chunk_2_3" type="MeshInstance3D" parent="." unique_id=156466710]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("28_ggoo5")
-
-[node name="Chunk_3_3" type="MeshInstance3D" parent="." unique_id=1805555825]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("29_6oo54")
-
-[node name="Chunk_4_3" type="MeshInstance3D" parent="." unique_id=1106416144]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("30_xy5th")
-
-[node name="Chunk_5_3" type="MeshInstance3D" parent="." unique_id=1579522702]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("31_mbobi")
-
-[node name="Chunk_6_3" type="MeshInstance3D" parent="." unique_id=426154055]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("32_8ptwl")
-
-[node name="Chunk_7_3" type="MeshInstance3D" parent="." unique_id=1465356394]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("33_v6w2w")
-
-[node name="Chunk_0_4" type="MeshInstance3D" parent="." unique_id=1295206958]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("34_fk14k")
-
-[node name="Chunk_1_4" type="MeshInstance3D" parent="." unique_id=970748009]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("35_psl8j")
-
-[node name="Chunk_2_4" type="MeshInstance3D" parent="." unique_id=1029962886]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("36_0wira")
-
-[node name="Chunk_3_4" type="MeshInstance3D" parent="." unique_id=1087069706]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("37_10neu")
-
-[node name="Chunk_4_4" type="MeshInstance3D" parent="." unique_id=301315528]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("38_1n6q1")
-
-[node name="Chunk_5_4" type="MeshInstance3D" parent="." unique_id=911587416]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("39_nnf0q")
-
-[node name="Chunk_6_4" type="MeshInstance3D" parent="." unique_id=566323483]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("40_70f53")
-
-[node name="Chunk_7_4" type="MeshInstance3D" parent="." unique_id=1248913494]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("41_8wltk")
-
-[node name="Chunk_0_5" type="MeshInstance3D" parent="." unique_id=657733116]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("42_r42oc")
-
-[node name="Chunk_1_5" type="MeshInstance3D" parent="." unique_id=198583450]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("43_0u8gh")
-
-[node name="Chunk_2_5" type="MeshInstance3D" parent="." unique_id=1092403600]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("44_odrt4")
-
-[node name="Chunk_3_5" type="MeshInstance3D" parent="." unique_id=1881550568]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("45_ibw1v")
-
-[node name="Chunk_4_5" type="MeshInstance3D" parent="." unique_id=1175707192]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("46_42pu2")
-
-[node name="Chunk_5_5" type="MeshInstance3D" parent="." unique_id=1482477789]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("47_tbi7f")
-
-[node name="Chunk_6_5" type="MeshInstance3D" parent="." unique_id=188359840]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("48_15btw")
-
-[node name="Chunk_7_5" type="MeshInstance3D" parent="." unique_id=748059280]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("49_jpov2")
-
-[node name="Chunk_0_6" type="MeshInstance3D" parent="." unique_id=1453644299]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("50_0wklm")
-
-[node name="Chunk_1_6" type="MeshInstance3D" parent="." unique_id=755820277]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("51_t4xlh")
-
-[node name="Chunk_2_6" type="MeshInstance3D" parent="." unique_id=1054467030]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("52_rjm52")
-
-[node name="Chunk_3_6" type="MeshInstance3D" parent="." unique_id=302031188]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("53_2pmxc")
-
-[node name="Chunk_4_6" type="MeshInstance3D" parent="." unique_id=1130648740]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("54_q5osf")
-
-[node name="Chunk_5_6" type="MeshInstance3D" parent="." unique_id=2030280451]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("55_kf0vk")
-
-[node name="Chunk_6_6" type="MeshInstance3D" parent="." unique_id=184344221]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("56_6jvry")
-
-[node name="Chunk_7_6" type="MeshInstance3D" parent="." unique_id=1916106830]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("57_elqu2")
-
-[node name="Chunk_0_7" type="MeshInstance3D" parent="." unique_id=1904433343]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("58_5csum")
-
-[node name="Chunk_1_7" type="MeshInstance3D" parent="." unique_id=1043363444]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("59_entuq")
-
-[node name="Chunk_2_7" type="MeshInstance3D" parent="." unique_id=2109560075]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("60_oarwq")
-
-[node name="Chunk_3_7" type="MeshInstance3D" parent="." unique_id=743310486]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("61_kqwji")
-
-[node name="Chunk_4_7" type="MeshInstance3D" parent="." unique_id=2058799987]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("62_33kb2")
-
-[node name="Chunk_5_7" type="MeshInstance3D" parent="." unique_id=2066356821]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("63_wixng")
-
-[node name="Chunk_6_7" type="MeshInstance3D" parent="." unique_id=709062022]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("64_ksg7c")
-
-[node name="Chunk_7_7" type="MeshInstance3D" parent="." unique_id=1917738924]
-material_override = ExtResource("1_862io")
-mesh = ExtResource("65_rxggr")
-
-[node name="Backdrop" type="MeshInstance3D" parent="." unique_id=1754478567]
-material_override = ExtResource("1_862io")
+[ext_resource type="Material" path="res://materials/terrain/terrain_valley.tres" id="1_0c23w"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_0.res" id="2_0apgf"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_0.res" id="3_qfoko"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_0.res" id="4_mw8jl"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_0.res" id="5_hirer"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_0.res" id="6_12m2g"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_0.res" id="7_v1dkh"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_0.res" id="8_vfwii"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_1.res" id="9_oag2p"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_1.res" id="10_uccgt"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_1.res" id="11_33qgf"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_1.res" id="12_qaor6"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_1.res" id="13_y0eou"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_1.res" id="14_eeqnr"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_1.res" id="15_8rwih"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_2.res" id="16_1egdr"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_2.res" id="17_4papb"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_2.res" id="18_8crl6"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_2.res" id="19_2pa1j"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_2.res" id="20_ohh6n"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_2.res" id="21_iar7p"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_2.res" id="22_s24ih"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_3.res" id="23_j780e"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_3.res" id="24_wtbf1"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_3.res" id="25_q04j2"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_3.res" id="26_ggoo5"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_3.res" id="27_6oo54"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_3.res" id="28_xy5th"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_3.res" id="29_mbobi"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_3.res" id="30_8ptwl"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_4.res" id="31_v6w2w"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_4.res" id="32_fk14k"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_4.res" id="33_psl8j"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_4.res" id="34_0wira"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_4.res" id="35_10neu"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_4.res" id="36_1n6q1"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_4.res" id="37_nnf0q"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_5.res" id="38_70f53"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_5.res" id="39_8wltk"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_5.res" id="40_r42oc"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_5.res" id="41_0u8gh"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_5.res" id="42_odrt4"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_5.res" id="43_ibw1v"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_5.res" id="44_42pu2"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_6.res" id="45_tbi7f"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_6.res" id="46_15btw"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_6.res" id="47_jpov2"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_6.res" id="48_0wklm"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_6.res" id="49_t4xlh"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_6.res" id="50_rjm52"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_6.res" id="51_2pmxc"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_0_7.res" id="52_q5osf"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_1_7.res" id="53_kf0vk"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_2_7.res" id="54_6jvry"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_3_7.res" id="55_elqu2"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_4_7.res" id="56_5csum"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_5_7.res" id="57_entuq"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_6_7.res" id="58_oarwq"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/chunk_7_7.res" id="59_kqwji"]
+[ext_resource type="Material" path="res://materials/surfaces/concrete.tres" id="60_33kb2"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/surface_concrete.res" id="61_wixng"]
+[ext_resource type="Material" path="res://materials/surfaces/gravel.tres" id="62_ksg7c"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/surface_gravel.res" id="63_rxggr"]
+[ext_resource type="Material" path="res://materials/surfaces/asphalt_road.tres" id="64_6a87s"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/roads.res" id="65_xjhgp"]
+[ext_resource type="Material" path="res://assets/terrain/valley_01/horizon_material.tres" id="66_kxacj"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/horizon.res" id="67_ayyar"]
+[ext_resource type="ArrayMesh" path="res://assets/terrain/valley_01/far_ground.res" id="68_dxy8v"]
+[ext_resource type="Shape3D" path="res://assets/terrain/valley_01/collision.res" id="69_ekcy4"]
+
+[node name="Terrain" type="Node3D" unique_id=2050166763]
+
+[node name="Chunk_0_0" type="MeshInstance3D" parent="." unique_id=2091437644]
+material_override = ExtResource("1_0c23w")
 cast_shadow = 0
-mesh = ExtResource("66_6a87s")
+mesh = ExtResource("2_0apgf")
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=870357351]
+[node name="Chunk_1_0" type="MeshInstance3D" parent="." unique_id=1402927208]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("3_qfoko")
+
+[node name="Chunk_2_0" type="MeshInstance3D" parent="." unique_id=351242908]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("4_mw8jl")
+
+[node name="Chunk_3_0" type="MeshInstance3D" parent="." unique_id=983477798]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("5_hirer")
+
+[node name="Chunk_4_0" type="MeshInstance3D" parent="." unique_id=1318493348]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("6_12m2g")
+
+[node name="Chunk_5_0" type="MeshInstance3D" parent="." unique_id=214952501]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("7_v1dkh")
+
+[node name="Chunk_6_0" type="MeshInstance3D" parent="." unique_id=1973070882]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("8_vfwii")
+
+[node name="Chunk_0_1" type="MeshInstance3D" parent="." unique_id=1333257717]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("9_oag2p")
+
+[node name="Chunk_1_1" type="MeshInstance3D" parent="." unique_id=1528947387]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("10_uccgt")
+
+[node name="Chunk_2_1" type="MeshInstance3D" parent="." unique_id=87450655]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("11_33qgf")
+
+[node name="Chunk_3_1" type="MeshInstance3D" parent="." unique_id=134892981]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("12_qaor6")
+
+[node name="Chunk_4_1" type="MeshInstance3D" parent="." unique_id=1535395133]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("13_y0eou")
+
+[node name="Chunk_5_1" type="MeshInstance3D" parent="." unique_id=1986842496]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("14_eeqnr")
+
+[node name="Chunk_6_1" type="MeshInstance3D" parent="." unique_id=97201144]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("15_8rwih")
+
+[node name="Chunk_0_2" type="MeshInstance3D" parent="." unique_id=1624816716]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("16_1egdr")
+
+[node name="Chunk_1_2" type="MeshInstance3D" parent="." unique_id=1655810345]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("17_4papb")
+
+[node name="Chunk_2_2" type="MeshInstance3D" parent="." unique_id=176815622]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("18_8crl6")
+
+[node name="Chunk_3_2" type="MeshInstance3D" parent="." unique_id=994844411]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("19_2pa1j")
+
+[node name="Chunk_4_2" type="MeshInstance3D" parent="." unique_id=119277234]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("20_ohh6n")
+
+[node name="Chunk_5_2" type="MeshInstance3D" parent="." unique_id=85872486]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("21_iar7p")
+
+[node name="Chunk_6_2" type="MeshInstance3D" parent="." unique_id=172111628]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("22_s24ih")
+
+[node name="Chunk_0_3" type="MeshInstance3D" parent="." unique_id=1998113350]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("23_j780e")
+
+[node name="Chunk_1_3" type="MeshInstance3D" parent="." unique_id=1826780786]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("24_wtbf1")
+
+[node name="Chunk_2_3" type="MeshInstance3D" parent="." unique_id=950518537]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("25_q04j2")
+
+[node name="Chunk_3_3" type="MeshInstance3D" parent="." unique_id=1437108247]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("26_ggoo5")
+
+[node name="Chunk_4_3" type="MeshInstance3D" parent="." unique_id=47291183]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("27_6oo54")
+
+[node name="Chunk_5_3" type="MeshInstance3D" parent="." unique_id=885764296]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("28_xy5th")
+
+[node name="Chunk_6_3" type="MeshInstance3D" parent="." unique_id=705835396]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("29_mbobi")
+
+[node name="Chunk_7_3" type="MeshInstance3D" parent="." unique_id=1167146169]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("30_8ptwl")
+
+[node name="Chunk_1_4" type="MeshInstance3D" parent="." unique_id=1573671489]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("31_v6w2w")
+
+[node name="Chunk_2_4" type="MeshInstance3D" parent="." unique_id=476691629]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("32_fk14k")
+
+[node name="Chunk_3_4" type="MeshInstance3D" parent="." unique_id=384605333]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("33_psl8j")
+
+[node name="Chunk_4_4" type="MeshInstance3D" parent="." unique_id=87775869]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("34_0wira")
+
+[node name="Chunk_5_4" type="MeshInstance3D" parent="." unique_id=2093671498]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("35_10neu")
+
+[node name="Chunk_6_4" type="MeshInstance3D" parent="." unique_id=1213050060]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("36_1n6q1")
+
+[node name="Chunk_7_4" type="MeshInstance3D" parent="." unique_id=828547839]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("37_nnf0q")
+
+[node name="Chunk_1_5" type="MeshInstance3D" parent="." unique_id=1514966446]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("38_70f53")
+
+[node name="Chunk_2_5" type="MeshInstance3D" parent="." unique_id=397330146]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("39_8wltk")
+
+[node name="Chunk_3_5" type="MeshInstance3D" parent="." unique_id=1948397212]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("40_r42oc")
+
+[node name="Chunk_4_5" type="MeshInstance3D" parent="." unique_id=1854589013]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("41_0u8gh")
+
+[node name="Chunk_5_5" type="MeshInstance3D" parent="." unique_id=570922483]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("42_odrt4")
+
+[node name="Chunk_6_5" type="MeshInstance3D" parent="." unique_id=918506995]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("43_ibw1v")
+
+[node name="Chunk_7_5" type="MeshInstance3D" parent="." unique_id=1815927227]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("44_42pu2")
+
+[node name="Chunk_1_6" type="MeshInstance3D" parent="." unique_id=1704173214]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("45_tbi7f")
+
+[node name="Chunk_2_6" type="MeshInstance3D" parent="." unique_id=972836368]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("46_15btw")
+
+[node name="Chunk_3_6" type="MeshInstance3D" parent="." unique_id=859400441]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("47_jpov2")
+
+[node name="Chunk_4_6" type="MeshInstance3D" parent="." unique_id=237432030]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("48_0wklm")
+
+[node name="Chunk_5_6" type="MeshInstance3D" parent="." unique_id=668602689]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("49_t4xlh")
+
+[node name="Chunk_6_6" type="MeshInstance3D" parent="." unique_id=1707164670]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("50_rjm52")
+
+[node name="Chunk_7_6" type="MeshInstance3D" parent="." unique_id=616655757]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("51_2pmxc")
+
+[node name="Chunk_0_7" type="MeshInstance3D" parent="." unique_id=617596500]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("52_q5osf")
+
+[node name="Chunk_1_7" type="MeshInstance3D" parent="." unique_id=848833564]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("53_kf0vk")
+
+[node name="Chunk_2_7" type="MeshInstance3D" parent="." unique_id=1513563341]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("54_6jvry")
+
+[node name="Chunk_3_7" type="MeshInstance3D" parent="." unique_id=4094809]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("55_elqu2")
+
+[node name="Chunk_4_7" type="MeshInstance3D" parent="." unique_id=1687179225]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("56_5csum")
+
+[node name="Chunk_5_7" type="MeshInstance3D" parent="." unique_id=2021535925]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("57_entuq")
+
+[node name="Chunk_6_7" type="MeshInstance3D" parent="." unique_id=1647891759]
+material_override = ExtResource("1_0c23w")
+mesh = ExtResource("58_oarwq")
+
+[node name="Chunk_7_7" type="MeshInstance3D" parent="." unique_id=1332991040]
+material_override = ExtResource("1_0c23w")
+cast_shadow = 0
+mesh = ExtResource("59_kqwji")
+
+[node name="Surface_Concrete" type="MeshInstance3D" parent="." unique_id=1609962053]
+material_override = ExtResource("60_33kb2")
+mesh = ExtResource("61_wixng")
+
+[node name="Surface_Gravel" type="MeshInstance3D" parent="." unique_id=1166900827]
+material_override = ExtResource("62_ksg7c")
+mesh = ExtResource("63_rxggr")
+
+[node name="Roads" type="MeshInstance3D" parent="." unique_id=137979642]
+material_override = ExtResource("64_6a87s")
+cast_shadow = 0
+mesh = ExtResource("65_xjhgp")
+
+[node name="Horizon" type="MeshInstance3D" parent="." unique_id=1580071410]
+material_override = ExtResource("66_kxacj")
+cast_shadow = 0
+mesh = ExtResource("67_ayyar")
+
+[node name="FarGround" type="MeshInstance3D" parent="." unique_id=155394043]
+material_override = ExtResource("66_kxacj")
+cast_shadow = 0
+mesh = ExtResource("68_dxy8v")
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=994422056]
 collision_mask = 0
 
-[node name="HeightMap" type="CollisionShape3D" parent="Ground" unique_id=1018399312]
+[node name="HeightMap" type="CollisionShape3D" parent="Ground" unique_id=1441044810]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0)
-shape = ExtResource("67_xjhgp")
+shape = ExtResource("69_ekcy4")

@@ -1,8 +1,65 @@
-[gd_resource type="Resource" script_class="TerrainShape" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="TerrainShape" load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://scripts/world/terrain_shape.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/world/terrain_flat_zone.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/world/terrain_road.gd" id="3"]
+
+[sub_resource type="Resource" id="apron"]
+script = ExtResource("2")
+name = "Fırlatma pisti"
+center = Vector3(76.2, 14, 790)
+half_size = Vector2(46, 34)
+heading_deg = 45.4
+falloff = 22.0
+surface = 1
+
+[sub_resource type="Resource" id="service"]
+script = ExtResource("2")
+name = "Servis alanı"
+center = Vector3(127.4, 14, 849)
+half_size = Vector2(28, 40)
+heading_deg = 45.4
+falloff = 22.0
+surface = 1
+
+[sub_resource type="Resource" id="fuel"]
+script = ExtResource("2")
+name = "Yakıt deposu"
+center = Vector3(39.9, 14, 724.7)
+half_size = Vector2(26, 22)
+heading_deg = 45.4
+falloff = 20.0
+surface = 3
+
+[sub_resource type="Resource" id="outpost"]
+script = ExtResource("2")
+name = "Yol karakolu"
+center = Vector3(131.7, 7, 338.6)
+half_size = Vector2(18, 22)
+heading_deg = -22.9
+falloff = 18.0
+surface = 3
+
+[sub_resource type="Resource" id="compound"]
+script = ExtResource("2")
+name = "Hedef kompleksi"
+center = Vector3(-87.6, 6, -640)
+half_size = Vector2(80, 62)
+heading_deg = -10.7
+falloff = 30.0
+surface = 0
+
+[sub_resource type="Resource" id="main_road"]
+script = ExtResource("3")
+name = "Ana yol"
+points = PackedVector2Array(121, 745, 167, 690, 195, 630, 193, 560, 153, 480, 101, 400, 68, 320, 67, 240, 81, 170, 90, 115, 124, 80, 113, 40, 93, 0, 9, -60, -75, -140, -155, -230, -180, -330, -143, -430, -98, -520, -85, -575)
+width = 9.0
+shoulder = 14.0
+surface = 2
 
 [resource]
 script = ExtResource("1")
-launch_site = Vector3(86, 14, 780)
+launch_site = Vector3(76.2, 14, 790)
 target_area = Vector3(-88, 6, -640)
+flat_zones = Array[ExtResource("2")]([SubResource("apron"), SubResource("service"), SubResource("fuel"), SubResource("outpost"), SubResource("compound")])
+roads = Array[ExtResource("3")]([SubResource("main_road")])

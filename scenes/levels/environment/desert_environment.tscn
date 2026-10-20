@@ -29,6 +29,8 @@ fog_sun_scatter = 0.15
 fog_density = 0.00032
 fog_aerial_perspective = 0.55
 fog_sky_affect = 0.25
+fog_height = 40.0
+fog_height_density = 0.0025
 adjustment_enabled = true
 adjustment_saturation = 1.05
 

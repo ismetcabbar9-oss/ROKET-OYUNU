@@ -14,11 +14,13 @@ boyunca dokunmatik joystick ya da cihazı eğerek (jiroskop) kendisi yönlendiri
 > Proje Ayarları → Rendering → Renderer → **Compatibility** seçin.
 
 ## Test alanı: nasıl oynanır
-- Sağdaki listeden füzeyi seçin: **Hasta** (çevik), **Storm Shadow** (dengeli), **Fateh-110** (ağır ve hızlı).
+- Sağdaki listeden füzeyi seçin: **Şahin** (çevik), **Kartal** (dengeli), **Yıldırım** (ağır ve hızlı).
 - **FIRLAT** ile fırlatın. Sol yarıda parmağınızı nereye koyarsanız joystick orada açılır.
 - Hedef bölgesi kuzeyde, vadinin sonunda (sığınaklar). Yolda vadiyi kesen bir sırt var:
   ya üstünden aşın (hız kaybedersiniz) ya da sağ taraftaki dar **kanyondan** geçin.
 - Uçuş sırasında **PATLAT** füzeyi havada imha eder.
+- Vadi koridorunun dışına ya da çok yükseğe çıkarsanız **SINIR** uyarısı çıkar; 3 saniyede
+  geri dönmezseniz füze kendini imha eder.
 - Sağ üstteki **Kontrol** butonu joystick ↔ jiroskop arasında geçiş yapar; jiroskopta
   **Kalibre et** o anki tutuşu "düz uçuş" kabul eder (fırlatırken de otomatik kalibre edilir).
 - Masaüstü editörde fare ile dokunma taklit edilir (sürükle = joystick).
@@ -55,7 +57,7 @@ godot --headless -s addons/gut/gut_cmdln.gd
 godot --headless --path . -s res://tools/godot/generate_terrain.gd -- \
     res://config/terrain/valley_01.tres res://assets/terrain/valley_01 res://materials/terrain/terrain_valley.tres
 
-# Otomatik pilotla uçuş testi (füze no: 0 Hasta, 1 Storm Shadow, 2 Fateh-110)
+# Otomatik pilotla uçuş testi (füze no: 0 Şahin, 1 Kartal, 2 Yıldırım)
 godot --headless --path . --fixed-fps 60 res://tools/godot/flight_test.tscn -- 1 /tmp/ucus
 
 # Sketchfab'den model ara / indir (yalnızca CC0 ve CC-BY kabul edilir)
